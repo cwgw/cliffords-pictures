@@ -1,0 +1,21 @@
+{
+  "id": "0x23b05b2d56eb359d-0616-0325",
+  "image": "0x23b05b2d56eb359d",
+  "faceId": "8506a8b5-2c58-4183-a8b5-706220a8c9bc",
+  "person": null,
+  "rect": {
+    "left": 0.0527,
+    "top": 0.0239,
+    "width": 0.0176,
+    "height": 0.0173,
+    "center": {
+      "x": 0.0616,
+      "y": 0.0325
+    }
+  },
+  "attributes": {
+    "gender": "female",
+    "age": 13
+  },
+  "imageTransform": {}
+}

@@ -1,0 +1,21 @@
+{
+  "id": "0x32914aacd2bb8d8b-0896-0885",
+  "image": "0x32914aacd2bb8d8b",
+  "faceId": "2b3760f3-aa19-49db-b66a-d06ce00c8023",
+  "person": null,
+  "rect": {
+    "left": 0.0845,
+    "top": 0.0834,
+    "width": 0.0103,
+    "height": 0.0101,
+    "center": {
+      "x": 0.0896,
+      "y": 0.0885
+    }
+  },
+  "attributes": {
+    "gender": "male",
+    "age": 0
+  },
+  "imageTransform": {}
+}
