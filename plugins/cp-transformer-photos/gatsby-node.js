@@ -14,30 +14,52 @@ exports.createSchemaCustomization = (
 
   function resolveFluid(node, { maxWidth }) {
     const publicPath = ({ size, ext }) => {
-      const src = path.join(dest.images, imagePath({ id: node.id, size, ext }));
-      return `/${path.relative('static', src)}`;
-    };
-    const sizes = imageSizes.sort();
-    const lg = sizes[sizes.length - 1];
-
-    let fluid = {
-      aspectRatio: node.aspectRatio,
-      base64: withBase64 ? node.base64 : null,
-      width: lg,
-      height: Math.round(lg / node.aspectRatio),
-      sizes: '',
-      src: publicPath({ size: lg, ext }),
-      srcSet: sizes
-        .map(size => `${publicPath({ size, ext })} ${size}w`)
-        .join(', '),
+      const staticPath = path.join(
+        dest.images,
+        imagePath({ id: node.id, size, ext })
+      );
+      return `/${path.relative('static', staticPath)}`;
     };
 
-    if (withWebp) {
-      fluid.srcWebp = publicPath({ size: lg, ext: 'webp' });
-      fluid.srcSetWebp = sizes
-        .map(size => `${publicPath({ size, ext: 'webp' })} ${size}w`)
-        .join(', ');
+    const fluid = imageSizes.reduce(
+      (o, size, i, arr) => {
+        if (size <= maxWidth) {
+          o.src = publicPath({ size, ext });
+          o.srcSet.push(`${publicPath({ size, ext })} ${size}w`);
+          o.srcWebp = publicPath({ size, ext: 'webp' });
+          o.srcSetWebp.push(`${publicPath({ size, ext: 'webp' })} ${size}w`);
+
+          if (size === maxWidth) {
+            o.sizes.push(`${size}px`);
+          } else {
+            o.sizes.push(`(width <= ${size}px) ${size}px`);
+          }
+        } else if (arr[i - 1] < maxWidth) {
+          o.sizes.push(`${size}px`);
+          o.srcSet.push(`${publicPath({ size, ext })} ${size}w`);
+          o.srcSetWebp.push(`${publicPath({ size, ext: 'webp' })} ${size}w`);
+        }
+        return o;
+      },
+      {
+        aspectRatio: node.aspectRatio,
+        base64: withBase64 ? node.base64 : null,
+        sizes: [],
+        srcSet: [],
+        srcSetWebp: [],
+        width: maxWidth,
+        height: Math.round(maxWidth / node.aspectRatio),
+      }
+    );
+
+    if (!withWebp) {
+      fluid.srcWebp = null;
+      fluid.srcSetWebp = null;
     }
+
+    fluid.sizes = fluid.sizes.join(', ');
+    fluid.srcSet = fluid.srcSet.join(', ');
+    fluid.srcSetWebp = fluid.srcSetWebp && fluid.srcSetWebp.join(', ');
 
     return fluid;
   }
