@@ -56,8 +56,6 @@ const SingleImage = ({
       return node;
     });
 
-  console.log(image);
-
   return (
     <Layout>
       <div
