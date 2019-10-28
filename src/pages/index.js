@@ -47,7 +47,7 @@ export const query = graphql`
             slug
           }
           image {
-            fluid(maxWidth: 400) {
+            fluid(maxWidth: 384) {
               src
               srcSet
               srcSetWebp
