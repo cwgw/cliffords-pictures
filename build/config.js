@@ -1,3 +1,6 @@
+/**
+ * note that imageSizes are expected to be sorted ascending order
+ */
 module.exports = {
   withWebp: true,
   withBase64: true,
