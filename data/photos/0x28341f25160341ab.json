@@ -1,0 +1,53 @@
+{
+  "id": "0x28341f25160341ab",
+  "aspectRatio": 0.980246913580247,
+  "people": null,
+  "date": null,
+  "location": null,
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADCklEQVQozx2PW1MSAQBG969kmlniPccUhVU2Fkx2heXm6oogXlouIrDrBRWUxZQs1JFMURRQYRQ1cRpzapopykCtKW/ZmPVT2po5D+fhfA8f8PZdcm9/f/fVzstEfHN7Pbq+GlmLhFbCS+FwMBRaXAotBkMLrEXWNuKJvdfvgGgsFljwz/g9vkmHd6JnmLE4hsy9DhPVY7JRRqvV0G0hLWaSpuyjo48XFpaB6Wmfy2m1W3GzsY4kRTpdTSMBKtV8mZwvk/LkaBVWV4nCXDkCd+h1jNsDeBhnl6FJi4OEoohQFShlHFRyRwznQNW3IH6WiJcp5mZCpRlwZYEak/RSNDDiHDDplVqsvEWa36oq1CgK1PW5UtFtEf8mXHWjjp8h5WdIKjIQsJBQIn00DXiGB2wdalJZaVSUmJvuP8LLdFgxXptbD2ZJ+JlSwa0GYQ4uvEugFYZWNeMaBLwep8NMUBqIIrj2Fp4Rr2iT3WsWc+RgNgpmY2yKFOqwUrIZ7rfqJydGgemnjLu3zUEitL6mWwt2Ksu1SDEhylMK7mIPOCpJsU5VYWwR0Ca5x9k19/wZMDszzgyRtElm0EL6Bl4jUqoWFaiE+XJhvqK2mFBwSd0Du0EySDV5GVtg1gfMv5hwO41mUqbBq1XS8npREQrloYI8FMqX1ZYQ7Dc9TLEDW8OY0zw7/QRYDPjcLpOhU4oreRhShggLJYK8WpAjruYgcFGjnGvUQVQH3GeQjtDtU14GWFuZf+rtp22aTj3aSohb1BAhB1VIlQKpwhWCDu3DXpNsqAsb7sYfO0x+3xNgN7EZWvJP+UbGPPSoy+oeMDt7HvVY2u2W9j6KZFzdk2P0zBjlH++fmxxfWV4GPiST+/t7icTm1mZ0a2M1HgtHI8FQMBAMBsKhYCwW2Y6v7sRXdjaiu9vbr/feAF++nh0ef0sffU0ffkkfHqfTRwcHqeTHz++Tn5Of0gepo1T6OJU+SrGSYoPvwPfTq5PzX6c/rs8vf5///MNydnl9dnF9cnF9+h9W2OAfp1ds/BebGGrJJCMVRAAAAABJRU5ErkJggg==",
+  "faces": [
+    {
+      "id": "0x28341f25160341ab-23-40",
+      "faceId": "c7b67e05-20d1-43a3-88c8-84b3ab034014",
+      "rect": {
+        "top": 0.32965686,
+        "left": 0.1625,
+        "width": 0.13875,
+        "height": 0.13602941,
+        "center": {
+          "x": 0.231875,
+          "y": 0.39767157
+        }
+      }
+    },
+    {
+      "id": "0x28341f25160341ab-73-28",
+      "faceId": "1e471955-d1a3-4274-9868-c8963cb2451b",
+      "rect": {
+        "top": 0.2254902,
+        "left": 0.67375,
+        "width": 0.11,
+        "height": 0.10784314,
+        "center": {
+          "x": 0.72875,
+          "y": 0.27941177
+        }
+      }
+    },
+    {
+      "id": "0x28341f25160341ab-49-40",
+      "faceId": "956795d3-e80c-456e-b49a-197a6c6747a4",
+      "rect": {
+        "top": 0.34191176,
+        "left": 0.43375,
+        "width": 0.10875,
+        "height": 0.10661765,
+        "center": {
+          "x": 0.488125,
+          "y": 0.39522059
+        }
+      }
+    }
+  ],
+  "transform": null
+}

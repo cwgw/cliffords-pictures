@@ -1,0 +1,53 @@
+{
+  "id": "0x299159ad160b55af",
+  "aspectRatio": 0.9810699588477366,
+  "people": null,
+  "date": null,
+  "location": null,
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAAC60lEQVQozyXR6VLaABAA4LyXU1HEIwgeaNWiVSEkyCFoWhIoJHgSIIAKFhkJigcKYi0EtbaeSJxKCrTT1qO26qs0tjPfzuwxu38W4LjPZ2dnp6dH+fwJx51zF9zFxVNwHFd4qrl8oZAv5M8Lwuji8rIIfNjPvd9eTydj79JLuezG3u7WP+kcu8VmUyybyrLJTCaRzSSE5tHhPpBOxmMLnvAsEQkS8Si1ukTHGe9y1MtE3NEItSTkS/QyQ8UZ98bqXHZnDViJBWcobMqhmSbUfsoYcJu8U0ZqXD/p0E6SWtplmqXROdoc8o0uBh2ptXmACdMUabCNdFlN7U7shRNX2tFuzPR8VNf2St9OYL0up9rjHPSNQyHPyDrjA5iQ22VHbIZWi7bRapTjBrlFJ0O1MhMEmmEpPqwQrkxg3S6bMjCui4cpYPkt5XPATqPciohxrcQCCxosWhBFpKNIM6prwYwKXN9KmDrcb+BocBJIRDwhJ+wyywhEZINElsFqTF1rRRqxISmqbTZqZDqVDOlrGla1kKg67J8AkgwdHkfc5mYSrrZD1biwoKrBNfUWBByGQHVfU7eivr1ZrFSAo7qBGfcYsBnzhcaQKaPUAT2zwzU2jdiqqcOhuteQRP+yTtkhljaKakVVclAyBPV5pkhgLUr7SZjUgVZVtUMrIfQgaQCJoQYbLDH3i/s7a+WgSCKuapPVG+CX3mkSSCyHgi7UhfVOjCjc+Ava3h8gBmbsvT68ZxLttui7htSdqr42vaaHtA6H57xAJp1YjQYWZ8mI3xoTnj0/thYeS4SdiXkiPkcsBBwzHjvtss3SJLPg39pYAU6Pjw72MruZVG4nsZ/ZPMgmP7HJQzZ5lEse5rYOcuk9Np3LpvbY7Y/77MnxMVAqfeP5UrHI88XiF57/whdLPF8WlEqVcqVS+VoWlCulcqVc/lapfAd+/LwT/Lz6fXX9n5DfXQnlzf3N7cPNr8cnt4/Xtw/XN/dX13/+Al+pphOiKh5rAAAAAElFTkSuQmCC",
+  "faces": [
+    {
+      "id": "0x299159ad160b55af-14-22",
+      "faceId": "40551248-1683-41e3-90a9-c1ef77202949",
+      "rect": {
+        "top": 0.19141104,
+        "left": 0.11375,
+        "width": 0.055,
+        "height": 0.05398773,
+        "center": {
+          "x": 0.14125,
+          "y": 0.21840491
+        }
+      }
+    },
+    {
+      "id": "0x299159ad160b55af-35-60",
+      "faceId": "d5fb54e8-b5a9-4e28-963c-67f369a7e89c",
+      "rect": {
+        "top": 0.58282209,
+        "left": 0.325,
+        "width": 0.045,
+        "height": 0.04417178,
+        "center": {
+          "x": 0.3475,
+          "y": 0.60490798
+        }
+      }
+    },
+    {
+      "id": "0x299159ad160b55af-16-40",
+      "faceId": "36c83c4d-02e9-4d78-85fb-f07e7c4c006b",
+      "rect": {
+        "top": 0.37423313,
+        "left": 0.135,
+        "width": 0.045,
+        "height": 0.04417178,
+        "center": {
+          "x": 0.1575,
+          "y": 0.39631902
+        }
+      }
+    }
+  ],
+  "transform": null
+}

@@ -1,0 +1,41 @@
+{
+  "id": "0x3835586c369b45a3",
+  "aspectRatio": 0.9786535303776683,
+  "people": null,
+  "date": null,
+  "location": null,
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADDUlEQVQozzXK608SAQAA8Ptj2qq1Xus9p1vmptkyfGSSKFwIDBX0JEReBhyPQ5HXHXdwBypvFQkwCiXRkB53goi1pWIP7S+pL22/jz+gVq3slb+UmY8MXaLp0qfPxZ1SobCV21jPrL9N5XOpQj6ztZnd3soXSzv0bgVgSusfC8kP+XhhI7aZX1rPRdIpKhpy+HGYdGnm3ZogPr1AGOap2UjUv5ZdA7bfRXKr7kzMnIoa00tIImYKUioXIjYq2DpJByx9bIKevIK6phVcxKoMLJLAuwS+QqlDTnHQwQ9jw0F8hJgFLZMsJdgk677+svOKrOfayNMbYl6LQjHk9tiAVAxddEKEgY3rOimE7bcNeOBniLRN1XdH1nYRaj4nbT0vfHRJ1N+kkPNQzAokY3jAIUN1bHSa5TX1UjMcAu6zQ48MnAZV+2V5ywXZw0sS1pVx8L5eDZIEArxeIRdwDW4dwsz9PhvX7+CTM1xM1W0VPtD33tJ0Xtf03VJy705LWmf1/EUfAmRez0cWTJRH5nUPk55RCh/1OkWooR8Za9e9aNSCDa/E93XSZpOiw2kWhkgLkEoGwkELRU4RxAThnUA9UrtdaNE/V0PtkKBpbKhRNtosH2/RTHZYjQK/1wwsLxEBv4HA5W5szI5KTDaBGubIFCyR+MHg4F0O5zYXvPdiqGFE0qrWgihmAkIhlPBonM5xm2PYNCeagjmjUyy+pJUNNnY9u8nqvtbdc7Wn9+og2ATJB+ZcRiAa9fl8RsyjdKIvZ1zjWotgQvt8WN4jkD7hCdu4vGbeQCOX0yAStSs1YsxrB9JrifgSFY66guG5QGgGowxzmBpxTpltk7AFgvUjsFaoV/HNhjEUtcSXI0CxVCpsbeQ3sxvvM7l86k1uJfUmnszEVtPRRDK8urK4GvcnomRyOZTNpreLRaD29fv+wbf9g4P9Wq1a269U98p7FaZSZspleneXZhiGphn6S3m3XK0efP12CBzWT49Pzuo/zuonZ8cnp0f130fHvw6P/vn5/b/D419H9dN/4eTHn79S5at+KIPGHAAAAABJRU5ErkJggg==",
+  "faces": [
+    {
+      "id": "0x3835586c369b45a3-67-20",
+      "faceId": "6c4b34a9-ace2-46fc-8d31-fb9c51df8f41",
+      "rect": {
+        "top": 0.14375,
+        "left": 0.61444308,
+        "width": 0.11750306,
+        "height": 0.12,
+        "center": {
+          "x": 0.67319461,
+          "y": 0.20375
+        }
+      }
+    },
+    {
+      "id": "0x3835586c369b45a3-69-46",
+      "faceId": "a57f6eda-8616-4db9-863b-7a4cd4126846",
+      "rect": {
+        "top": 0.41,
+        "left": 0.64381885,
+        "width": 0.1003672,
+        "height": 0.1025,
+        "center": {
+          "x": 0.69400245,
+          "y": 0.46125
+        }
+      }
+    }
+  ],
+  "transform": {
+    "rotate": 90
+  }
+}

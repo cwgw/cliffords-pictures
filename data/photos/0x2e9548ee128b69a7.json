@@ -1,0 +1,53 @@
+{
+  "id": "0x2e9548ee128b69a7",
+  "aspectRatio": 0.9823045267489712,
+  "people": null,
+  "date": null,
+  "location": null,
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAAC3klEQVQozx3SWVPaABAH8HyuPvnk1NZOK7U6ilURq3IYgSgkQAghgogmCsiNoELAcBkIHhUEbxKQjp0Wj5mqX6XRmd/s7P5n920BodVuCI0r/vKav+KFa6HZEFr8axUa4sg3G6LGWyO0Ws32LXB+UTuplyvVfLWar9WLp6fc2Rl3Wi/Va8XaCVursbW6aK9+Wjq7+HnVuAQqFZbj4nt7fpb175ejR4fxw4P4Phfh2CDHBsql0MF+eL8cOjiIHld2z86PgHIpyaSo5LYtnSQKObLIegpZiqEd9DaeTthyzDKbXy1knYWciysGqtUcUMhG42Es7NXGQvNMajGXcdEJIho0BL3aaFBP7+CZXUcqgSXill3axZV2ACa54V/TUXbZBjm1vYmIG5th2L2qXFn6sU6qIyFjbBML+AxuCvJvYDQdBug4ueaYIZCvTuug362KBCGfe9ZJjOHosN0mo1ZBitIRiyqTacZG6INBL5CMuVZtk2Zdr0X/acU+5iGn1lbkBDaEIv1Ws3gjx/GpBYMM1EzARp3Huw7sbLqWcbke/DA/221Bvtpx6ZJt2GruRw19GDJgNUuNxlFQK1XNjSNmyOtzA7Gw026Z0CjfKya75tQ9BuiLGZagsMQCSzDkmxkehBaGFOCgSjuGWucDQTcQ8jmsiEw12S2TvpOPdymmu7XgRxj6bNJLjAsSSCtRgpIJhUSh/Y7aoEBoDYgGSIdFPa/uV8h7lFO9oLpvARpAjSM4OmYxjer1UlAnnZ4b0cAzhAuNxAIAQ2+FPE7Srrdjs4u4ZskBrbgM65TJs26mSKNz2UA4YMyOOEjCF9lIZ9LAyfFxeS9fYJKZ9FaW2cnmErk8XSikRNkczWQS6UwyxdBMPlMslysndaB987sltAW+yfOCIDT5ZqshElri377ixSr2YtgWbm5vfv0BOnf/OvdPdw/Pd48v948vd4/PHdHD8983nYeXzmv4Rkzun/4DAtjJzwh0ozkAAAAASUVORK5CYII=",
+  "faces": [
+    {
+      "id": "0x2e9548ee128b69a7-84-35",
+      "faceId": "bc3badbe-69c2-47d8-9694-362516300acb",
+      "rect": {
+        "top": 0.31326781,
+        "left": 0.81125,
+        "width": 0.06625,
+        "height": 0.06511057,
+        "center": {
+          "x": 0.844375,
+          "y": 0.3458231
+        }
+      }
+    },
+    {
+      "id": "0x2e9548ee128b69a7-18-34",
+      "faceId": "d322bb78-8a2b-49b6-aa72-114f88d32e94",
+      "rect": {
+        "top": 0.31326781,
+        "left": 0.1475,
+        "width": 0.0625,
+        "height": 0.06142506,
+        "center": {
+          "x": 0.17875,
+          "y": 0.34398034
+        }
+      }
+    },
+    {
+      "id": "0x2e9548ee128b69a7-51-29",
+      "faceId": "7630be00-c771-4784-9e70-41cf65009649",
+      "rect": {
+        "top": 0.26904177,
+        "left": 0.47875,
+        "width": 0.0525,
+        "height": 0.05159705,
+        "center": {
+          "x": 0.505,
+          "y": 0.2948403
+        }
+      }
+    }
+  ],
+  "transform": null
+}

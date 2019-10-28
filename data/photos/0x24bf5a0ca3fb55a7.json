@@ -1,0 +1,53 @@
+{
+  "id": "0x24bf5a0ca3fb55a7",
+  "aspectRatio": 0.9818780889621087,
+  "people": null,
+  "date": null,
+  "location": null,
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADDklEQVQozyXJ+U9SAQAH8Pdv1Jo2p6l5gMdEYCYg+EhFDnmmoq+8wBCQJ8h7gIrHQ0R5ninaUhAeh2YeKMVSt+b6RQ5z5lGuy/8krO2z7/b9foGPh8c7oXBw/S1J+jxe35qHdK2RLvddesiALxD0r2/4AuuB4Oa77f3IwSdgzRtwOAizCetFNIhW3dOjVqtVqjvqXh2CGfvM/SiK9ZlMJpvNvrLqARyOKY2yCxJVgRVMHofJYTPYLAaHxahgM6ufciRiPiStEgor6ySCzo52q3UMGBm0wPV1bBqFmpmSm5mSk5VKyXlYnJ9GK8woZ+RxOUUgt4T9pIDLLn0GiU1GDLAODrTVi3gluQXp93LS7+dnpzCKM/jlebW8QnE1TSygSwQMAVgsqmK2yiSD/RgwhQ+pYamwjErLflDwOIVenCnkl8ibuVp5taqzWv6C39nCbW948rKZa+humsT7gWUHbpQ3NPKKWNRUOvVhRVkuXM/CNBIcaxzUQQaVsO9lDaYAh1S1k8bWJcICeOZteI9MIaIJmWl8RrqIR5HL2GaNaAyFRntFFrVgRCMY19bMoNLlUblnbhgIOm3Thma0id7BfwSDWS8EFGUDXdfKMSsqBxSVI8qqcUQ8ra9bNDetjnUHFnAguGh9ZWzG25iY9LFemoNAeVqI2gMVIQ2lBphl6RLY9bJpI7xgaV+xIwGnDfDO46+MLROKchym4M+pQzDV3ETR1VO1z0r0MNeshHBD57ipa9qiWp5A/UuTgNdJLI2oZ/XSGQ04h4CzCEhoKm3d4HB3rUUrG0aVtmF0wmqatQ+szI9tuJzApt/jdTrchMk9oSUJrW8KIaeQNUL3hkCXiKGFGbvTOf/69aLbtbzhd4e3N4HDg6MPe7vvt9cjW+THHfJwlzwM+Q5C/shuILyzEdrZCoX29sPhSCRydHT0+fgzEIufn0RPoyeJWDSWiMdPE4n/EvHTWCxxEk36Eo2fxRLnibOLs/Nr4OvVj69XPy+vf11++331/c/1zZ9kJiXrxXXSr4t/1+XdeHt1c/sXxwl0o+zvz7gAAAAASUVORK5CYII=",
+  "faces": [
+    {
+      "id": "0x24bf5a0ca3fb55a7-76-39",
+      "faceId": "69b2f836-0ae9-4920-9f12-4684fc09c613",
+      "rect": {
+        "top": 0.35337423,
+        "left": 0.7275,
+        "width": 0.07125,
+        "height": 0.06993865,
+        "center": {
+          "x": 0.763125,
+          "y": 0.38834356
+        }
+      }
+    },
+    {
+      "id": "0x24bf5a0ca3fb55a7-18-40",
+      "faceId": "c458505d-4e32-4091-af0f-176cd0083bd3",
+      "rect": {
+        "top": 0.36809816,
+        "left": 0.14875,
+        "width": 0.07,
+        "height": 0.06871166,
+        "center": {
+          "x": 0.18375,
+          "y": 0.40245399
+        }
+      }
+    },
+    {
+      "id": "0x24bf5a0ca3fb55a7-47-30",
+      "faceId": "f983f76d-047b-47d7-9444-bab8d6d271a4",
+      "rect": {
+        "top": 0.26871166,
+        "left": 0.43875,
+        "width": 0.07,
+        "height": 0.06871166,
+        "center": {
+          "x": 0.47375,
+          "y": 0.30306749
+        }
+      }
+    }
+  ],
+  "transform": null
+}

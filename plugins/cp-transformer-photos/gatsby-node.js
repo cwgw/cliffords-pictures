@@ -14,12 +14,9 @@ exports.createSchemaCustomization = (
 
   function resolveFluid(node, { maxWidth }) {
     const publicPath = ({ size, ext }) => {
-      const src = path.join(
-        dest.images,
-        imagePath({ id: node.id, size, ext })
-      );
+      const src = path.join(dest.images, imagePath({ id: node.id, size, ext }));
       return `/${path.relative(dest.images, src)}`;
-    }
+    };
     const sizes = imageSizes.sort();
     const lg = sizes[sizes.length - 1];
 

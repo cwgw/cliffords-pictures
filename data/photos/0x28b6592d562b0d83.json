@@ -1,0 +1,53 @@
+{
+  "id": "0x28b6592d562b0d83",
+  "aspectRatio": 0.9802631578947368,
+  "people": null,
+  "date": null,
+  "location": null,
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAAC7ElEQVQozzXQW1MSARQH8P0sTY1TiSaCLLjIZbntXXCxMFJEgQUVkd3F0UARLxlGTloGqKOBKaGINWlPNeaFJqqngLRP0+pMZ37n//Z/OAf4/OX4w+HRXrG4WygIWSge7O0X9wr7+d29XD6/vZPLvt3ezGTfZDI7ubcHxV0gl3+3kn71bHE+nphZXJpfehlfWl54sRR/vvjkaXw6Nh0ZD4dYfiQ0xs/MxZLJV8Dr1PJkbDTIu0a4nrFxVzjCRCK+iYhvfIwJDDt6e62WDsSEaikz1u92xqangOeLcyzvcnkolwcZ9lNswMIHraPs/YDf2uvACBxSyEUNjbdAUGy2UHyIBxLPYizrcLtQjwsODCLsIMr5cc5PDjCYvQvGTC2Q7HaT6AbY0kiSWJBlgcTCFD/iYPpQphcOMKaA2+h3G339hu6HGtoCtaMyVNOkkd/VKiXmdoLlOCA+PzUy5Ox/RDhtBk830m839Ni0NlqJI1LU0ExjMhuusOilmF5Bd5BXhdmZWZ/Ha6M7rRTRRRM2GqHbtQSqULc1qpWidqP0IQVZEZAwQnQHxfIcEI0lHE4Ww52w7gGCWHGMxFCdSa9Qtja0yur1KjFpAE1qiV4rF45mOR4IR1c67WEIHhDLexSqBxqY1MEanVoGyRtaJPUyaYNcdk/cVA+CEoIirgqPo2tmW0yqGr4rdUogW6sKV7YplYpmsEXULBYeKrpTL7pZV9fY3ISRJMePArMLWw4mYTKHNUgAoRic6kJxzGjUGgwqWKduU2vkkEoCytU62N7dHZ2KAasbB9G5jUBoeSi4EAzNBLmxoeEhr/AHn9vrYzyMt8/tcTj7vAO+icmJZDIFHH06zu1+2sy+38gUslv5TGZrfWM9vZpKrSavMp1OplIryddra6vbOzsfD4+AcvlnqVQ+O/8uOC8Jvp2dn5+cnl47EearQNjT01LpW/nHL6Dy+7egWqlUq7Vq7aL2R3D530WtdqVSvVa7rNT+/gMONFqqjT4RMAAAAABJRU5ErkJggg==",
+  "faces": [
+    {
+      "id": "0x28b6592d562b0d83-21-42",
+      "faceId": "4b583867-b2c6-4362-9d5d-00a15a9a283b",
+      "rect": {
+        "top": 0.3627451,
+        "left": 0.15875,
+        "width": 0.11,
+        "height": 0.10784314,
+        "center": {
+          "x": 0.21375,
+          "y": 0.41666667
+        }
+      }
+    },
+    {
+      "id": "0x28b6592d562b0d83-72-42",
+      "faceId": "4ed24846-ac9a-4cb1-9315-f5f36d8fb40a",
+      "rect": {
+        "top": 0.36887255,
+        "left": 0.67,
+        "width": 0.1075,
+        "height": 0.10539216,
+        "center": {
+          "x": 0.72375,
+          "y": 0.42156863
+        }
+      }
+    },
+    {
+      "id": "0x28b6592d562b0d83-41-34",
+      "faceId": "d6fd3c61-88e1-4369-b13c-a21d5d1e38d3",
+      "rect": {
+        "top": 0.29656863,
+        "left": 0.36875,
+        "width": 0.085,
+        "height": 0.08333333,
+        "center": {
+          "x": 0.41125,
+          "y": 0.3382353
+        }
+      }
+    }
+  ],
+  "transform": null
+}
