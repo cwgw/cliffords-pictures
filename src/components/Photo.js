@@ -6,6 +6,8 @@ import styled from '@emotion/styled';
 import css from '@styled-system/css';
 import Image from 'gatsby-image';
 
+import { color } from 'style/system';
+
 const propTypes = {
   children: PropTypes.node,
   image: PropTypes.object.isRequired,
@@ -21,7 +23,7 @@ const defaultProps = {
   tags: null,
 };
 
-const PhotoItem = React.forwardRef(
+const Photo = React.forwardRef(
   ({ children, image, imgRef, imgClassName, style, ...props }, ref) => {
     const { img: imgStyle, wrapper: wrapperStyle, ...figureStyle } =
       style || {};
@@ -49,6 +51,7 @@ const PhotoItem = React.forwardRef(
               maxWidth: '100%',
               boxShadow: 'raised',
             })}
+            backgroundColor={color('white')}
             {...image}
           />
         </div>
@@ -58,8 +61,8 @@ const PhotoItem = React.forwardRef(
   }
 );
 
-PhotoItem.propTypes = propTypes;
+Photo.propTypes = propTypes;
 
-PhotoItem.defaultProps = defaultProps;
+Photo.defaultProps = defaultProps;
 
-export default styled(PhotoItem)();
+export default styled(Photo)();

@@ -1,35 +1,15 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import React from 'react';
-import styled from '@emotion/styled';
 import css from '@styled-system/css';
 import { graphql, navigate } from 'gatsby';
 import mousetrap from 'mousetrap';
 
 import { breakpoints } from 'style/tokens';
 import { getDisplayName } from 'utils/people';
-import { color } from 'style/system';
 
 import Layout from 'components/Layout';
-import Photo from 'components/PhotoItem';
-
-const propTypes = {};
-
-const Wrapper = styled('div')(
-  css({
-    margin: '0 auto',
-    padding: '0 1.5rem',
-    maxWidth: breakpoints.lg,
-    display: 'flex',
-    flexFlow: 'column nowrap',
-    [`& ${Photo}`]: {
-      width: '768px',
-      maxWidth: '100%',
-      margin: '0 auto',
-      '& img': {
-        cursor: 'zoom-in',
-      },
-    },
-  })
-);
+import Photo from 'components/Photo';
 
 const SingleImage = ({
   pageContext,
@@ -80,19 +60,36 @@ const SingleImage = ({
 
   return (
     <Layout>
-      <Wrapper>
-        <Photo tags={tags} image={image}>
+      <div
+        css={css({
+          margin: '0 auto',
+          padding: '0 1.5rem',
+          maxWidth: breakpoints.lg,
+          display: 'flex',
+          flexFlow: 'column nowrap',
+        })}
+      >
+        <Photo
+          tags={tags}
+          image={image}
+          css={css({
+            width: '768px',
+            maxWidth: '100%',
+            margin: '0 auto',
+            '& img': {
+              cursor: 'zoom-in',
+            },
+          })}
+        >
           <figcaption>
             <p>id: {id}</p>
             <p>{people && people.join(', ')}</p>
           </figcaption>
         </Photo>
-      </Wrapper>
+      </div>
     </Layout>
   );
 };
-
-SingleImage.propTypes = propTypes;
 
 export default SingleImage;
 

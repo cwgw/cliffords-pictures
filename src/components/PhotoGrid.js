@@ -6,7 +6,7 @@ import { Link as GatsbyLink } from 'gatsby';
 
 import { breakpoints } from 'style/tokens';
 
-import Photo from 'components/PhotoItem';
+import Photo from 'components/Photo';
 
 const propTypes = {
   items: PropTypes.array.isRequired,
