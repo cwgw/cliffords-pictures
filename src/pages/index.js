@@ -4,7 +4,6 @@ import { graphql } from 'gatsby';
 
 import Layout from 'components/Layout';
 import PhotoGrid from 'components/PhotoGrid';
-// import Hero from 'components/Hero';
 
 const propTypes = {
   data: PropTypes.shape({
@@ -23,22 +22,9 @@ const defaultProps = {
 };
 
 const Index = ({ data: { images } }) => {
-  const items = images.edges.map(({ node: { image, ...node } }) => {
-    if (!image) {
-      console.log({ image, ...node });
-      return {
-        ...node,
-        fluid: {},
-      };
-    }
-    return {
-      ...node,
-      ...image.childImageSharp,
-    };
-  });
+  const items = images.edges.map(({ node }) => node);
   return (
     <Layout>
-      {/* <Hero /> */}
       <p style={{ textAlign: 'center' }}>{items.length} images</p>
       <PhotoGrid items={items} />
     </Layout>
@@ -53,22 +39,24 @@ export default Index;
 
 export const query = graphql`
   query {
-    images: allImageMetaJson(sort: { fields: id }) {
+    images: allPhotosJson {
       edges {
         node {
           id
-          transform {
-            rotation
-          }
           fields {
             slug
           }
           image {
-            childImageSharp {
-              fluid(maxWidth: 300) {
-                ...GatsbyImageSharpFluid_withWebp
-                aspectRatio
-              }
+            fluid(maxWidth: 400) {
+              src
+              srcSet
+              srcSetWebp
+              srcWebp
+              sizes
+              aspectRatio
+              base64
+              width
+              height
             }
           }
         }

@@ -6,24 +6,30 @@ import css from '@styled-system/css';
 
 import theme from 'style/theme';
 
-import Head from 'components/Head';
 import Header from 'components/Header';
+import Helmet from 'react-helmet';
+import Footer from 'components/Footer';
 import global from 'style/global';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
-      <div>
+      <React.Fragment>
         <Global styles={css(global)} />
-        <Head />
+        <Helmet
+          defaultTitle="Clifford's Pictures"
+          htmlAttributes={{
+            lang: 'en-US',
+          }}
+        />
         <Header />
         <main>{children}</main>
-        <footer />
-      </div>
+        <Footer />
+      </React.Fragment>
     </ThemeProvider>
   );
 };

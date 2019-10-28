@@ -1,4 +1,5 @@
 const sans = [
+  'Public Sans',
   '-apple-system',
   'BlinkMacSystemFont',
   'Segoe UI',
@@ -13,15 +14,18 @@ const sans = [
   'Noto Color Emoji',
 ];
 
-const serif = ['orpheuspro', 'Georgia', 'Palatino', 'serif'];
+const serif = [
+  'Amstelvar',
+  'Georgia',
+  'Palatino',
+  'Times New Roman',
+  'Times',
+  'serif',
+];
 
-export default Object.entries({
-  sans,
-  serif,
-}).reduce(
-  (o, [key, val]) => ({
-    ...o,
-    [key]: val.join(', '),
-  }),
-  {}
-);
+const fonts = {
+  sans: sans.join(', '),
+  serif: serif.join(', '),
+};
+
+export default fonts;

@@ -1,3 +1,5 @@
-data/images/**/*.jpg filter=lfs diff=lfs merge=lfs -text
-data/images/**/*.tiff filter=lfs diff=lfs merge=lfs -text
-data/images/**/*.png filter=lfs diff=lfs merge=lfs -text
+build/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+build/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+build/**/*.tif filter=lfs diff=lfs merge=lfs -text
+build/**/*.tiff filter=lfs diff=lfs merge=lfs -text
+build/**/*.png filter=lfs diff=lfs merge=lfs -text

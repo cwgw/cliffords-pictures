@@ -1,6 +1,10 @@
 import { type } from './shared';
+import fonts from 'assets/fonts';
 
 export default {
+  ':root': {
+    '@font-face': fonts,
+  },
   '*, *::before, *::after': {
     boxSizing: 'inherit',
   },
@@ -53,7 +57,7 @@ export default {
     MsOverflowStyle: 'scrollbar',
     WebkitTapHighlightColor: 'rgba(0,0,0,0)',
     WebkitOverflowScrolling: 'touch',
-    backgroundColor: 'white',
+    backgroundColor: 'background',
   },
   p: {
     marginTop: 0,

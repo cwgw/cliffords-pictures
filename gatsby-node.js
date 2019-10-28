@@ -1,5 +1,4 @@
 const path = require('path');
-const get = require('lodash/get');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -9,70 +8,53 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === 'ImageSharp') {
-    const parentFileNode = getNode(node.parent);
-    const name = parentFileNode && parentFileNode.name;
-    if (name) {
-      createNodeField({
-        node,
-        name: 'imageID',
-        value: name,
-      });
-    }
-  }
-  if (node.internal.type === 'ImageMetaJson') {
-    const slug = `/i/${node.id}`;
+exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
+  if (node.internal.type === 'PhotosJson') {
     createNodeField({
       node,
       name: 'slug',
-      value: slug,
+      value: `/i/${node.id}`,
     });
   }
 };
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
-  return new Promise((resolve, reject) => {
+exports.createPages = ({ graphql, actions: { createPage } }) =>
+  new Promise((resolve, reject) => {
     const SingleImageTemplate = path.resolve('src/templates/SinglePhoto.js');
     resolve(
-      graphql(
-        `
-          {
-            images: allImageMetaJson(sort: { fields: id }) {
-              edges {
-                node {
-                  id
-                  transform {
-                    rotation
-                  }
-                  fields {
-                    slug
-                  }
+      graphql(`
+        {
+          images: allPhotosJson(sort: { fields: id }) {
+            edges {
+              node {
+                id
+                fields {
+                  slug
                 }
               }
             }
           }
-        `
-      ).then(result => {
-        if (result.errors) reject(result.errors);
-        result.data.images.edges.forEach(({ node }, i, arr) => {
+        }
+      `).then(({ data, errors }) => {
+        if (errors) {
+          reject(errors);
+        }
+
+        data.images.edges.forEach(({ node }, i, arr) => {
           const next = i + 1 === arr.length ? arr[0].node : arr[i + 1].node;
-          const previous =
-            i - 1 < 0 ? arr[arr.length - 1].node : arr[i - 1].node;
+
+          const prev = i - 1 < 0 ? arr[arr.length - 1].node : arr[i - 1].node;
+
           createPage({
             path: node.fields.slug,
             component: SingleImageTemplate,
             context: {
               id: node.id,
               next: next.fields.slug,
-              previous: previous.fields.slug,
-              imageRotation: get(node, 'transform.rotation', 0),
+              prev: prev.fields.slug,
             },
           });
         });
       })
     );
   });
-};

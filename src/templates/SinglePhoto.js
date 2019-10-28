@@ -6,6 +6,7 @@ import mousetrap from 'mousetrap';
 
 import { breakpoints } from 'style/tokens';
 import { getDisplayName } from 'utils/people';
+import { color } from 'style/system';
 
 import Layout from 'components/Layout';
 import Photo from 'components/PhotoItem';
@@ -35,29 +36,26 @@ const SingleImage = ({
   location,
   data: {
     allFacesJson,
-    imageMetaJson: {
-      id,
-      transform,
-      image: { childImageSharp },
-    },
+    photosJson: { id, image },
   },
 }) => {
-  const to = dir => {
-    if (!pageContext[dir]) return;
-    navigate(pageContext[dir], {
+  const toNext = React.useCallback(() => {
+    if (!pageContext.next) return;
+    navigate(pageContext.next, {
       state: {
         ...(location.state || {}),
       },
     });
-  };
-
-  const toNext = React.useCallback(() => {
-    to('next');
-  }, []);
+  }, [pageContext, location]);
 
   const toPrevious = React.useCallback(() => {
-    to('previous');
-  }, []);
+    if (!pageContext.prev) return;
+    navigate(pageContext.prev, {
+      state: {
+        ...(location.state || {}),
+      },
+    });
+  }, [pageContext, location]);
 
   React.useEffect(() => {
     mousetrap.bind('left', toPrevious);
@@ -67,19 +65,23 @@ const SingleImage = ({
       mousetrap.unbind('left');
       mousetrap.unbind('right');
     };
-  }, []);
+  }, [toPrevious, toNext]);
 
   const people = [];
 
-  const tags = allFacesJson.edges.map(({ node }) => {
-    people.push(node.person ? getDisplayName(node.person) : 'Unknown person');
-    return node;
-  });
+  const tags =
+    allFacesJson &&
+    allFacesJson.edges.map(({ node }) => {
+      people.push(node.person ? getDisplayName(node.person) : 'Unknown person');
+      return node;
+    });
+
+  console.log(image);
 
   return (
     <Layout>
       <Wrapper>
-        <Photo tags={tags} image={childImageSharp} transform={transform}>
+        <Photo tags={tags} image={image}>
           <figcaption>
             <p>id: {id}</p>
             <p>{people && people.join(', ')}</p>
@@ -95,31 +97,20 @@ SingleImage.propTypes = propTypes;
 export default SingleImage;
 
 export const query = graphql`
-  query singleImage($id: String!, $imageRotation: Int!) {
-    imageMetaJson(id: { eq: $id }) {
+  query singleImage($id: String!) {
+    photosJson(id: { eq: $id }) {
       id
-      transform {
-        rotation
-      }
       image {
-        childImageSharp {
-          fluid(maxWidth: 800, rotate: $imageRotation, toFormat: JPG) {
-            ...GatsbyImageSharpFluid_withWebp
-            aspectRatio
-          }
-        }
-      }
-    }
-    allFacesJson(filter: { image: { fields: { imageID: { eq: $id } } } }) {
-      edges {
-        node {
-          id
-          rect {
-            left
-            top
-            width
-            height
-          }
+        fluid(maxWidth: 800) {
+          src
+          srcSet
+          srcSetWebp
+          srcWebp
+          sizes
+          aspectRatio
+          base64
+          width
+          height
         }
       }
     }

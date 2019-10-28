@@ -1,19 +1,25 @@
+const colors = {
+  white: '#ebeeef',
+};
+
 export default {
-  background: '#ebeeef',
+  ...colors,
+  // background: '#292a24',
+  background: colors.white,
   primary: '#333c2f',
   text: '#333c2f',
   accent: 'lightCyan',
 };
 
-//  '#445B26'
-//  '#3A5140'
-//  '#516D59'
-//  '#2B3B33'
-//  '#DFD4B7'
-//  '#BAAB58'
-//  '#6C6E25'
-//  '#C0BEAA'
-//  '#4F5E6D'
-//  '#4F6077'
+//  '#445b26'
+//  '#3a5140'
+//  '#516d59'
+//  '#2b3b33'
+//  '#dfd4b7'
+//  '#baab58'
+//  '#6c6e25'
+//  '#c0beaa'
+//  '#4f5e6d'
+//  '#4f6077'
 //  '#768183'
-//  '#34495E'
+//  '#34495e'
