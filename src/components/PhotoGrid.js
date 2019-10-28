@@ -14,7 +14,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  itemWidth: 320,
+  itemWidth: 384,
 };
 
 const PhotoGrid = ({ items, itemWidth, ...props }) => {
@@ -32,7 +32,7 @@ const PhotoGrid = ({ items, itemWidth, ...props }) => {
         gridTemplateColumns: [
           '1fr',
           'repeat(2, 1fr)',
-          `repeat(auto-fill, minmax(${itemWidth}px, 1fr))`,
+          `repeat(auto-fill, minmax(0, ${itemWidth}px))`,
         ],
       })}
       {...props}
