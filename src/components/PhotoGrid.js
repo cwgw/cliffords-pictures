@@ -1,66 +1,101 @@
 /** @jsx jsx */
+import React from 'react';
 import PropTypes from 'prop-types';
 import { jsx } from '@emotion/core';
+import styled from '@emotion/styled';
 import css from '@styled-system/css';
-import { Link as GatsbyLink } from 'gatsby';
 
-import { breakpoints } from 'style/tokens';
+import useInfiniteScroll from 'hooks/useInfiniteScroll';
 
+import Button from 'components/Button';
+import Link from 'components/Link';
+import Pagination from 'components/Pagination';
+import PaginationContext from 'components/InfiniteScrollContext';
 import Photo from 'components/Photo';
+import VisuallyHidden from 'components/VisuallyHidden';
 
 const propTypes = {
-  items: PropTypes.array.isRequired,
-  itemWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      image: PropTypes.object,
+      fields: PropTypes.object,
+    })
+  ),
+  columnWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 const defaultProps = {
-  itemWidth: 384,
+  columnWidth: 384,
+  isInfinite: false,
 };
 
-const PhotoGrid = ({ items, itemWidth, ...props }) => {
-  // console.log(items[0]);
+const Grid = styled('ul')(
+  css({
+    display: 'grid',
+    listStyle: 'none',
+    justifyContent: 'center',
+    gridGap: '1.5rem',
+    gridTemplateColumns: `repeat(3, minmax(0, 384px))`,
+    padding: 0,
+    margin: 0,
+    marginBottom: 'xl',
+  })
+);
+
+const PhotoGrid = ({ items, index, total, pagination, isInfinite }) => {
+  const context = React.useContext(PaginationContext);
+  const [ref] = useInfiniteScroll(context.loadMore);
+  const { update } = context;
+
+  React.useEffect(() => {
+    update({
+      data: items,
+      index,
+      total,
+    });
+  }, [index, items, total, update]);
+
+  const gridItems = React.useCallback(
+    ({ node: { id, image, fields } }) => (
+      <li key={id}>
+        <Photo image={image}>
+          <Link to={fields.slug} variant="span" />
+        </Photo>
+      </li>
+    ),
+    []
+  );
+
+  if (isInfinite) {
+    if (context && context.isActive && context.data.length) {
+      return (
+        <React.Fragment>
+          <Grid>{context.data.map(gridItems)}</Grid>
+          <VisuallyHidden ref={ref} />
+        </React.Fragment>
+      );
+    }
+
+    return (
+      <React.Fragment>
+        <Grid>{items.map(gridItems)}</Grid>
+        <p
+          css={css({
+            textAlign: 'center',
+          })}
+        >
+          <Button onClick={context.activate}>Load more…</Button>
+        </p>
+      </React.Fragment>
+    );
+  }
+
   return (
-    <ul
-      css={css({
-        display: 'grid',
-        maxWidth: breakpoints.xl,
-        margin: '0.75rem auto',
-        padding: '0 1.5rem',
-        listStyle: 'none',
-        justifyContent: 'center',
-        gridGap: '1.5rem',
-        gridTemplateColumns: [
-          '1fr',
-          'repeat(2, 1fr)',
-          `repeat(auto-fill, minmax(0, ${itemWidth}px))`,
-        ],
-      })}
-      {...props}
-    >
-      {items &&
-        items.map(({ fields, id, transform, image }) => (
-          <li key={id}>
-            <Photo
-              key={id}
-              image={image}
-              style={{ cursor: 'zoom-in' }}
-              transform={transform}
-            >
-              <GatsbyLink
-                to={fields.slug}
-                css={{
-                  display: 'block',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                }}
-              />
-            </Photo>
-          </li>
-        ))}
-    </ul>
+    <React.Fragment>
+      <Grid>{items.map(gridItems)}</Grid>
+      <Pagination {...pagination} />
+    </React.Fragment>
   );
 };
 

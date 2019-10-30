@@ -10,19 +10,15 @@ import { color } from 'style/system';
 const propTypes = {
   children: PropTypes.node,
   image: PropTypes.object.isRequired,
-  style: PropTypes.object,
 };
 
 const defaultProps = {
   children: null,
-  style: {},
 };
 
-const Photo = ({ children, image, style, ...props }) => {
-  const { img: imgStyle, wrapper: wrapperStyle, ...figureStyle } = style || {};
+const Photo = ({ children, image, ...props }) => {
   return (
     <figure
-      style={figureStyle}
       css={css({
         position: 'relative',
         margin: 0,
@@ -33,8 +29,6 @@ const Photo = ({ children, image, style, ...props }) => {
       {...props}
     >
       <Image
-        style={wrapperStyle}
-        imgStyle={imgStyle}
         css={css({
           display: 'block',
           maxWidth: '100%',
