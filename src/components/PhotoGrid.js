@@ -6,6 +6,7 @@ import styled from '@emotion/styled';
 import css from '@styled-system/css';
 
 import useInfiniteScroll from 'hooks/useInfiniteScroll';
+import { space } from 'style/system';
 
 import Button from 'components/Button';
 import Link from 'components/Link';
@@ -33,13 +34,15 @@ const defaultProps = {
 const Grid = styled('ul')(
   css({
     display: 'grid',
-    listStyle: 'none',
+    gridColumnGap: 'md',
+    gridRowGap: ['lg', 'lg', 'md'],
+    gridTemplateColumns: `repeat(auto-fill, minmax(0, 384px))`,
     justifyContent: 'center',
-    gridGap: '1.5rem',
-    gridTemplateColumns: `repeat(3, minmax(0, 384px))`,
+    maxWidth: `calc(384px * 3 + ${space.md}px * 2)`,
     padding: 0,
-    margin: 0,
-    marginBottom: 'xl',
+    marginY: 'xl',
+    marginX: 'auto',
+    listStyle: 'none',
   })
 );
 
