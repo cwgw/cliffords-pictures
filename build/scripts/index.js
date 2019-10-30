@@ -12,7 +12,7 @@ const path = require('path');
 const program = require('commander');
 const PQueue = require('p-queue').default;
 
-const config = require('../config');
+const config = require('../../cpconfig');
 const createMetadata = require('./create-photo-metadata');
 const createImages = require('./create-web-ready-images');
 const reporter = require('./reporter');
@@ -111,33 +111,4 @@ program
   queue.onIdle().then(() => {
     progress.done();
   });
-
-  // Promise.all(
-  //   files.map(file =>
-  //     tasks
-  //       .reduce(
-  //         (chain, func) =>
-  //           chain.then(() =>
-  //             func({
-  //               file,
-  //               config: {
-  //                 ...config,
-  //                 dest,
-  //               },
-  //               reporter,
-  //               activitySpan: progress.span
-  //             })
-  //           ),
-  //         Promise.resolve()
-  //       )
-  //       .then(() => {
-  //         progress.tick();
-  //       })
-  //       .catch(err => {
-  //         reporter.panic('', err);
-  //       })
-  //   )
-  // ).then(() => {
-  //   progress.done();
-  // });
 })();

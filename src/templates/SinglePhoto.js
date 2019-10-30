@@ -96,7 +96,7 @@ export const query = graphql`
     photosJson(id: { eq: $id }) {
       id
       image {
-        fluid(maxWidth: 800) {
+        fluid(maxWidth: 768) {
           src
           srcSet
           srcSetWebp
