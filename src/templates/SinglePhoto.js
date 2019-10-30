@@ -7,6 +7,7 @@ import mousetrap from 'mousetrap';
 
 import { breakpoints } from 'style/tokens';
 
+import FaceScrim from 'components/FaceScrim';
 import Layout from 'components/Layout';
 import Photo from 'components/Photo';
 
@@ -14,7 +15,7 @@ const SingleImage = ({
   pageContext,
   location,
   data: {
-    photosJson: { id, image },
+    photosJson: { id, image, faces },
   },
 }) => {
   const toNext = React.useCallback(() => {
@@ -67,6 +68,7 @@ const SingleImage = ({
             },
           })}
         >
+          <FaceScrim faces={faces} aspectRatio={image.fluid.aspectRatio} />
           <figcaption>
             <p>id: {id}</p>
           </figcaption>
@@ -93,6 +95,19 @@ export const query = graphql`
           base64
           width
           height
+        }
+      }
+      faces {
+        id
+        rect {
+          top
+          left
+          width
+          height
+          center {
+            x
+            y
+          }
         }
       }
     }
