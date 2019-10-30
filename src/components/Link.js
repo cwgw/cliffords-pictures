@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link as GatsbyLink } from 'gatsby';
+import styled from '@emotion/styled';
+import { variant } from 'styled-system';
+
+import { span } from 'style/shared';
 
 const propTypes = {
   activeClassName: PropTypes.string,
@@ -24,21 +28,18 @@ const defaultProps = {
   target: '_blank',
 };
 
-const Link = React.forwardRef(
-  (
-    {
-      activeClassName,
-      children,
-      className,
-      onClick,
-      rel,
-      state,
-      tabIndex,
-      target,
-      to,
-    },
-    ref
-  ) =>
+const Link = styled(
+  ({
+    activeClassName,
+    children,
+    className,
+    onClick,
+    rel,
+    state,
+    tabIndex,
+    target,
+    to,
+  }) =>
     /^\/(?!\/)/.test(to) ? (
       <GatsbyLink
         activeClassName={activeClassName}
@@ -46,7 +47,6 @@ const Link = React.forwardRef(
         onClick={onClick}
         state={state}
         tabIndex={tabIndex}
-        ref={ref}
         rel={rel}
         to={to}
       >
@@ -57,7 +57,6 @@ const Link = React.forwardRef(
         className={className}
         href={to}
         onClick={onClick}
-        ref={ref}
         rel={rel || 'noopener noreferrer'}
         tabIndex={tabIndex}
         target={target}
@@ -65,6 +64,12 @@ const Link = React.forwardRef(
         {children}
       </a>
     )
+)(
+  variant({
+    variants: {
+      span,
+    },
+  })
 );
 
 Link.propTypes = propTypes;
