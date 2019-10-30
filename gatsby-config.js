@@ -1,4 +1,4 @@
-const cpConfig = require('./build/config');
+const cpconfig = require('./cpconfig');
 
 module.exports = {
   siteMetadata: {
@@ -25,7 +25,7 @@ module.exports = {
     // },
     {
       resolve: 'cp-transformer-photos',
-      options: cpConfig,
+      options: cpconfig,
     },
     {
       resolve: 'gatsby-source-filesystem',
