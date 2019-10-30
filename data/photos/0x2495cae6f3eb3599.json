@@ -7,44 +7,44 @@
   "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADB0lEQVQoz03MaVMSAQDG8f00TWNeZY2a2eSMWlMG4oVaYoYJjAeJisKuCwi4i67YIoKoHCY3LOJylIgHoinIguRkHpVlXyTrVTO/F/95XjzA2npshQw5PYSbIPzBwIf1yEZsK76/u5fYT6QSCSqZpJKH6WuHVIbKZLOAecmqmsTEo2JIMoJicv0ibnUaV4LOUMQX3QpsxIKbscBmjNzeCe7uRRKJOICgExwuh173jNHwhM1hiuBuDB81vVc7vfrVoIUMmcmgkQzMB0OL6xF7fCcMiEGwsYlRWlZYWnarhl7WxWPAY1ytHrJYVR6f1uvTuFyYw650O5CAX7e14QVAUNTCpD0qzy8vu/H8WRGb/RiCWJqZIct7pYd453Zjy0tS49yg2SD02NH1j3ZAJhF3vWLUPS2iVeW00u/wWI/gwQYN1mMxSV3uSZtNOa8bwFWvNRPsJYM4TJoARC4WcOs7mSUdtXnchttvW0tgXrVa0ragHbz+NhtFmqkuBK5XSZrm8X7SqwewcVDc18Bvv9/LzB9oLhhmFsKsEoT/FFd0GLR8/Uw3hrwYE9UowTqdus/nnAGmUQgWMIWdD4SsQvBlAdiUCzXmjbJK5fyaCWkLhrSh8iY5REMkTN10v8euBbRq2TjYJuVXynjFijd3pa35IsbNAXquoLVYyKuEhuljcL0Crp9UsPQaods+CyzoURzhqeG66ZFKteChkn0PbMx7+zyHS8vntBT38arEwwy5pHkKfWOYBV0OPeCwzlkMEstMj3mq3ahs1gzTEF411F4heFnR21Hd31s7CrHQcY4WH7KYUB9hAT6EicCKkXRPr9qUPpPErh0xTQ7oFHy1rBeV9amQQRyHFxbG7TaN378UiZDA3qfd3Xg0vh2MRX3ba55oyLlGOkIrtlXCSniXvYTVv+oKhX3RjfBOfPMgcQAcff5ylD3OHGUzmUw6TV2j0lSKog4pKpmiEqlUkkqnMkeZ7HH2+OT45Bz4cvrj69nl1/Of/zs5v/zr7Dr+LRe/Ti+uTr9dnX3//QeZILLx97tdUQAAAABJRU5ErkJggg==",
   "faces": [
     {
-      "id": "0x2495cae6f3eb3599-18-38",
-      "faceId": "2a10dd50-d63c-4576-bf2d-80b3e4b2b9e3",
+      "id": "0x2495cae6f3eb3599-17-38",
+      "faceId": "1a6f63ae-ad44-47e9-8078-2eaead83128d",
       "rect": {
-        "top": 0.34563346,
-        "left": 0.14,
-        "width": 0.07,
-        "height": 0.06888069,
+        "top": 0.34571063,
+        "left": 0.13867188,
+        "width": 0.06966146,
+        "height": 0.06850192,
         "center": {
-          "x": 0.175,
-          "y": 0.38007381
+          "x": 0.17350261,
+          "y": 0.37996159
         }
       }
     },
     {
-      "id": "0x2495cae6f3eb3599-83-33",
-      "faceId": "007ea2f7-8b54-42e7-bde9-23faf6f7fabf",
+      "id": "0x2495cae6f3eb3599-82-33",
+      "faceId": "241d40af-5b88-490a-82f8-5e0bbe629a7b",
       "rect": {
-        "top": 0.30258303,
-        "left": 0.79375,
-        "width": 0.06375,
-        "height": 0.06273063,
+        "top": 0.3021767,
+        "left": 0.79231771,
+        "width": 0.06510417,
+        "height": 0.06402049,
         "center": {
-          "x": 0.825625,
-          "y": 0.33394835
+          "x": 0.82486979,
+          "y": 0.33418695
         }
       }
     },
     {
       "id": "0x2495cae6f3eb3599-42-38",
-      "faceId": "d050fe67-e24b-4ecb-a11b-e0e96f5d72e0",
+      "faceId": "d3e31b29-c53d-4e0f-904e-f95b291ba0dd",
       "rect": {
-        "top": 0.35055351,
-        "left": 0.39,
-        "width": 0.0525,
-        "height": 0.05166052,
+        "top": 0.35019206,
+        "left": 0.38932292,
+        "width": 0.05208333,
+        "height": 0.05121639,
         "center": {
-          "x": 0.41625,
-          "y": 0.37638377
+          "x": 0.41536459,
+          "y": 0.37580026
         }
       }
     }

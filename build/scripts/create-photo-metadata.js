@@ -82,7 +82,7 @@ function getBase64({ imagePipeline }) {
 
 async function getFaces({ metadata, imagePipeline, reporter }) {
   const { id, aspectRatio } = metadata;
-  let width = 800;
+  let width = 1536;
   let height = Math.round(width / aspectRatio);
   let rotate;
   let faces = [];
