@@ -39,9 +39,10 @@ const Grid = styled('ul')(
     gridTemplateColumns: `repeat(auto-fill, minmax(0, 384px))`,
     justifyContent: 'center',
     maxWidth: `calc(384px * 3 + ${space.md}px * 2)`,
-    padding: 0,
+    padding: 'sm',
     marginY: 'xl',
     marginX: 'auto',
+    boxSizing: 'content-box',
     listStyle: 'none',
   })
 );
