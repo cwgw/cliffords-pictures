@@ -43,7 +43,7 @@ const listenToIntersections = (el, cb) => {
   };
 };
 
-const useInfiniteScroll = cb => {
+const useIntersectionObserver = cb => {
   const [ref, setRef] = React.useState();
 
   React.useLayoutEffect(() => {
@@ -55,4 +55,4 @@ const useInfiniteScroll = cb => {
   return [setRef];
 };
 
-export default useInfiniteScroll;
+export default useIntersectionObserver;

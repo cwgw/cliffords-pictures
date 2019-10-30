@@ -5,13 +5,13 @@ import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import css from '@styled-system/css';
 
-import useInfiniteScroll from 'hooks/useInfiniteScroll';
+import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import { space } from 'style/system';
 
 import Button from 'components/Button';
 import Link from 'components/Link';
 import Pagination from 'components/Pagination';
-import PaginationContext from 'components/InfiniteScrollContext';
+import PaginationContext from 'components/PaginationContext';
 import Photo from 'components/Photo';
 import VisuallyHidden from 'components/VisuallyHidden';
 
@@ -22,12 +22,17 @@ const propTypes = {
       image: PropTypes.object,
       fields: PropTypes.object,
     })
-  ),
-  columnWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  ).isRequired,
+  index: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  pagination: PropTypes.shape({
+    next: PropTypes.string,
+    prev: PropTypes.string,
+  }).isRequired,
+  isInfinite: PropTypes.bool,
 };
 
 const defaultProps = {
-  columnWidth: 384,
   isInfinite: false,
 };
 
@@ -47,9 +52,14 @@ const Grid = styled('ul')(
   })
 );
 
+const Footer = styled('p')({
+  textAlign: 'center',
+  minHeight: '120px',
+});
+
 const PhotoGrid = ({ items, index, total, pagination, isInfinite }) => {
   const context = React.useContext(PaginationContext);
-  const [ref] = useInfiniteScroll(context.loadMore);
+  const [ref] = useIntersectionObserver(context.loadMore);
   const { update } = context;
 
   React.useEffect(() => {
@@ -77,6 +87,9 @@ const PhotoGrid = ({ items, index, total, pagination, isInfinite }) => {
         <React.Fragment>
           <Grid>{context.data.map(gridItems)}</Grid>
           <VisuallyHidden ref={ref} />
+          <Footer>
+            {context.hasMore() ? `Loading more…` : `You've reached the end!`}
+          </Footer>
         </React.Fragment>
       );
     }
@@ -84,13 +97,9 @@ const PhotoGrid = ({ items, index, total, pagination, isInfinite }) => {
     return (
       <React.Fragment>
         <Grid>{items.map(gridItems)}</Grid>
-        <p
-          css={css({
-            textAlign: 'center',
-          })}
-        >
-          <Button onClick={context.activate}>Load more…</Button>
-        </p>
+        <Footer>
+          <Button onClick={context.activate}>Load more</Button>
+        </Footer>
       </React.Fragment>
     );
   }

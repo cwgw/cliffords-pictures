@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InfiniteScrollContext = React.createContext({
+const PaginationContext = React.createContext({
   index: 0 /* Which page infinite scroll should fetch next. */,
   data: [],
   isActive: false,
@@ -70,7 +70,7 @@ const Provider = ({ children }) => {
   }
 
   return (
-    <InfiniteScrollContext.Provider
+    <PaginationContext.Provider
       value={{
         activate,
         hasMore,
@@ -82,8 +82,8 @@ const Provider = ({ children }) => {
       }}
     >
       {children}
-    </InfiniteScrollContext.Provider>
+    </PaginationContext.Provider>
   );
 };
 
-export { InfiniteScrollContext as default, Provider };
+export { PaginationContext as default, Provider };
