@@ -23,22 +23,22 @@ exports.createSchemaCustomization = (
 
     const fluid = imageSizes.reduce(
       (o, size, i, arr) => {
+        o.srcSet.push(`${publicPath({ size, ext })} ${size}w`);
+        o.srcSetWebp.push(`${publicPath({ size, ext: 'webp' })} ${size}w`);
+
         if (size <= maxWidth) {
           o.src = publicPath({ size, ext });
-          o.srcSet.push(`${publicPath({ size, ext })} ${size}w`);
           o.srcWebp = publicPath({ size, ext: 'webp' });
-          o.srcSetWebp.push(`${publicPath({ size, ext: 'webp' })} ${size}w`);
+        }
 
-          if (size === maxWidth) {
-            o.sizes.push(`${size}px`);
-          } else {
-            o.sizes.push(`(width <= ${size}px) ${size}px`);
-          }
+        if (size === maxWidth) {
+          o.sizes.push(`${size}px`);
+        } else if (size < maxWidth) {
+          o.sizes.push(`(max-width: ${size}px) ${size}px`);
         } else if (arr[i - 1] < maxWidth) {
           o.sizes.push(`${size}px`);
-          o.srcSet.push(`${publicPath({ size, ext })} ${size}w`);
-          o.srcSetWebp.push(`${publicPath({ size, ext: 'webp' })} ${size}w`);
         }
+
         return o;
       },
       {
