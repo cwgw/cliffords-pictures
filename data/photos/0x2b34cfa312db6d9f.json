@@ -7,30 +7,30 @@
   "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADAElEQVQozx3L6VMSAQAF8P1H/NBMjk0lHYKwLAQICyyyu8il2EqgEJdJsKt4m0BqQ41aOsiymozlmHjNmEeHFjaDGnmAsTD9NTm8+X168x6wt/dtNb2xmFpKJudpej5BMxXJRCIZn6PjcToxR9M0k0otrW1sff12CFzvopFoMBDwedzPvBU+T6fX3elx+TxOn8vhczu8LicZeP4yGmWYBSAajnTYbCgCq6QQCotxlQRVSjRysUYuQmEQUwga5XylpB5D5A67NTI6CoSo7iZUC3E5wnvVSsEdRMRRCO6K625JuDVqsKYRqob5N0BOlZh724Ah3cHnQA9J6rSIiMuR1t1qaqgzq0FMxlOAHASqbYZrCfVdg7Ra8qDqEbfGiKp6gn6gj6JMmFYmqFMKH7aiDe1mjQVTYApQr+DZUZ67iWtFOIjgphKqJYzaoV4K6KdIiw6DhQKVGGzVow7CbGtpakblFkToaKz34fynWp5Zft+ohtz25rHwADBIkYQOV0OQUvzIpNM/IYh2wmI1ae2oxKXm+Rv5AZ3YY5B5rHgo6Jp8HQUGKgclBDUIxSiCm02tNoJwPjZ6jUo/AvZowCEzPOQ0jFCOsXD37LsY0EcGLTjaIBCIeHxYpsJRwxOirctpDdmN/UZ4xCAft+liZPubCDn5+kUiPgWEyGCzDpUJ60W8h7BUqscwp62t1++KBjrGXS2vnKZJv216uOttbHBmemw+OQNERkZc7VYTrtFrYcKMezuIAaozFg7NjvXFw9TcKJmc6Gemwkw8tsDMLH9MAfRcYjwyOthLDvZ0RYe7JyeG6XevPjDTq4uz6cXZtVR8c5lZX3m/vrq0ufFpZ2cb2N3ZX0+nV5Y/fFpe3Ewv7WytfPm8drC/9fPrdub77tGPL78y348yB5mfh0dHmWz2GMjlLk5PcycnJ6en2dzv7Fkue547Pv9zfHF2cnmey1+e5fOXlxX5fKFQKAJXf8vFYpllS2ypyLJ/WbbAFgssm2eL167Y4nVTSalUKpdL5X//AWlqZm1v06jhAAAAAElFTkSuQmCC",
   "faces": [
     {
-      "id": "0x2b34cfa312db6d9f-60-36",
-      "faceId": "0a07c0c3-ee16-4549-81a2-9e374bd5e966",
+      "id": "0x2b34cfa312db6d9f-60-37",
+      "faceId": "6c14c535-ea62-465e-900c-5719f0a9b7f4",
       "rect": {
-        "top": 0.29901961,
-        "left": 0.53125,
-        "width": 0.13375,
-        "height": 0.13112745,
+        "top": 0.29865986,
+        "left": 0.52148438,
+        "width": 0.14973958,
+        "height": 0.14677728,
         "center": {
-          "x": 0.598125,
-          "y": 0.36458334
+          "x": 0.59635417,
+          "y": 0.3720485
         }
       }
     },
     {
       "id": "0x2b34cfa312db6d9f-27-26",
-      "faceId": "131ad9dc-1e83-47ce-b227-4f4b1a8cc17d",
+      "faceId": "0e51127c-4ce4-4baa-9fd3-72cf805ec25b",
       "rect": {
-        "top": 0.19852941,
-        "left": 0.21,
-        "width": 0.1175,
-        "height": 0.11519608,
+        "top": 0.19783025,
+        "left": 0.20898438,
+        "width": 0.11848958,
+        "height": 0.1161455,
         "center": {
-          "x": 0.26875,
-          "y": 0.25612745
+          "x": 0.26822917,
+          "y": 0.255903
         }
       }
     }

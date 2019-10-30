@@ -6,10 +6,8 @@ import css from '@styled-system/css';
 import Button from 'components/Button';
 
 const propTypes = {
-  // current: PropTypes.number.isRequired,
   next: PropTypes.string,
   prev: PropTypes.string,
-  // total: PropTypes.number.isRequired,
 };
 
 const defaultProps = {

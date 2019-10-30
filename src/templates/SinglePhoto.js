@@ -6,8 +6,8 @@ import { graphql, navigate } from 'gatsby';
 import mousetrap from 'mousetrap';
 
 import { breakpoints } from 'style/tokens';
-import { getDisplayName } from 'utils/people';
 
+import FaceScrim from 'components/FaceScrim';
 import Layout from 'components/Layout';
 import Photo from 'components/Photo';
 
@@ -15,8 +15,7 @@ const SingleImage = ({
   pageContext,
   location,
   data: {
-    allFacesJson,
-    photosJson: { id, image },
+    photosJson: { id, image, faces },
   },
 }) => {
   const toNext = React.useCallback(() => {
@@ -47,15 +46,6 @@ const SingleImage = ({
     };
   }, [toPrevious, toNext]);
 
-  const people = [];
-
-  const tags =
-    allFacesJson &&
-    allFacesJson.edges.map(({ node }) => {
-      people.push(node.person ? getDisplayName(node.person) : 'Unknown person');
-      return node;
-    });
-
   return (
     <Layout>
       <div
@@ -68,7 +58,6 @@ const SingleImage = ({
         })}
       >
         <Photo
-          tags={tags}
           image={image}
           css={css({
             width: '768px',
@@ -79,9 +68,9 @@ const SingleImage = ({
             },
           })}
         >
+          <FaceScrim faces={faces} aspectRatio={image.fluid.aspectRatio} />
           <figcaption>
             <p>id: {id}</p>
-            <p>{people && people.join(', ')}</p>
           </figcaption>
         </Photo>
       </div>
@@ -106,6 +95,19 @@ export const query = graphql`
           base64
           width
           height
+        }
+      }
+      faces {
+        id
+        rect {
+          top
+          left
+          width
+          height
+          center {
+            x
+            y
+          }
         }
       }
     }
