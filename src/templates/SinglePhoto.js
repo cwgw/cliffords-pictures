@@ -6,7 +6,6 @@ import { graphql, navigate } from 'gatsby';
 import mousetrap from 'mousetrap';
 
 import { breakpoints } from 'style/tokens';
-import { getDisplayName } from 'utils/people';
 
 import Layout from 'components/Layout';
 import Photo from 'components/Photo';
@@ -15,7 +14,6 @@ const SingleImage = ({
   pageContext,
   location,
   data: {
-    allFacesJson,
     photosJson: { id, image },
   },
 }) => {
@@ -47,15 +45,6 @@ const SingleImage = ({
     };
   }, [toPrevious, toNext]);
 
-  const people = [];
-
-  const tags =
-    allFacesJson &&
-    allFacesJson.edges.map(({ node }) => {
-      people.push(node.person ? getDisplayName(node.person) : 'Unknown person');
-      return node;
-    });
-
   return (
     <Layout>
       <div
@@ -68,7 +57,6 @@ const SingleImage = ({
         })}
       >
         <Photo
-          tags={tags}
           image={image}
           css={css({
             width: '768px',
@@ -81,7 +69,6 @@ const SingleImage = ({
         >
           <figcaption>
             <p>id: {id}</p>
-            <p>{people && people.join(', ')}</p>
           </figcaption>
         </Photo>
       </div>
