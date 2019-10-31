@@ -3,7 +3,7 @@ import React from 'react';
 const PaginationContext = React.createContext({
   index: 0 /* Which page infinite scroll should fetch next. */,
   data: [],
-  isActive: false,
+  isInfiniteScrollEnabled: false,
   isInitializing: () => {
     return true;
   },
@@ -18,13 +18,13 @@ const Provider = ({ children }) => {
     data: [],
     total: 0,
   });
-  const [isActive, setActiveStatus] = React.useState(false);
+  const [isInfiniteScrollEnabled, setActiveStatus] = React.useState(false);
 
   function isInitializing() {
     return state.index === 0;
   }
 
-  const activate = React.useCallback(() => {
+  const enableInfiniteScroll = React.useCallback(() => {
     setActiveStatus(true);
   }, [setActiveStatus]);
 
@@ -40,7 +40,7 @@ const Provider = ({ children }) => {
   );
 
   function hasMore() {
-    if (!isActive) {
+    if (!isInfiniteScrollEnabled) {
       return false;
     }
     if (isInitializing()) {
@@ -72,9 +72,9 @@ const Provider = ({ children }) => {
   return (
     <PaginationContext.Provider
       value={{
-        activate,
+        enableInfiniteScroll,
         hasMore,
-        isActive,
+        isInfiniteScrollEnabled,
         isInitializing,
         loadMore,
         update,

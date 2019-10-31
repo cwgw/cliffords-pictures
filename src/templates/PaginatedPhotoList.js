@@ -3,18 +3,10 @@ import React from 'react';
 import Layout from 'components/Layout';
 import PhotoGrid from 'components/PhotoGrid';
 
-const PhotoListTemplate = ({
-  pageContext: { pagination, photos, index, total },
-}) => {
+const PhotoListTemplate = ({ pageContext }) => {
   return (
     <Layout>
-      <PhotoGrid
-        items={photos || []}
-        index={index}
-        total={total}
-        isInfinite={false}
-        pagination={pagination}
-      />
+      <PhotoGrid pageData={pageContext} />
     </Layout>
   );
 };

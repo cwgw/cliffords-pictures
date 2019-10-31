@@ -8,6 +8,11 @@ export default {
   '*, *::before, *::after': {
     boxSizing: 'inherit',
   },
+  '#gatsby-noscript': {
+    position: 'absolute',
+    padding: 'sm',
+    backgroundColor: 'background',
+  },
   a: {
     color: 'inherit',
   },

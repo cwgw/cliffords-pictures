@@ -2,21 +2,15 @@ import React from 'react';
 
 import Layout from 'components/Layout';
 import PhotoGrid from 'components/PhotoGrid';
-import PaginationContext from 'components/PaginationContext';
+import AlbumContext from 'components/AlbumContext';
 
-const Index = ({ pageContext: { photos, pagination, index, total } }) => {
-  const { data } = React.useContext(PaginationContext);
-  const count = data.length || photos.length;
+const Index = ({ pageContext }) => {
+  const { data } = React.useContext(AlbumContext);
+  const count = data.length || pageContext.data.length;
   return (
     <Layout>
       <p style={{ textAlign: 'center' }}>{count} images</p>
-      <PhotoGrid
-        items={photos || []}
-        index={index}
-        total={total}
-        isInfinite={true}
-        pagination={pagination}
-      />
+      <PhotoGrid pageData={pageContext} isInfinite={true} />
     </Layout>
   );
 };

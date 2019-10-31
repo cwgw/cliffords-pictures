@@ -10,7 +10,6 @@ const Provider = ({ children }) => {
 
   const toggleVisibility = React.useCallback(() => {
     setVisibility(b => !b);
-    console.log('toggleVisibility');
   }, [setVisibility]);
 
   return (
