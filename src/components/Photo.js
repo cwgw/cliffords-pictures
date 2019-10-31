@@ -35,7 +35,7 @@ const Photo = ({ children, image, ...props }) => {
           boxShadow: 'raised',
         })}
         backgroundColor={color.white}
-        {...image}
+        fluid={image.fluid || image}
       />
       {children}
     </figure>

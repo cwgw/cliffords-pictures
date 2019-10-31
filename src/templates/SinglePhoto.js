@@ -10,6 +10,8 @@ import { breakpoints } from 'style/tokens';
 import FaceScrim from 'components/FaceScrim';
 import Layout from 'components/Layout';
 import Photo from 'components/Photo';
+import Button from 'components/Button';
+import EditorContext from 'components/EditorContext';
 
 const SingleImage = ({
   pageContext,
@@ -46,6 +48,8 @@ const SingleImage = ({
     };
   }, [toPrevious, toNext]);
 
+  const { isVisible, toggleVisibility } = React.useContext(EditorContext);
+
   return (
     <Layout>
       <div
@@ -68,9 +72,16 @@ const SingleImage = ({
             },
           })}
         >
-          <FaceScrim faces={faces} aspectRatio={image.fluid.aspectRatio} />
+          {isVisible && (
+            <FaceScrim faces={faces} aspectRatio={image.fluid.aspectRatio} />
+          )}
           <figcaption>
-            <p>id: {id}</p>
+            <p>
+              <Button onClick={toggleVisibility}>
+                {isVisible ? 'Hide info' : 'Show info'}
+              </Button>
+            </p>
+            {isVisible && <p>id: {id}</p>}
           </figcaption>
         </Photo>
       </div>

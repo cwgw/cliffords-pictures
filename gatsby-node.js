@@ -41,6 +41,17 @@ exports.createPages = ({ graphql, actions: { createPage }, reporter }) => {
                 width
                 height
               }
+              full: fluid(maxWidth: 768) {
+                src
+                srcSet
+                srcSetWebp
+                srcWebp
+                sizes
+                aspectRatio
+                base64
+                width
+                height
+              }
             }
           }
         }
@@ -55,11 +66,11 @@ exports.createPages = ({ graphql, actions: { createPage }, reporter }) => {
     const PaginatedListTemplate = path.resolve(
       'src/templates/PaginatedPhotoList.js'
     );
-    const photosJson = data.photos.edges;
+    const photos = data.photos.edges;
     const perPageLimit = 18;
-    const total = Math.ceil(photosJson.length / perPageLimit);
+    const pageTotal = Math.ceil(photos.length / perPageLimit);
 
-    photosJson.forEach(({ node }, i, arr) => {
+    photos.forEach(({ node }, i, arr) => {
       const next = i + 1 === arr.length ? arr[0].node : arr[i + 1].node;
       const prev = i - 1 < 0 ? arr[arr.length - 1].node : arr[i - 1].node;
       createPage({
@@ -73,48 +84,29 @@ exports.createPages = ({ graphql, actions: { createPage }, reporter }) => {
       });
     });
 
-    Array.from({ length: total }).forEach((_, i, arr) => {
-      const photos = photosJson.slice(
-        i * perPageLimit,
-        i * perPageLimit + perPageLimit
-      );
+    Array.from({ length: pageTotal }).forEach((_, i, arr) => {
+      const context = {
+        pageIndex: i + 1,
+        pageTotal,
+        data: photos.slice(i * perPageLimit, i * perPageLimit + perPageLimit),
+      };
 
       createPage({
         path: `/page/${i + 1}`,
         component: PaginatedListTemplate,
-        context: {
-          photos,
-          index: i + 1,
-          total,
-          pagination: {
-            prev: i ? `/page/${i}` : null,
-            next: i + 2 < arr.length ? `/page/${i + 2}` : null,
-          },
-        },
+        context,
       });
 
       if (!i) {
         createPage({
           path: '/',
           component: HomePage,
-          context: {
-            photos,
-            index: 1,
-            total,
-            pagination: {
-              prev: null,
-              next: `/page/2`,
-            },
-          },
+          context,
         });
       }
 
       createPaginationJSON({
-        data: {
-          data: photos,
-          total,
-          index: i + 1,
-        },
+        data: context,
         reporter,
       });
     });
@@ -125,9 +117,11 @@ const createPaginationJSON = ({ data, reporter }) => {
   const dir = `public/pagination`;
   fs.ensureDir(dir)
     .then(() =>
-      fs.writeJSON(path.join(dir, `${data.index}.json`), data).catch(err => {
-        reporter.panicOnBuild(`Couldn't write pagination data`, err);
-      })
+      fs
+        .writeJSON(path.join(dir, `${data.pageIndex}.json`), data)
+        .catch(err => {
+          reporter.panicOnBuild(`Couldn't write pagination data`, err);
+        })
     )
     .catch(err => {
       reporter.panicOnBuild(`Couldn't write pagination data`, err);

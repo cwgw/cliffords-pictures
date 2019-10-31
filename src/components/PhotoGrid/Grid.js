@@ -9,25 +9,23 @@ import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import { space } from 'style/system';
 
 import Button from 'components/Button';
-import Link from 'components/Link';
 import Pagination from 'components/Pagination';
-import PaginationContext from 'components/PaginationContext';
-import Photo from 'components/Photo';
+import AlbumContext from 'components/AlbumContext';
 import VisuallyHidden from 'components/VisuallyHidden';
 
+import Item from './Item';
+
 const propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      image: PropTypes.object,
-      fields: PropTypes.object,
-    })
-  ).isRequired,
-  index: PropTypes.number.isRequired,
-  total: PropTypes.number.isRequired,
-  pagination: PropTypes.shape({
-    next: PropTypes.string,
-    prev: PropTypes.string,
+  pageData: PropTypes.shape({
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        image: PropTypes.object,
+        fields: PropTypes.object,
+      })
+    ),
+    pageIndex: PropTypes.number,
+    pageTotal: PropTypes.number,
   }).isRequired,
   isInfinite: PropTypes.bool,
 };
@@ -57,38 +55,34 @@ const Footer = styled('p')({
   minHeight: '120px',
 });
 
-const PhotoGrid = ({ items, index, total, pagination, isInfinite }) => {
-  const context = React.useContext(PaginationContext);
-  const [ref] = useIntersectionObserver(context.loadMore);
-  const { update } = context;
+const PhotoGrid = ({ pageData, isInfinite }) => {
+  const {
+    data,
+    enableInfiniteScroll,
+    hasMore,
+    isInfiniteScrollEnabled,
+    loadMore,
+    updatePageState,
+  } = React.useContext(AlbumContext);
+
+  const [ref] = useIntersectionObserver(loadMore);
 
   React.useEffect(() => {
-    update({
-      data: items,
-      index,
-      total,
-    });
-  }, [index, items, total, update]);
+    if (updatePageState) {
+      updatePageState(pageData);
+    }
+  }, [pageData, updatePageState]);
 
-  const gridItems = React.useCallback(
-    ({ node: { id, image, fields } }) => (
-      <li key={id}>
-        <Photo image={image}>
-          <Link to={fields.slug} variant="span" />
-        </Photo>
-      </li>
-    ),
-    []
-  );
+  const gridItems = ({ node }) => <Item key={node.id} {...node} />;
 
   if (isInfinite) {
-    if (context && context.isActive && context.data.length) {
+    if (isInfiniteScrollEnabled && data.length) {
       return (
         <React.Fragment>
-          <Grid>{context.data.map(gridItems)}</Grid>
+          <Grid>{data.map(gridItems)}</Grid>
           <VisuallyHidden ref={ref} />
           <Footer>
-            {context.hasMore() ? `Loading more…` : `You've reached the end!`}
+            {hasMore() ? `Loading more…` : `You've reached the end!`}
           </Footer>
         </React.Fragment>
       );
@@ -96,9 +90,9 @@ const PhotoGrid = ({ items, index, total, pagination, isInfinite }) => {
 
     return (
       <React.Fragment>
-        <Grid>{items.map(gridItems)}</Grid>
+        <Grid>{pageData.data.map(gridItems)}</Grid>
         <Footer>
-          <Button onClick={context.activate}>Load more</Button>
+          <Button onClick={enableInfiniteScroll}>Load more</Button>
         </Footer>
       </React.Fragment>
     );
@@ -106,8 +100,8 @@ const PhotoGrid = ({ items, index, total, pagination, isInfinite }) => {
 
   return (
     <React.Fragment>
-      <Grid>{items.map(gridItems)}</Grid>
-      <Pagination {...pagination} />
+      <Grid>{pageData.data.map(gridItems)}</Grid>
+      <Pagination {...pageData} />
     </React.Fragment>
   );
 };

@@ -1,5 +1,6 @@
 const colors = {
   white: '#ebeeef',
+  black: '#000',
 };
 
 export default {
@@ -11,15 +12,15 @@ export default {
   accent: 'lightCyan',
 };
 
-//  '#445b26'
-//  '#3a5140'
-//  '#516d59'
 //  '#2b3b33'
-//  '#dfd4b7'
-//  '#baab58'
-//  '#6c6e25'
-//  '#c0beaa'
+//  '#34495e'
+//  '#3a5140'
+//  '#445b26'
 //  '#4f5e6d'
 //  '#4f6077'
+//  '#516d59'
+//  '#6c6e25'
 //  '#768183'
-//  '#34495e'
+//  '#baab58'
+//  '#c0beaa'
+//  '#dfd4b7'

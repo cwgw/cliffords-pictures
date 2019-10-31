@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
+import Helmet from 'react-helmet';
 import css from '@styled-system/css';
 
+import global from 'style/global';
 import theme from 'style/theme';
 
-import Header from 'components/Header';
-import Helmet from 'react-helmet';
 import Footer from 'components/Footer';
-import global from 'style/global';
+import Header from 'components/Header';
+import Modal from 'components/Modal';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -29,6 +30,7 @@ const Layout = ({ children }) => {
         <Header />
         <main>{children}</main>
         <Footer />
+        <Modal />
       </React.Fragment>
     </ThemeProvider>
   );
