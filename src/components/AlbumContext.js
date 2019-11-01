@@ -41,10 +41,10 @@ const Provider = ({ children }) => {
         return;
       }
       const data = pageState.data;
-      const i = index >= data.length ? 0 : index < 0 ? data.length - 1 : index;
-      const next = data[i + 1] ? data[i + 1].node : data[0].node;
+      const i = index >= data.length ? data.length - 1 : index < 0 ? 0 : index;
+      const next = data[i + 1] ? data[i + 1].node : null;
       const current = data[i].node;
-      const prev = data[i - 1] ? data[i - 1].node : data[data.length - 1].node;
+      const prev = data[i - 1] ? data[i - 1].node : null;
       setCurrentPhoto([prev, current, next]);
       setCurrentPhotoIndex(i);
     },
