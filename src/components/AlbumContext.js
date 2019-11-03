@@ -48,7 +48,7 @@ const Provider = ({ children }) => {
       const prev = data[i - 1] ? data[i - 1] : null;
       setcurrent([prev, current, next]);
       setCurrentIndex(i);
-      setSlide(s => ({ current: i, previous: s.previous }));
+      setSlide({ current: i, previous: i });
     },
     [pageState.data]
   );
