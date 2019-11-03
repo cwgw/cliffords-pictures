@@ -4,9 +4,6 @@ import { jsx } from '@emotion/core';
 import css from '@styled-system/css';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 import mousetrap from 'mousetrap';
-import { useSpring, animated } from 'react-spring';
-import { useGesture } from 'react-use-gesture';
-import Image from 'gatsby-image';
 
 import { transparentize } from 'style/system';
 
@@ -24,8 +21,6 @@ const Modal = () => {
     slide,
   } = React.useContext(AlbumContext);
 
-  const [{ x }, setX] = useSpring(() => ({ x: 0 }));
-
   React.useEffect(() => {
     const prev = () => {
       changeSlide(-1);
@@ -42,13 +37,6 @@ const Modal = () => {
       mousetrap.unbind('right');
     };
   }, [changeSlide]);
-
-  const bind = useGesture({
-    onDrag: state => {
-      setX({ x: state.down ? state.movement[0] : 0 });
-      console.log(state);
-    },
-  });
 
   return (
     <DialogOverlay
@@ -93,7 +81,7 @@ const Modal = () => {
           items={data}
           currentIndex={currentIndex}
           slide={slide}
-          onChange={changeSlide}
+          handleChange={changeSlide}
         />
       </DialogContent>
     </DialogOverlay>

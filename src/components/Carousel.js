@@ -10,27 +10,13 @@ import GatsbyImage from 'gatsby-image';
 
 const propTypes = {
   items: PropTypes.array.isRequired,
-  onChange: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
   // currentIndex: PropTypes.number.isRequired,
 };
 
 const AnimatedImage = animated(GatsbyImage);
 
-const Carousel = ({
-  items,
-  onChange,
-  // currentIndex: index,
-  slide: { current, previous },
-}) => {
-  // const [{ x }, setX] = useSpring(() => {
-  //   return {
-  //     x: 0,
-  //     config: {
-  //       tension: 300,
-  //     }
-  //   }
-  // });
-
+const Carousel = ({ items, handleChange, slide: { current, previous } }) => {
   const width = React.useRef(0);
   const ref = React.useRef(null);
 
@@ -40,42 +26,60 @@ const Carousel = ({
     }
   }, [ref]);
 
-  // const [styles, setSprings] = useSprings(3, i => {
-  //   return {
-  //     x: (i - 1) * 100,
-  //     opacity: 1 - Math.abs((i - 1)),
-  //     config: { tension: 300 }
-  //   };
-  // })
-
   const [{ transform }, setTransform] = useSpring(() => {
     return {
       transform: `translate(0px, 0)`,
+      config: {
+        tension: 300,
+        friction: 40,
+      },
     };
   });
 
   const bind = useGesture({
-    onDrag: ({ down, movement: [moveX], direction: [dirX], cancel }) => {
-      if (down && Math.abs(moveX) > (width.current * 2) / 3) {
-        onChange(dirX > 0 ? -1 : 1);
+    onDrag: ({
+      down,
+      movement: [moveX],
+      direction: [dirX],
+      cancel,
+      canceled,
+      memo,
+      velocity,
+      currentTarget,
+      last,
+      ...state
+    }) => {
+      // console.log(state);
+
+      // console.log(currentTarget.dataset)
+
+      if (down && Math.abs(moveX) > width.current / 2) {
+        handleChange(dirX > 0 ? -1 : 1);
         cancel();
       }
 
-      setTransform(() => ({
-        transform: down ? `translate(${moveX}px, 0)` : `translate(0px, 0)`,
-      }));
-      // setSprings(i => {
-      //   let base = (i - 1) * 100;
-      //   let diff = moveX / width.current * 100 + base;
+      // console.log({ last, canceled });
+      // if (last && canceled) {
+      //   setTransform({
+      //     transform: `translate(${moveX}px, 0)`,
+      //   });
+      //   return;
+      // }
 
-      //   return {
-      //     x: down ? diff : base,
-      //   }
-      // })
+      // console.log({ velocity })
+
+      setTransform({
+        transform: down ? `translate(${moveX}px, 0)` : `translate(0px, 0)`,
+        // config: {
+        //   mass: Math.max(velocity * 0.5, 1),
+        //   tension: 400 * Math.max(velocity, 1),
+        //   friction: 40,
+        // }
+      });
     },
   });
 
-  const direction = current > previous ? 1 : -1;
+  const direction = current === previous ? 0 : current > previous ? 1 : -1;
 
   const transitions = useTransition(items[current], item => item.id, {
     from: {
@@ -96,16 +100,12 @@ const Carousel = ({
     <animated.div
       css={css({
         position: 'relative',
-        // display: 'grid',
-        // gridTemplateColumns: 'repeat(3, 100%)',
-        // gridColumnGap: '25%',
       })}
       ref={ref}
-      style={{ transform }}
       {...bind()}
     >
-      {transitions.map(({ item, props, key }) => (
-        <animated.div key={key}>
+      {transitions.map(({ item, props, key }, i) => (
+        <animated.div key={key} style={i ? {} : { transform }}>
           <AnimatedImage
             style={{
               position: 'absolute',
@@ -123,47 +123,6 @@ const Carousel = ({
           />
         </animated.div>
       ))}
-      {/* {items.map((photo, i) => {
-        if (
-          i >= index - 1 &&
-          i <= index + 1
-        ) {
-          let { x, opacity } = styles[i - index + 1] || {};
-          // console.log(i - index + 1, {i, index})
-
-          return (
-            <animated.div
-              // key={i - index + 1}
-              key={photo.id}
-              css={{
-                position: 'absolute',
-                width: '100%',
-                height: 0,
-              }}
-              style={{
-                transform: x.interpolate(n => `translate(${n}%, -50%)`),
-                // opacity,
-                paddingBottom: `${1 / photo.aspectRatio * 100}%`,
-                pointerEvents: i === index ? 'auto' : 'none',
-              }}
-            >
-              {photo && (
-                <Image
-                  fluid={photo.image.full}
-                  css={{
-                  }}
-                  imgStyle={{
-                    pointerEvents: 'none',
-                    userSelect: 'none',
-                  }}
-                />
-              )}
-            </animated.div>
-          );
-        }
-
-        return null;
-      })} */}
     </animated.div>
   );
 };
