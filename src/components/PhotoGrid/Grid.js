@@ -73,7 +73,9 @@ const PhotoGrid = ({ pageData, isInfinite }) => {
     }
   }, [pageData, updatePageState]);
 
-  const gridItems = ({ node }) => <Item key={node.id} {...node} />;
+  const { prev, next } = pageData;
+
+  const gridItems = node => <Item key={node.id} {...node} />;
 
   if (isInfinite) {
     if (isInfiniteScrollEnabled && data.length) {
@@ -101,7 +103,7 @@ const PhotoGrid = ({ pageData, isInfinite }) => {
   return (
     <React.Fragment>
       <Grid>{pageData.data.map(gridItems)}</Grid>
-      <Pagination {...pageData} />
+      <Pagination prev={prev} next={next} />
     </React.Fragment>
   );
 };

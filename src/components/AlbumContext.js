@@ -12,7 +12,7 @@ const AlbumContext = React.createContext({
   isModalOpen: false,
   closeModal: () => {},
   openModal: () => {},
-  currentPhoto: [],
+  current: [],
 });
 
 const Provider = ({ children }) => {
@@ -23,40 +23,64 @@ const Provider = ({ children }) => {
   });
   const [isInfiniteScrollEnabled, setEnabled] = React.useState(false);
   const [isModalOpen, setStatus] = React.useState(false);
-  const [currentPhoto, setCurrentPhoto] = React.useState(null);
-  const [currentPhotoIndex, setCurrentPhotoIndex] = React.useState([]);
+  const [current, setcurrent] = React.useState(null);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [slide, setSlide] = React.useState({ current: 0, previous: 0 });
 
   const getPhotoById = React.useCallback(({ id, data }) => {
     for (let i = data.length - 1; i >= 0; i--) {
-      if (id === data[i].node.id) {
+      if (id === data[i].id) {
         return i;
       }
     }
     return null;
   }, []);
 
-  const updateCurrentPhoto = React.useCallback(
+  const updatecurrent = React.useCallback(
     index => {
       if (typeof index !== 'number') {
         return;
       }
       const data = pageState.data;
       const i = index >= data.length ? data.length - 1 : index < 0 ? 0 : index;
-      const next = data[i + 1] ? data[i + 1].node : null;
-      const current = data[i].node;
-      const prev = data[i - 1] ? data[i - 1].node : null;
-      setCurrentPhoto([prev, current, next]);
-      setCurrentPhotoIndex(i);
+      const next = data[i + 1] ? data[i + 1] : null;
+      const current = data[i];
+      const prev = data[i - 1] ? data[i - 1] : null;
+      setcurrent([prev, current, next]);
+      setCurrentIndex(i);
+      setSlide(s => ({ current: i, previous: s.previous }));
     },
     [pageState.data]
   );
 
   const nextPhoto = () => {
-    updateCurrentPhoto(currentPhotoIndex + 1);
+    updatecurrent(currentIndex + 1);
   };
 
   const prevPhoto = () => {
-    updateCurrentPhoto(currentPhotoIndex - 1);
+    updatecurrent(currentIndex - 1);
+  };
+
+  const changeSlide = i => {
+    setSlide(({ current, previous }) => {
+      let next = current + i;
+      if (0 <= next && next < pageState.data.length) {
+        return {
+          current: next,
+          previous: current,
+        };
+      }
+      return {
+        current,
+        previous,
+      };
+    });
+    // setCurrentIndex(n => {
+    //   if (0 <= n + i && n + i < pageState.data.length) {
+    //     return n + i;
+    //   }
+    //   return n;
+    // });
   };
 
   const closeModal = React.useCallback(() => {
@@ -66,10 +90,10 @@ const Provider = ({ children }) => {
   const openModal = React.useCallback(
     e => {
       const id = e.currentTarget.dataset.photoId;
-      updateCurrentPhoto(getPhotoById({ id, data: pageState.data }));
+      updatecurrent(getPhotoById({ id, data: pageState.data }));
       setStatus(true);
     },
-    [setStatus, getPhotoById, updateCurrentPhoto, pageState.data]
+    [setStatus, getPhotoById, updatecurrent, pageState.data]
   );
 
   function isInitializing() {
@@ -139,10 +163,13 @@ const Provider = ({ children }) => {
         isModalOpen,
         closeModal,
         openModal,
-        currentPhoto,
-        updateCurrentPhoto,
+        current,
+        updatecurrent,
         nextPhoto,
         prevPhoto,
+        currentIndex,
+        changeSlide,
+        slide,
       }}
     >
       {children}

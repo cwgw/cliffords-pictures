@@ -8,32 +8,40 @@ import { useSpring, animated } from 'react-spring';
 import { useGesture } from 'react-use-gesture';
 import Image from 'gatsby-image';
 
-import { space, transparentize } from 'style/system';
+import { transparentize } from 'style/system';
 
 import Button from 'components/Button';
 import AlbumContext from 'components/AlbumContext';
-// import Photo from 'components/Photo';
+import Carousel from 'components/Carousel';
 
 const Modal = () => {
   const {
     isModalOpen,
     closeModal,
-    currentPhoto,
-    nextPhoto,
-    prevPhoto,
+    data,
+    currentIndex,
+    changeSlide,
+    slide,
   } = React.useContext(AlbumContext);
 
   const [{ x }, setX] = useSpring(() => ({ x: 0 }));
 
   React.useEffect(() => {
-    mousetrap.bind('left', prevPhoto);
-    mousetrap.bind('right', nextPhoto);
+    const prev = () => {
+      changeSlide(-1);
+    };
+    const next = () => {
+      changeSlide(1);
+    };
+
+    mousetrap.bind('left', prev);
+    mousetrap.bind('right', next);
 
     return () => {
       mousetrap.unbind('left');
       mousetrap.unbind('right');
     };
-  }, [nextPhoto, prevPhoto]);
+  }, [changeSlide]);
 
   const bind = useGesture({
     onDrag: state => {
@@ -66,6 +74,7 @@ const Modal = () => {
           maxWidth: '768px',
           marginY: 0,
           marginX: 'auto',
+          outline: 'none',
           // overflow: 'hidden',
         })}
         aria-label="Photo modal"
@@ -76,38 +85,16 @@ const Modal = () => {
             position: 'absolute',
             top: 'sm',
             right: 'sm',
+            zIndex: 1000,
           })}
           children="Close"
         />
-        <animated.div
-          css={css({
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 100%)',
-            gridColumnGap: '32px',
-          })}
-          style={{
-            transform: x.interpolate(
-              x => `translateX(calc(${x}px - 100% - 32px))`
-            ),
-          }}
-          {...bind()}
-        >
-          {currentPhoto &&
-            currentPhoto.map((photo, i) =>
-              photo ? (
-                <div key={photo.id}>
-                  <Image
-                    fluid={photo.image.full}
-                    style={{
-                      pointerEvents: 'none',
-                    }}
-                  />
-                </div>
-              ) : (
-                <span key={i} />
-              )
-            )}
-        </animated.div>
+        <Carousel
+          items={data}
+          currentIndex={currentIndex}
+          slide={slide}
+          onChange={changeSlide}
+        />
       </DialogContent>
     </DialogOverlay>
   );
