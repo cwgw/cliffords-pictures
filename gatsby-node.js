@@ -29,6 +29,7 @@ exports.createPages = ({ graphql, actions: { createPage }, reporter }) => {
             fields {
               slug
             }
+            aspectRatio
             image {
               fluid(maxWidth: 384) {
                 src
@@ -66,13 +67,13 @@ exports.createPages = ({ graphql, actions: { createPage }, reporter }) => {
     const PaginatedListTemplate = path.resolve(
       'src/templates/PaginatedPhotoList.js'
     );
-    const photos = data.photos.edges;
+    const photos = data.photos.edges.map(({ node }) => node);
     const perPageLimit = 18;
     const pageTotal = Math.ceil(photos.length / perPageLimit);
 
-    photos.forEach(({ node }, i, arr) => {
-      const next = i + 1 === arr.length ? arr[0].node : arr[i + 1].node;
-      const prev = i - 1 < 0 ? arr[arr.length - 1].node : arr[i - 1].node;
+    photos.forEach((node, i, arr) => {
+      const next = i + 1 === arr.length ? arr[0] : arr[i + 1];
+      const prev = i - 1 < 0 ? arr[arr.length - 1] : arr[i - 1];
       createPage({
         path: node.fields.slug,
         component: SinglePhotoTemplate,
@@ -85,11 +86,21 @@ exports.createPages = ({ graphql, actions: { createPage }, reporter }) => {
     });
 
     Array.from({ length: pageTotal }).forEach((_, i, arr) => {
+      const pageIndex = i + 1;
       const context = {
-        pageIndex: i + 1,
+        pageIndex,
         pageTotal,
         data: photos.slice(i * perPageLimit, i * perPageLimit + perPageLimit),
       };
+
+      createPaginationJSON({
+        data: context,
+        reporter,
+      });
+
+      context.prev = pageIndex - 1 > 0 ? `/page/${pageIndex - 1}` : null;
+      context.next =
+        pageIndex + 1 < pageTotal ? `/page/${pageIndex + 1}` : null;
 
       createPage({
         path: `/page/${i + 1}`,
@@ -104,11 +115,6 @@ exports.createPages = ({ graphql, actions: { createPage }, reporter }) => {
           context,
         });
       }
-
-      createPaginationJSON({
-        data: context,
-        reporter,
-      });
     });
   });
 };

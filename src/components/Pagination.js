@@ -15,7 +15,8 @@ const defaultProps = {
   prev: null,
 };
 
-const Pagination = ({ prev, next }) => {
+const Pagination = props => {
+  const { prev, next } = props;
   const directions = [
     {
       slug: prev,
@@ -50,7 +51,7 @@ const Pagination = ({ prev, next }) => {
       >
         {directions.map(({ slug, style, text }) => (
           <li
-            key={slug}
+            key={text}
             css={css({
               display: 'inline-block',
               ...style,
