@@ -14,12 +14,17 @@ exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
     createNodeField({
       node,
       name: 'slug',
-      value: `/i/${node.id}`,
+      value: `/photos/${node.id}`,
     });
   }
 };
 
-exports.createPages = ({ graphql, actions: { createPage }, reporter }) => {
+exports.createPages = ({
+  actions: { createPage },
+  createContentDigest,
+  graphql,
+  reporter,
+}) => {
   return graphql(`
     {
       photos: allPhotosJson(sort: { fields: id }) {
@@ -71,6 +76,8 @@ exports.createPages = ({ graphql, actions: { createPage }, reporter }) => {
     const perPageLimit = 18;
     const pageTotal = Math.ceil(photos.length / perPageLimit);
 
+    const hash = createContentDigest({ photos, perPageLimit, pageTotal });
+
     photos.forEach((node, i, arr) => {
       const next = i + 1 === arr.length ? arr[0] : arr[i + 1];
       const prev = i - 1 < 0 ? arr[arr.length - 1] : arr[i - 1];
@@ -90,7 +97,8 @@ exports.createPages = ({ graphql, actions: { createPage }, reporter }) => {
       const context = {
         pageIndex,
         pageTotal,
-        data: photos.slice(i * perPageLimit, i * perPageLimit + perPageLimit),
+        paginationEndpoint: path.join('static/pagination', hash),
+        photos: photos.slice(i * perPageLimit, i * perPageLimit + perPageLimit),
       };
 
       createPaginationJSON({
@@ -120,7 +128,7 @@ exports.createPages = ({ graphql, actions: { createPage }, reporter }) => {
 };
 
 const createPaginationJSON = ({ data, reporter }) => {
-  const dir = `public/pagination`;
+  const dir = path.join('public', data.paginationEndpoint);
   fs.ensureDir(dir)
     .then(() =>
       fs

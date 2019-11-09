@@ -8,25 +8,25 @@ import mousetrap from 'mousetrap';
 import { transparentize } from 'style/system';
 
 import Button from 'components/Button';
-import AlbumContext from 'components/AlbumContext';
+// import AlbumContext from 'components/AlbumContext';
+import AlbumContext from 'components/AlbumViewState';
 import Carousel from 'components/Carousel';
 
 const Modal = () => {
   const {
     isModalOpen,
     closeModal,
-    data,
-    currentIndex,
-    changeSlide,
-    slide,
+    photos,
+    photoIndex,
+    changePhoto,
   } = React.useContext(AlbumContext);
 
   React.useEffect(() => {
     const prev = () => {
-      changeSlide(-1);
+      changePhoto(-1);
     };
     const next = () => {
-      changeSlide(1);
+      changePhoto(1);
     };
 
     mousetrap.bind('left', prev);
@@ -36,7 +36,7 @@ const Modal = () => {
       mousetrap.unbind('left');
       mousetrap.unbind('right');
     };
-  }, [changeSlide]);
+  }, [changePhoto]);
 
   return (
     <DialogOverlay
@@ -77,12 +77,7 @@ const Modal = () => {
           })}
           children="Close"
         />
-        <Carousel
-          items={data}
-          currentIndex={currentIndex}
-          slide={slide}
-          handleChange={changeSlide}
-        />
+        <Carousel items={photos} handleChange={changePhoto} {...photoIndex} />
       </DialogContent>
     </DialogOverlay>
   );

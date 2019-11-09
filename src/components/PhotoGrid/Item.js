@@ -5,7 +5,6 @@ import css from '@emotion/css';
 import { span } from 'style/shared';
 
 import Link from 'components/Link';
-import AlbumContext from 'components/AlbumContext';
 import Photo from 'components/Photo';
 import VisuallyHidden from 'components/VisuallyHidden';
 
@@ -15,13 +14,12 @@ const propTypes = {
   fields: PropTypes.object,
 };
 
-const Item = ({ id, image: { fluid }, fields }) => {
-  const { openModal } = React.useContext(AlbumContext);
+const Item = ({ id, image: { fluid }, fields, onClick }) => {
   return (
     <li>
       <Photo
         image={{ fluid }}
-        onClick={openModal}
+        onClick={onClick}
         data-photo-id={id}
         css={css({
           cursor: 'pointer',

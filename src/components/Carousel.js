@@ -16,7 +16,7 @@ const propTypes = {
 
 const AnimatedImage = animated(GatsbyImage);
 
-const Carousel = ({ items, handleChange, slide: { current, previous } }) => {
+const Carousel = ({ items, handleChange, current, previous }) => {
   const width = React.useRef(0);
   const ref = React.useRef(null);
 
