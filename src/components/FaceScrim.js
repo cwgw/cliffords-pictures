@@ -1,7 +1,5 @@
-/** @jsx jsx */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { jsx } from '@emotion/core';
 import css from '@styled-system/css';
 
 const propTypes = {

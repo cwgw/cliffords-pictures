@@ -1,9 +1,8 @@
 import React from 'react';
 
+import AlbumContext from 'components/AlbumViewState';
 import Layout from 'components/Layout';
 import PhotoGrid from 'components/PhotoGrid';
-// import AlbumContext from 'components/AlbumContext';
-import AlbumContext from 'components/AlbumViewState';
 
 const Index = ({ pageContext }) => {
   const { photos } = React.useContext(AlbumContext);
@@ -11,7 +10,7 @@ const Index = ({ pageContext }) => {
   return (
     <Layout>
       <p style={{ textAlign: 'center' }}>{count} images</p>
-      <PhotoGrid pageData={pageContext} isInfinite={true} />
+      <PhotoGrid pageData={pageContext} isInfiniteScrollAllowed={true} />
     </Layout>
   );
 };

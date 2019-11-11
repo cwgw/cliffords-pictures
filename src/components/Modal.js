@@ -1,15 +1,12 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx } from '@emotion/core';
 import css from '@styled-system/css';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 import mousetrap from 'mousetrap';
 
-import { transparentize } from 'style/system';
+import { transparentize } from 'style/utils';
 
-import Button from 'components/Button';
-// import AlbumContext from 'components/AlbumContext';
 import AlbumContext from 'components/AlbumViewState';
+import Button from 'components/Button';
 import Carousel from 'components/Carousel';
 
 const Modal = () => {
@@ -22,19 +19,21 @@ const Modal = () => {
   } = React.useContext(AlbumContext);
 
   React.useEffect(() => {
-    const prev = () => {
+    const prev = e => {
+      e.preventDefault();
       changePhoto(-1);
     };
-    const next = () => {
+    const next = e => {
+      e.preventDefault();
       changePhoto(1);
     };
 
-    mousetrap.bind('left', prev);
-    mousetrap.bind('right', next);
+    mousetrap.bind(['left', 'j'], prev);
+    mousetrap.bind(['right', 'k'], next);
 
     return () => {
-      mousetrap.unbind('left');
-      mousetrap.unbind('right');
+      mousetrap.unbind(['left', 'j']);
+      mousetrap.unbind(['right', 'k']);
     };
   }, [changePhoto]);
 
@@ -60,17 +59,15 @@ const Modal = () => {
         css={css({
           width: '100%',
           maxWidth: '768px',
-          marginY: 0,
-          marginX: 'auto',
+          margin: 'auto',
           outline: 'none',
-          // overflow: 'hidden',
         })}
         aria-label="Photo modal"
       >
         <Button
           onClick={closeModal}
           css={css({
-            position: 'absolute',
+            position: 'fixed',
             top: 'sm',
             right: 'sm',
             zIndex: 1000,

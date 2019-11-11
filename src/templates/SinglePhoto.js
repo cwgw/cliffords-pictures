@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
 import React from 'react';
 import css from '@styled-system/css';
 import { graphql, navigate } from 'gatsby';
@@ -67,9 +65,6 @@ const SingleImage = ({
             width: '768px',
             maxWidth: '100%',
             margin: '0 auto',
-            '& img': {
-              cursor: 'zoom-in',
-            },
           })}
         >
           {isVisible && (

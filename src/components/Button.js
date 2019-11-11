@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { variant } from 'styled-system';
 import css from '@styled-system/css';
 
-import { transparentize } from 'style/system';
+import { transparentize } from 'style/utils';
 import Link from 'components/Link';
 
 const propTypes = {

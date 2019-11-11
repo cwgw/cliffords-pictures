@@ -1,3 +1,5 @@
+import { color } from './utils';
+
 const hideVisually = {
   position: 'absolute',
   width: '1px',
@@ -19,6 +21,12 @@ const span = {
   display: 'block',
 };
 
+const outline = {
+  outline: `3px solid ${color.secondary}`,
+  transition: `outline 100ms`,
+  transitionTimingFunction: 'in',
+};
+
 const type = {};
 
-export { hideVisually, span, type };
+export { hideVisually, outline, span, type };

@@ -1,12 +1,20 @@
 import { transparentize as _transparentize } from 'polished';
-import _get from 'lodash/get';
-import { get as sGet } from '@styled-system/core';
+import { get as ssGet } from '@styled-system/core';
 
 import theme from './theme';
 
+// based on https://github.com/developit/dlv
+export const delve = (obj, key, def, p, undef) => {
+  key = key && key.split ? key.split('.') : [key];
+  for (p = 0; p < key.length; p++) {
+    obj = obj ? obj[key[p]] : undef;
+  }
+  return obj === undef ? def : obj;
+};
+
 const get = (scale, key) => props => {
-  const theme = _get(props, 'theme', props);
-  return sGet(theme, `${scale}.${key}`);
+  const theme = delve(props, 'theme', props);
+  return ssGet(theme, `${scale}.${key}`);
 };
 
 const color = Object.keys(theme.colors).reduce(
