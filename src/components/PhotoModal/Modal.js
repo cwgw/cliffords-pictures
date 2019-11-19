@@ -7,7 +7,8 @@ import { transparentize } from 'style/utils';
 
 import AlbumContext from 'components/AlbumViewState';
 import Button from 'components/Button';
-import Carousel from 'components/Carousel';
+
+import Carousel from './Carousel';
 
 const Modal = () => {
   const {
@@ -74,7 +75,12 @@ const Modal = () => {
           })}
           children="Close"
         />
-        <Carousel items={photos} handleChange={changePhoto} {...photoIndex} />
+        <Carousel
+          items={photos}
+          onDismiss={closeModal}
+          onChange={changePhoto}
+          {...photoIndex}
+        />
       </DialogContent>
     </DialogOverlay>
   );

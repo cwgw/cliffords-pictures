@@ -9,7 +9,7 @@ import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import Button from 'components/Button';
 import Pagination from 'components/Pagination';
 import AlbumContext from 'components/AlbumViewState';
-import Modal from 'components/Modal';
+import Modal from 'components/PhotoModal';
 
 import GridItem from './GridItem';
 
