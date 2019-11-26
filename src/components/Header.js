@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby';
 import css from '@styled-system/css';
 
-import { transparentize } from 'style/system';
+import { transparentize } from 'style/utils';
 
 const Wrapper = styled('header')({
   margin: '0 auto 4rem',

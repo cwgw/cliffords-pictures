@@ -10,7 +10,6 @@ import theme from 'style/theme';
 
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-import Modal from 'components/Modal';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -30,7 +29,6 @@ const Layout = ({ children }) => {
         <Header />
         <main>{children}</main>
         <Footer />
-        <Modal />
       </React.Fragment>
     </ThemeProvider>
   );

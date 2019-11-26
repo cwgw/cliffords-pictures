@@ -99,9 +99,12 @@ function Provider({ children }) {
       dispatch({ type: 'OPEN_MODAL' });
       if (e && e.currentTarget) {
         const id = e.currentTarget.dataset.photoId;
-        if (!id) return;
-        const index = findIndex(state.photos, o => o.id === id);
-        dispatch({ type: 'SET_PHOTO', index });
+        if (id) {
+          dispatch({
+            type: 'SET_PHOTO',
+            index: findIndex(state.photos, o => o.id === id),
+          });
+        }
       }
     },
     [state.photos]
@@ -135,20 +138,15 @@ function Provider({ children }) {
     const index = state.pageIndex + 1;
     const uri = `${__PATH_PREFIX__}/${state.paginationEndpoint}/${index}.json`;
     fetch(uri)
-      .then(res => {
-        console.log(res);
-        return res.json();
-      })
+      .then(res => res.json())
       .then(data => {
-        console.log(data);
         dispatch({ type: 'ADD_PHOTOS', data });
       })
       .catch(err => {
         console.error(
           `Failed to load more images.`,
           `Couldn't fetch pagination data.`,
-          err,
-          uri
+          err
         );
       });
   }, [hasMore, state.pageIndex, state.paginationEndpoint]);

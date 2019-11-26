@@ -1,4 +1,4 @@
-import { type } from './shared';
+import { outline, type } from './shared';
 import fonts from 'assets/fonts';
 
 export default {
@@ -7,6 +7,9 @@ export default {
   },
   '*, *::before, *::after': {
     boxSizing: 'inherit',
+  },
+  '*:focus': {
+    ...outline,
   },
   '#gatsby-noscript': {
     position: 'absolute',

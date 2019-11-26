@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
 import React from 'react';
 import css from '@styled-system/css';
 import { graphql, navigate } from 'gatsby';
@@ -17,7 +15,7 @@ const SingleImage = ({
   pageContext,
   location,
   data: {
-    photosJson: { id, image, faces },
+    photo: { id, image, faces },
   },
 }) => {
   const toNext = React.useCallback(() => {
@@ -67,9 +65,6 @@ const SingleImage = ({
             width: '768px',
             maxWidth: '100%',
             margin: '0 auto',
-            '& img': {
-              cursor: 'zoom-in',
-            },
           })}
         >
           {isVisible && (
@@ -93,7 +88,7 @@ export default SingleImage;
 
 export const query = graphql`
   query singleImage($id: String!) {
-    photosJson(id: { eq: $id }) {
+    photo(id: { eq: $id }) {
       id
       image {
         fluid(maxWidth: 768) {
@@ -108,19 +103,19 @@ export const query = graphql`
           height
         }
       }
-      faces {
-        id
-        rect {
-          top
-          left
-          width
-          height
-          center {
-            x
-            y
-          }
-        }
-      }
     }
   }
 `;
+// faces {
+//   id
+//   rect {
+//     top
+//     left
+//     width
+//     height
+//     center {
+//       x
+//       y
+//     }
+//   }
+// }

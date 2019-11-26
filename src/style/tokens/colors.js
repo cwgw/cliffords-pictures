@@ -8,6 +8,7 @@ export default {
   // background: '#292a24',
   background: colors.white,
   primary: '#333c2f',
+  secondary: '#333c2f',
   text: '#333c2f',
   accent: 'lightCyan',
 };

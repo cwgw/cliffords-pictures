@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
+import React from 'react';
 import PropTypes from 'prop-types';
 import css from '@styled-system/css';
 
@@ -25,7 +24,7 @@ const Pagination = props => {
     },
     {
       slug: next,
-      style: { gridColumn: 2 },
+      style: { justifySelf: 'start', gridColumn: 2 },
       text: `→`,
     },
   ];

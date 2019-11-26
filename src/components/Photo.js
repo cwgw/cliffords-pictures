@@ -1,11 +1,10 @@
-/** @jsx jsx */
+import React from 'react';
 import PropTypes from 'prop-types';
-import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import css from '@styled-system/css';
 import Image from 'gatsby-image';
 
-import { color } from 'style/system';
+import { color } from 'style/utils';
 
 const propTypes = {
   children: PropTypes.node,
