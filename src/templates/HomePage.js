@@ -6,10 +6,13 @@ import PhotoGrid from 'components/PhotoGrid';
 
 const Index = ({ pageContext }) => {
   const { photos } = React.useContext(AlbumContext);
-  const count = photos.length || pageContext.photos.length;
+  const current = photos.length || pageContext.photos.length;
+  const total = pageContext.photoTotal;
   return (
     <Layout>
-      <p style={{ textAlign: 'center' }}>{count} images</p>
+      <p style={{ textAlign: 'center' }}>
+        [{current}/{total}] images
+      </p>
       <PhotoGrid pageData={pageContext} isInfiniteScrollAllowed={true} />
     </Layout>
   );
