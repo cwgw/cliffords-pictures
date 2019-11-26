@@ -33,7 +33,7 @@ const Item = ({ id, image, fields, onClick, isInitialized }) => {
     <li
       css={css({
         position: 'relative',
-        boxShadow: 'raised',
+        boxShadow: 'slight',
       })}
     >
       <GatsbyImage {...image} />

@@ -40,6 +40,7 @@ const Grid = styled('ul')(
     gridRowGap: 'lg',
     gridTemplateColumns: `repeat(auto-fill, minmax(0, 384px))`,
     justifyContent: 'center',
+    alignItems: 'center',
     maxWidth: `calc(384px * 3 + ${space.lg}px * 2)`,
     padding: 'sm',
     marginY: 'xl',
