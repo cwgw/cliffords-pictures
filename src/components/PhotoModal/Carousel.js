@@ -18,11 +18,16 @@ const AnimatedImage = animated(GatsbyImage);
 
 const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
   const container = React.useRef(null);
-  const containerWidth = React.useRef(0);
+  const dim = React.useRef({
+    width: 0,
+    height: 0,
+  });
   const windowWidth = React.useRef(0);
   const isZooming = React.useRef(false);
   const axis = React.useRef(null);
 
+  // this is necessary for pinch on touchpad
+  // maybe delete once mobile pinching works nicely
   const tmpRef = React.useRef(null);
 
   React.useEffect(() => {
@@ -33,7 +38,8 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
 
   React.useEffect(() => {
     if (container.current) {
-      containerWidth.current = container.current.clientWidth;
+      let width = container.current.parentNode.clientWidth;
+      dim.current.width = width;
     }
   }, [container]);
 
@@ -47,7 +53,7 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
       expires: 0,
       from: {
         transform: `matrix(0.9, 0, 0, 0.9, ${transitionDirection *
-          containerWidth.current}, 0)`,
+          dim.current.width}, 0)`,
         opacity: 0,
       },
       enter: {
@@ -56,17 +62,20 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
       },
       leave: {
         transform: `matrix(0.9, 0, 0, 0.9, ${transitionDirection *
-          -containerWidth.current}, 0)`,
+          -dim.current.width}, 0)`,
         opacity: 0,
       },
     },
-    [containerWidth.current, current]
+    [dim.current.width, current]
   );
 
-  const [{ s, x, y }, setSpring] = useSpring(() => ({ s: 0, x: 0, y: 0 }), {
-    tension: 500,
-    friction: 30,
-  });
+  const [{ s, x, y, opacity }, setSpring] = useSpring(
+    () => ({ s: 0, x: 0, y: 0, opacity: 1 }),
+    {
+      tension: 500,
+      friction: 30,
+    }
+  );
 
   // console.log(s.animation.to)
 
@@ -84,8 +93,7 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
       }) => {
         if (isZooming.current) {
           const relativeWidth =
-            ((1 + s.animation.to) * containerWidth.current) /
-            windowWidth.current;
+            ((1 + s.animation.to) * dim.current.width) / windowWidth.current;
           setSpring({
             x: relativeWidth > 1 || down ? mx : 0,
             y: relativeWidth > 1 || down ? my : 0,
@@ -93,50 +101,57 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
           return;
         }
 
-        // lock axis
-        switch (axis.current) {
-          case 'x': {
-            if (last && Math.abs(vx) > 0.5) {
-              onChange(dx > 0 ? -1 : 1);
-              cancel();
-              setSpring({ x: 0, y: 0 });
-              axis.current = null;
-              return;
-            }
-            setSpring({
-              x: down ? memo[0] + mx : 0,
-              y: 0,
-            });
-            break;
+        if (!axis.current) {
+          if (Math.abs(dx) > Math.abs(dy)) {
+            axis.current = 'x';
+          } else if (Math.abs(dy) > Math.abs(dx)) {
+            axis.current = 'xy';
           }
-          case 'y': {
-            if (canceled) {
-              axis.current = null;
-              return;
-            }
-            if (down && my > 300) {
-              cancel();
-              setSpring({
-                y: my + 200,
-                s: Math.max(my, 0) / -1000,
-                onRest: onDismiss,
-              });
-              return;
-            }
+        }
+
+        if (canceled) {
+          axis.current = null;
+          return;
+        }
+
+        if (axis.current === 'x') {
+          console.log(vx);
+          if (
+            last &&
+            (vx * (mx > 0 ? 1 : -1) >= 1 ||
+              Math.abs(mx) > (dim.current.width * 2) / 3)
+          ) {
+            onChange(mx > 0 ? -1 : 1);
+            cancel();
+            setSpring({ x: 0, y: 0, s: 0 });
+            axis.current = null;
+            return;
+          }
+          setSpring({
+            x: down ? memo[0] + mx : 0,
+            y: 0,
+            s: 0,
+          });
+        }
+
+        if (axis.current === 'xy') {
+          if (last && (vy > 2 || my > dim.current.width / 2)) {
+            cancel();
             setSpring({
               x: 0,
-              y: down ? memo[1] + my : 0,
-              s: down ? Math.max(my, 0) / -1000 : 0,
+              y: 0,
+              s: -0.75,
+              opacity: 0,
+              onRest: onDismiss,
             });
-            break;
+            axis.current = null;
+            return;
           }
-          default: {
-            if (Math.abs(dx) > Math.abs(dy)) {
-              axis.current = 'x';
-            } else if (Math.abs(dy) > Math.abs(dx)) {
-              axis.current = 'y';
-            }
-          }
+          setSpring({
+            x: down ? memo[0] + mx : 0,
+            y: down ? memo[1] + my : 0,
+            s: down ? Math.max(my, 0) / -1000 : 0,
+          });
         }
 
         if (last) {
@@ -159,7 +174,7 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
         }
         const s = clamp(last || first ? 0 : -0.5, d / 200, 3);
         const relativeWidth =
-          ((1 + s) * containerWidth.current) / windowWidth.current;
+          ((1 + s) * dim.current.width) / windowWidth.current;
         // console.log(relativeWidth)
         // console.log(s)
         const x = relativeWidth < 1 ? 0 : mx;
@@ -175,35 +190,47 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
   );
 
   return (
-    <animated.div
+    <div
       css={css({
         position: 'relative',
+        // display: 'grid',
+        // alignItems: 'center',
+        // justifyContent: 'center',
       })}
       ref={container}
     >
-      {transition((values, item) => (
-        <animated.div style={values} ref={tmpRef} {...bind()}>
-          <AnimatedImage
+      {transition((values, item) => {
+        return (
+          <animated.div
             style={{
-              position: 'absolute',
-              transform: to(
-                [s, x, y],
-                (s, x, y) => `matrix(${1 + s},0,0,${1 + s},${x},${y})`
-              ),
+              ...values,
             }}
-            css={{
-              marginTop: '-50%',
-              width: '100%',
-            }}
-            fluid={item.image.full}
-            imgStyle={{
-              pointerEvents: 'none',
-              userSelect: 'none',
-            }}
-          />
-        </animated.div>
-      ))}
-    </animated.div>
+            ref={tmpRef}
+            {...bind()}
+          >
+            <AnimatedImage
+              style={{
+                position: 'absolute',
+                transform: to(
+                  [s, x, y],
+                  (s, x, y) => `matrix(${1 + s},0,0,${1 + s},${x},${y})`
+                ),
+                opacity,
+              }}
+              css={{
+                marginTop: '-50%',
+                width: '100%',
+              }}
+              fluid={item.image.full}
+              imgStyle={{
+                pointerEvents: 'none',
+                userSelect: 'none',
+              }}
+            />
+          </animated.div>
+        );
+      })}
+    </div>
   );
 };
 

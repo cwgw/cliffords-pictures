@@ -10,11 +10,11 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 };
 
 exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
-  if (node.internal.type === 'PhotosJson') {
+  if (node.internal.type === 'Photo') {
     createNodeField({
       node,
       name: 'slug',
-      value: `/photos/${node.id}`,
+      value: `/photo/${node.id}`,
     });
   }
 };
@@ -27,7 +27,7 @@ exports.createPages = ({
 }) => {
   return graphql(`
     {
-      photos: allPhotosJson(sort: { fields: id }) {
+      photos: allPhoto(sort: { fields: id }) {
         edges {
           node {
             id
@@ -68,10 +68,8 @@ exports.createPages = ({
       reporter.panicOnBuild(errors);
     }
     const HomePage = path.resolve('src/templates/HomePage.js');
-    const SinglePhotoTemplate = path.resolve('src/templates/SinglePhoto.js');
-    const PaginatedListTemplate = path.resolve(
-      'src/templates/PaginatedPhotoList.js'
-    );
+    const SinglePhoto = path.resolve('src/templates/SinglePhoto.js');
+    const ListTemplate = path.resolve('src/templates/PaginatedPhotoList.js');
     const photos = data.photos.edges.map(({ node }) => node);
     const perPageLimit = 18;
     const pageTotal = Math.ceil(photos.length / perPageLimit);
@@ -83,7 +81,7 @@ exports.createPages = ({
       const prev = i - 1 < 0 ? arr[arr.length - 1] : arr[i - 1];
       createPage({
         path: node.fields.slug,
-        component: SinglePhotoTemplate,
+        component: SinglePhoto,
         context: {
           id: node.id,
           next: next.fields.slug,
@@ -97,6 +95,7 @@ exports.createPages = ({
       const context = {
         pageIndex,
         pageTotal,
+        photoTotal: photos.length,
         paginationEndpoint: path.join('static/pagination', hash),
         photos: photos.slice(i * perPageLimit, i * perPageLimit + perPageLimit),
       };
@@ -112,7 +111,7 @@ exports.createPages = ({
 
       createPage({
         path: `/page/${i + 1}`,
-        component: PaginatedListTemplate,
+        component: ListTemplate,
         context,
       });
 

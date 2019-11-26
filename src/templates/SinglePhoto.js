@@ -15,7 +15,7 @@ const SingleImage = ({
   pageContext,
   location,
   data: {
-    photosJson: { id, image, faces },
+    photo: { id, image, faces },
   },
 }) => {
   const toNext = React.useCallback(() => {
@@ -88,7 +88,7 @@ export default SingleImage;
 
 export const query = graphql`
   query singleImage($id: String!) {
-    photosJson(id: { eq: $id }) {
+    photo(id: { eq: $id }) {
       id
       image {
         fluid(maxWidth: 768) {
@@ -103,19 +103,19 @@ export const query = graphql`
           height
         }
       }
-      faces {
-        id
-        rect {
-          top
-          left
-          width
-          height
-          center {
-            x
-            y
-          }
-        }
-      }
     }
   }
 `;
+// faces {
+//   id
+//   rect {
+//     top
+//     left
+//     width
+//     height
+//     center {
+//       x
+//       y
+//     }
+//   }
+// }

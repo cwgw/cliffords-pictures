@@ -1,15 +1,9 @@
-const cpconfig = require('./cpconfig');
-
 module.exports = {
   siteMetadata: {
     title: "Clifford's Pictures",
     description: '',
     author: 'Charlie',
   },
-  // mapping: {
-  //   // 'FacesJson.person': 'PeopleJson',
-  //   'FacesJson.image': 'ImageSharp.fields.imageID',
-  // },
   plugins: [
     // {
     //   resolve: 'gatsby-plugin-manifest',
@@ -24,29 +18,15 @@ module.exports = {
     //   },
     // },
     {
-      resolve: 'cp-transformer-photos',
-      options: cpconfig,
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
+      resolve: 'cp-source-photos',
       options: {
-        name: 'data',
-        path: `${__dirname}/data`,
+        path: `${__dirname}/content`,
+        withWebp: true,
+        withBase64: true,
       },
     },
     'gatsby-plugin-react-helmet',
-    // {
-    //   resolve: 'gatsby-plugin-sharp',
-    //   options: {
-    //     useMozJpeg: true,
-    //     stripMetadata: true,
-    //     defaultQuality: 85,
-    //   },
-    // },
     'gatsby-plugin-emotion',
-    'gatsby-transformer-json',
-    // 'gatsby-transformer-sharp',
-    // 'gatsby-transformer-yaml',
     'gatsby-plugin-offline',
   ],
 };
