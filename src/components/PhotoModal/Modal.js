@@ -19,16 +19,27 @@ const Modal = () => {
     changePhoto,
   } = React.useContext(AlbumContext);
 
-  React.useEffect(() => {
-    const prev = e => {
-      e.preventDefault();
+  const prev = React.useCallback(
+    e => {
+      if (e) {
+        e.preventDefault();
+      }
       changePhoto(-1);
-    };
-    const next = e => {
-      e.preventDefault();
-      changePhoto(1);
-    };
+    },
+    [changePhoto]
+  );
 
+  const next = React.useCallback(
+    e => {
+      if (e) {
+        e.preventDefault();
+      }
+      changePhoto(1);
+    },
+    [changePhoto]
+  );
+
+  React.useEffect(() => {
     mousetrap.bind(['left', 'j'], prev);
     mousetrap.bind(['right', 'k'], next);
 
@@ -36,7 +47,7 @@ const Modal = () => {
       mousetrap.unbind(['left', 'j']);
       mousetrap.unbind(['right', 'k']);
     };
-  }, [changePhoto]);
+  }, [prev, next]);
 
   return (
     <DialogOverlay
@@ -73,8 +84,51 @@ const Modal = () => {
             right: 'sm',
             zIndex: 1000,
           })}
-          children="Close"
+          children="╳"
+          title="Close"
         />
+        <nav
+          css={{
+            '@media (max-width: 768px)': {
+              position: 'fixed',
+              bottom: 0,
+              left: 0,
+              width: '100%',
+              display: 'flex',
+              background: '#000',
+              borderTop: '1px solid #333',
+              '& > *': {
+                flex: 1,
+              },
+            },
+          }}
+        >
+          <Button
+            onClick={prev}
+            css={css({
+              '@media (min-width: 768px)': {
+                position: 'fixed',
+                top: 'calc(50% - 0.5em)',
+                left: 'sm',
+              },
+            })}
+            children="←"
+            title="Previous photo"
+            disabled={photoIndex.current === 0}
+          />
+          <Button
+            onClick={next}
+            css={css({
+              '@media (min-width: 768px)': {
+                position: 'fixed',
+                top: 'calc(50% - 0.5em)',
+                right: 'sm',
+              },
+            })}
+            children="→"
+            title="Next photo"
+          />
+        </nav>
         <Carousel
           items={photos}
           onDismiss={closeModal}
