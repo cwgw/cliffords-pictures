@@ -18,6 +18,9 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case 'INITIALIZE': {
+      if (state.isInitialized) {
+        return state;
+      }
       const {
         pageIndex,
         pageTotal,
