@@ -118,7 +118,7 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
           console.log(vx);
           if (
             last &&
-            (vx * (mx > 0 ? 1 : -1) >= 1 ||
+            (vx * (mx > 0 ? 1 : -1) >= 0.5 ||
               Math.abs(mx) > (dim.current.width * 2) / 3)
           ) {
             onChange(mx > 0 ? -1 : 1);
@@ -135,7 +135,7 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
         }
 
         if (axis.current === 'xy') {
-          if (last && (vy > 2 || my > dim.current.width / 2)) {
+          if (last && (vy > 0.5 || my > dim.current.width / 2)) {
             cancel();
             setSpring({
               x: 0,
