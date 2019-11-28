@@ -85,7 +85,8 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
         down,
         last,
         movement: [mx, my],
-        direction: [dx, dy],
+        direction: [dirx, diry],
+        delta: [dx, dy],
         vxvy: [vx, vy],
         memo = [x.animation.to, y.animation.to],
         cancel,
@@ -102,9 +103,9 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
         }
 
         if (!axis.current) {
-          if (Math.abs(dx) > Math.abs(dy)) {
+          if (Math.abs(dirx) > Math.abs(diry)) {
             axis.current = 'x';
-          } else if (Math.abs(dy) > Math.abs(dx)) {
+          } else if (Math.abs(diry) > Math.abs(dirx)) {
             axis.current = 'xy';
           }
         }
@@ -115,11 +116,9 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
         }
 
         if (axis.current === 'x') {
-          console.log(vx);
           if (
             last &&
-            (vx * (mx > 0 ? 1 : -1) >= 0.5 ||
-              Math.abs(mx) > (dim.current.width * 2) / 3)
+            (vx * dx >= 0.5 || Math.abs(mx) > (dim.current.width * 2) / 3)
           ) {
             onChange(mx > 0 ? -1 : 1);
             cancel();
@@ -135,7 +134,7 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
         }
 
         if (axis.current === 'xy') {
-          if (last && (vy > 0.5 || my > dim.current.width / 2)) {
+          if (last && (vy * dy > 0.5 || my > dim.current.width / 2)) {
             cancel();
             setSpring({
               x: 0,
