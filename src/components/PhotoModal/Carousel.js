@@ -72,12 +72,10 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
   const [{ s, x, y, opacity }, setSpring] = useSpring(
     () => ({ s: 0, x: 0, y: 0, opacity: 1 }),
     {
-      tension: 500,
-      friction: 30,
+      tension: 750,
+      friction: 20,
     }
   );
-
-  // console.log(s.animation.to)
 
   const bind = useGesture(
     {
@@ -118,7 +116,8 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
         if (axis.current === 'x') {
           if (
             last &&
-            (vx * dx >= 0.5 || Math.abs(mx) > (dim.current.width * 2) / 3)
+            ((mx * vx > 0 && vx * dx > 0.5) ||
+              Math.abs(mx) > (dim.current.width * 2) / 3)
           ) {
             onChange(mx > 0 ? -1 : 1);
             cancel();
@@ -134,7 +133,10 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
         }
 
         if (axis.current === 'xy') {
-          if (last && (vy * dy > 0.5 || my > dim.current.width / 2)) {
+          if (
+            last &&
+            ((my > 0 && vy * dy > 0.5) || my > dim.current.width / 2)
+          ) {
             cancel();
             setSpring({
               x: 0,
@@ -160,7 +162,6 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
         return memo;
       },
       onPinch: props => {
-        // console.log(props)
         isZooming.current = true;
         const {
           da: [d],
@@ -174,15 +175,12 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
         const s = clamp(last || first ? 0 : -0.5, d / 200, 3);
         const relativeWidth =
           ((1 + s) * dim.current.width) / windowWidth.current;
-        // console.log(relativeWidth)
-        // console.log(s)
         const x = relativeWidth < 1 ? 0 : mx;
         const y = relativeWidth < 1 ? 0 : my;
         setSpring({ s, x, y });
       },
     },
     {
-      // dragDelay: 150,
       event: { passive: false },
       domTarget: tmpRef,
     }
@@ -192,11 +190,9 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
     <div
       css={css({
         position: 'relative',
-        // display: 'grid',
-        // alignItems: 'center',
-        // justifyContent: 'center',
       })}
       ref={container}
+      {...bind()}
     >
       {transition((values, item) => {
         return (
@@ -205,7 +201,6 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
               ...values,
             }}
             ref={tmpRef}
-            {...bind()}
           >
             <AnimatedImage
               style={{
