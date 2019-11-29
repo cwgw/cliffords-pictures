@@ -18,10 +18,12 @@ const Link = styled(GatsbyLink)(
     display: 'inline-block',
     fontSize: '2rem',
     fontFamily: 'serif',
+    fontVariationSettings: '"wght" 300, "opsz" 50, "XOPQ" 120, "PWGT" 150',
     textShadow: `0 0 12px ${transparentize(
       0.8,
       'primary'
     )}, 0 0 3px ${transparentize(0.6, 'primary')}`,
+    textDecoration: 'none',
   })
 );
 
