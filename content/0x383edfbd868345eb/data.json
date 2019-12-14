@@ -1,0 +1,39 @@
+{
+  "id": "0x383edfbd868345eb",
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADCklEQVQoz0XN/TOaAQDA8eef2J4xZ7PdbGeZNae6sezMS0ZDrHlLKXrCWKsnxeSZiDBDmZnenp5eMVHdZtWJGbUeEVEb/pk5u93uPr9+7wv4/T7XqtNuM5tMetSkQ016E6bHMB2GaW1Ww6LDtPLZ4lm1+9acW5veCL4NLNjRmekRRb9YCgtgMV8CQ1IJJIX5Mri1XyZQyrsmlfDH931m7ahrUbvhWwG0s2OITABxyuuqqbUMal3Vo9rKXGY5mVlGanxG4T/PF3Fo8s7qdwjfoEFcC/OAbkbZD3MgVmFDJamenl1bksmg3iolpdKyr5aTUph5N7g0QsdzSo+APoG0YZ9GAYdxUj0sHJTU97bTpbyiruocbkF6TU5yJRFkEMF6cgqv4LbgWbaYXaLs5s1PDQBrn/VL+hGzRqpTCTSyF4Ns6uuSO1xyMusB2EgEueTUticZnRVkCbtUKeHOTSDAjzVHYGXOvzDu1sowRdMEN7+nOL2dlNRKBJuzQD7p2quie3BNnpxfMd4L6c4PuwFn2GsKejQ+tM+iaBpn5Xbn32i7D7ZmXuYSQCgnTUQjvmkoGH7F1Cg6sRklENk4D9CgR+1F35jfslR1D0W5aXzC5eaMS5y7VwSUmxI6aYBHm5A2zqlE1o8qYG9zOew1Bj3TfrPcpuSOsR+LqOkt95KaCCA7KxnKS4crKQivdLy7cXZYaDkP9r87cZ8x9EW9sTC4PNUx3VEufXofIl9vzk7hUdLaCwlixsMeTvGQkDn19iU2qwIOdtx7ASvum9/xTK2hiFHRMtJSJmPkiugkCSOvp76wr7lMDlUNiVnqIbFdPw0chtejO+79rcVIwLrlmXcZVKhKoultm+xuVfe2a/q71IhwEhFqhmXGD6PuJTNwFA3H9rZju5uH+Hpk+9sPr9O7bPHYDKsWndtmcDvQVbtx2apfcZi+upa2An7gKHZ8HItdODw6iEYjkb3wTzwUxINBPBS6EAwHd8KhUATHo9ED4Oj45Dh+Gk+cxX+dJRKnf8X/O4knfsfj/yRO/gDdTI8Xpi/X2gAAAABJRU5ErkJggg==",
+  "aspectRatio": 0.9800995024875622,
+  "transform": null,
+  "faces": [
+    {
+      "id": "0x383edfbd868345eb-42-31",
+      "faceId": "7e9e7917-264f-4e15-b3fe-a64f2b06222b",
+      "rect": {
+        "top": 0.24655436,
+        "left": 0.3546875,
+        "width": 0.1234375,
+        "height": 0.12098009,
+        "center": {
+          "x": 0.41640625,
+          "y": 0.30704441
+        }
+      }
+    },
+    {
+      "id": "0x383edfbd868345eb-67-26",
+      "faceId": "41d07be2-2a18-426e-a99f-43ef0dda74f6",
+      "rect": {
+        "top": 0.20520674,
+        "left": 0.6140625,
+        "width": 0.10572917,
+        "height": 0.1036243,
+        "center": {
+          "x": 0.66692709,
+          "y": 0.25701889
+        }
+      }
+    }
+  ],
+  "people": null,
+  "date": null,
+  "location": null
+}
