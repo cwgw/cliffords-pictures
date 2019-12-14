@@ -1,0 +1,53 @@
+{
+  "id": "0xa8b51a4d324b0595",
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAAC+UlEQVQozyWJCVMSAQCF9xeZMzWVY2k2WJmKdoiVHQwoV4RyioCALKiwG7DckCCIwqpAKnKJ7YoiOTgi1Qo649Flv6Nt+uabN2/eA6pfvlYOK5XDg8PqQfXLYaVa2T8o7+3tlop4cTu/s5Ur4NnNfCqfT2PYZnG3BHwuFba3s1t4krRQSON4KpdLJFfCCdQTW7Ath61oyBzyGQNeKBx0fUwsAjiWTK+H40tuNIKgUQcasYeDkN+p9sBC1zTPNc1FDJwpFR1UDkIG6YzXAuRzy4kl56xP67JK7WaJ/b0YMb6DNPRpWd+kuMcgpmqFVBnnvpjbrZYxEFgL5DPRRNQScMhsUywYZEJaulE1oBc9muB1qNntKg5ljNsuGrwrYj9US+kIpAE20/OrKBzxSv1mttvIsOpemeR9Wl6Hgt42+qZljNmm4FDkpPxuUMF0WiaAfCqUWjKtzsnjM8OLHr7fxDDLn6qYFCGtaYR2c5TeouW164bv6cQ9kHbIZweBjTV/Cp1MhkeTIeFqYHgOZprFvdJnzayORnZXo3SgWf+WYhLdh+W9Nj0r6DEAqbg3NquJuvkRx1DUNjSjf2kSdEloTYP3GpgPGkT9N/ScNniEYpFTXYahsHcSiEfsAZvEZXjt1PX7wBdOFQ0e7la8bOV1XR18cIX/6JqSftvAvQOLOx06RtitB6JBi9MogBT9kKzXpqQ5Vc8dcpqR1zX2opXfc533+Lrk1S01686UsBPRMIJOEFhe8PgQhQ1k27QM7yQ3CAkWYEEQZCOSgQlOr4JF1QieTEn7zOOv3Ubhwof3QC4dT6BedBZG/cZ4yLw2j2QjSCYEx93grFnpgcZ8VlXAMT7n1S8GrWuxeWC/vFcqYjt4dgdLFbFMCc+U8XQZW9/dWMHS8Y1ULJ9JbGYT2MZq4VNmd3sLODk5PT4+qdWPa7XaEQlxVCeI+hFRI74RxDcSgvgvCfnWgfOL3+ffL89//LkgJQvpv+U3mWf/y/fLix/keHl2/uv07OdfG2m+6vkhf0AAAAAASUVORK5CYII=",
+  "aspectRatio": 0.9800995024875622,
+  "transform": null,
+  "faces": [
+    {
+      "id": "0xa8b51a4d324b0595-25-36",
+      "faceId": "0601a63c-f9ad-47ae-8f64-e59c536891f3",
+      "rect": {
+        "top": 0.30321593,
+        "left": 0.19895833,
+        "width": 0.10625,
+        "height": 0.10413476,
+        "center": {
+          "x": 0.25208333,
+          "y": 0.35528331
+        }
+      }
+    },
+    {
+      "id": "0xa8b51a4d324b0595-48-30",
+      "faceId": "5b18baff-0b8d-4ad6-a4b0-1290e29beff6",
+      "rect": {
+        "top": 0.25370087,
+        "left": 0.43177083,
+        "width": 0.10260417,
+        "height": 0.10056151,
+        "center": {
+          "x": 0.48307292,
+          "y": 0.30398163
+        }
+      }
+    },
+    {
+      "id": "0xa8b51a4d324b0595-64-33",
+      "faceId": "52716a95-f8be-44ec-9a48-4faa3f327c9d",
+      "rect": {
+        "top": 0.28279735,
+        "left": 0.59479167,
+        "width": 0.09479167,
+        "height": 0.09290454,
+        "center": {
+          "x": 0.64218751,
+          "y": 0.32924962
+        }
+      }
+    }
+  ],
+  "people": null,
+  "date": null,
+  "location": null
+}

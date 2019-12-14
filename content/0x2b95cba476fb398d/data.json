@@ -1,0 +1,39 @@
+{
+  "id": "0x2b95cba476fb398d",
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADCklEQVQozxWP+08SAQDH74/p+UOPrTaz3NRcNsUHxEsL5CVwctx5HnfngQcIASFFoASow1CYjxNLkhQxyxSlx1ZqXFlroVDZv9G5ffbdvt9fvt8vkM/vvFrLrWTS2XRqbSm1npl/nWHevGQ2lpm3q/Obq6kTssxm7vnORu7j+3fAAjMbiwZCQ/QTNxbzYpM+LOHHpodNTIR6NmFdjNs5ZUYpZtyeTo6sZVJAZOSRgzKQunZKWe/U1nn0tQ966h713QpbBXGfLOlXTXjlYbso7LgXD+CL01HgsddGQhJQXNXTdtYkPEOKThOSs7TyshetDzsEo56OgO3OfazRhbcOu8Hpp34gOESTBlG38Kqad8rAPwMLzyHSi4Tqmh1t8g7e9blVgzYZbhLguMTlgmOxADDy0EpAYoWwqrP5vFJwSd9RZVTUYSCPNEn7bd3EfQNiB7v7FXpKQ7mJkbEg12BFQbG0/Vrb7QtSQZVa1mDQtqOwFDHJeyiNlgZVNkhm0asGDCY35Y8EuA80ohcL26qbGi8J+dVKeaOxR9iHyoyYXIN1KQiVzKy/Z9ZrrBDpoYIR7oOPxozSu5IafuuVTskNraoRg++Qpk4U6wARsQaVqkmFmlJBtM7qwSMRHzAWcjrMSqP2llp2XddVg+puWnqbbaY2qrcFhZpguAXBxQgpxc1ypxMaDbmAxIQv6IXsBB8HawntjQGwxtVb7+m76UTqaajWgjTQBM+Ct9Kk0G3rHg0MAgvz45Pjg2Gfzm8VPSRb/ERTyMwLD/BCFl7Q0hKg+SGHOGgXP7bLQh4kzk3K5RYzixPPkkPMmHlmuG8mADPDcCoEL4R7U2F0IYo9H8dTUXwuOsDEfC/mpoD3HwqF7fX8m/RWdvbt0tRG+unmUjy/PLmzktjJJgrZZGE1ub2S2FqZ21pbKmxuAEX2oMiybHGP3f/M7n1i9z99+/L5gN39zu5xHBR3Oft1n8t32WLx29fvwI+f5Z+lyq/D36Xyn1L5b6lyfFg5Pvr976jy75CjfHzIheW/J3p0wn/bJ5nG/L3ddgAAAABJRU5ErkJggg==",
+  "aspectRatio": 0.9784768211920529,
+  "transform": null,
+  "faces": [
+    {
+      "id": "0x2b95cba476fb398d-78-26",
+      "faceId": "c796473e-f8d8-4740-9413-392220fefdd3",
+      "rect": {
+        "top": 0.21712538,
+        "left": 0.73645833,
+        "width": 0.0953125,
+        "height": 0.09327217,
+        "center": {
+          "x": 0.78411458,
+          "y": 0.26376147
+        }
+      }
+    },
+    {
+      "id": "0x2b95cba476fb398d-23-29",
+      "faceId": "c9f0d9da-faec-441f-b019-2190006ee6ac",
+      "rect": {
+        "top": 0.25637105,
+        "left": 0.1953125,
+        "width": 0.078125,
+        "height": 0.0764526,
+        "center": {
+          "x": 0.234375,
+          "y": 0.29459735
+        }
+      }
+    }
+  ],
+  "people": null,
+  "date": null,
+  "location": null
+}

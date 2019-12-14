@@ -1,62 +1,62 @@
 {
   "id": "0x3cba1d05f2fb0d87",
-  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAAC6klEQVQozzXQaVMSARjA8f06TdNMY1bTLR4hh3tx7eLCuuxyLsq9yKErAmoiBVamDscmkVEeiEGazdSrBAyb0pop/TCBM838XvxfPM+L5wH2D/bLle13W282ttY3t0tvN9ZfvS7khVwml80JuWw7hGwmn82vCeul0m61BpQ2iqvZxfTTeDo11ZaYn4hMj4fC7kDAGQy7uaDbxTlGXaybc0aikaWVZUAoLD9O8THeGuGISRfutWNWs5pmlDStpBiVVo+gapkc7EMVEsZI8pEJICsszic43oMFmQGfrocd7qP1UsoAUzRKkBCsEould0Wiq4MDN7UY6PE6gNXMk5m4M8jCHvyOS3nLjvfaGMQ2SljHSNKEKXA5CIukg9dh+V2SQNweB5BKzwY5I6sbMIFdFui6Fe9jTUrbGGm2k1pag+AgohIjqAjDBhkj4QtwQDwWYk2aYei2ZuCyXn6N1vQYR4baN+goBaoFh9QyCJMhuAwjlcZRs5/nAT7sY3QwKu6GRJe0si5KdY8mHhr0Uh0hVeISFJfDwzBIoCpaZ/Q4QzNzwGSos4A87IZ6LhHya4zmvknfbzFIzAaZgRrSU5CKRCACVRtJq9/HLyQBftJvphQa+U1MfMWkvDFGPnAy/V6rhLNDvlGFw6Zof0ytAwnTsCPgjSaTwNTUOGtWjajuMIouz8itoLUnyPaGx8RTbijGaXgv5mIVjAE0W3BfwBlPzAGJRDTsN3IsHLZL5rihhRA8H4DmxpFEWLsYNaVjtke8eYKjQn5LdDrwJJ0EhNzqUjr+NMEtJ90vn3kKzz35tDOTdGZT48WVWCm3UMwsZJ7PLKVnV16kBCEHfKjVKuWNylaxur32cbdwsLu2Vxaqm0Jtu/iptvnlYPfzwfu9arlS3qrs7FRre0CzedyoH9XrjUa90Wz81+nmt6PWcet7q/W92Wwd1o++Hh4d1o+Bk9O/p6dnp7/OL1zE7wu/zk86ztoDbT9P/vz42fEPGCx5+5cXzC0AAAAASUVORK5CYII=",
-  "aspectRatio": 0.9794238683127572,
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAAC5klEQVQoz1WL6VMSAQDF94+qPnSa3VOGJyAs7AKLwLbgHiywB4Kwy8oRGo5ComIqbFAmloqIeIw2TR/irGZSG+s/ielL05vfvJk37z3g6OSwXNneLBW3d4ql8vsPW+tr6wW5kM3JK3I+Kxdy2Xx2RV7N5eW14np5rwJsbL1dldMLi/GF+chiOjI7E4o994sSK4geUeIDIY4b97g4ivG6pYiYzswDhbWl9Hw48dw5KVhjPmScMbqcBoKECALCSYPlmU5vUiqHn2jAXhQzBUPjgFxIp5Lj8QASofpE7AmHKki7Gif1JGXAcAhChoaGH/X0XOtT3IShAbeHBFZWk9NTXJjRCtb7AeSu16ZgaQM3Zud8OO5GTTYQhBQqZTeovmcxqz0MBSSTUdFvZ9CntO4GA91m0T7OjXTWbi+OOq2wTQ+NqCCDwmwedIyaeT8PRMNjLlxvA7tHBq84dLcoSw9NgBRtwggjjOrAEU2ng2xas8OIM6RvQgIEv8sxooQHr0O9l1DtTdz8mMQGcYcafaYyWlUwqoUwGMSMRgrDfd7gi0Tn4B61qOCBG7DiMgZ2UZbHtL3fRahoYhgntHYCQkYNOrsJoR1OITAxmwJEgSUxjUXTbVNddSN3xkZ7/M7+IKMWeb3gNY2xJpyCEbsepVE25I+lkoAk8W5SjyMPaKQriD+MMIoo3x/zqaaC0LRkjQtWH2skCZ3TZfGL/ORMAkgkJClgFxhtlFcmQ5p0VPcyDKYmoLmodSnhzCQ8MzFnOOiQBCoeD6bmZoBcdjEzF80kfdk57t0rb3GZX1tk82m2sBDYyE5uFmaL8mwuM7U0P7W89PL16yywX92tlDYqpTcH5fxJtfCxmj/elQ9LucOdNx8PNj+fVD4d7x1VS5Wdzd1yqbq/DzSb7Ua90ajXmo1au1lvtzpeazW+tBr1r+32928dfW+12vV6s1Zr1htfgbPz3+cdfv7H2V/+xfNfp2cXp6cXP04v/gCsIpvaZSTYAwAAAABJRU5ErkJggg==",
+  "aspectRatio": 0.9780265339966833,
   "transform": null,
   "faces": [
     {
       "id": "0x3cba1d05f2fb0d87-81-29",
-      "faceId": "a3c4d36c-9ba9-4823-8c85-8c4ca8a773b3",
+      "faceId": "68d9205d-37e2-494b-80f7-0fc6c534b7d3",
       "rect": {
-        "top": 0.23877551,
-        "left": 0.75520833,
+        "top": 0.23790117,
+        "left": 0.75677083,
         "width": 0.109375,
-        "height": 0.10714286,
+        "height": 0.10697911,
         "center": {
-          "x": 0.80989583,
-          "y": 0.29234694
+          "x": 0.81145833,
+          "y": 0.29139073
         }
       }
     },
     {
       "id": "0x3cba1d05f2fb0d87-54-22",
-      "faceId": "d654379b-8d30-4e45-91c1-b65bca183b15",
+      "faceId": "2eb88ee5-dfa0-4963-a36d-d8e6506deadc",
       "rect": {
-        "top": 0.17653061,
+        "top": 0.17269485,
         "left": 0.4953125,
-        "width": 0.08645833,
-        "height": 0.08469388,
+        "width": 0.09270833,
+        "height": 0.09067753,
         "center": {
-          "x": 0.53854167,
-          "y": 0.21887755
+          "x": 0.54166666,
+          "y": 0.21803362
         }
       }
     },
     {
-      "id": "0x3cba1d05f2fb0d87-54-53",
-      "faceId": "7ee345bb-4fb1-4424-9b65-c54a6313cb33",
+      "id": "0x3cba1d05f2fb0d87-55-53",
+      "faceId": "f5ddd88d-b9ca-4bf1-a79b-de327dfdbc8a",
       "rect": {
-        "top": 0.49081633,
-        "left": 0.5046875,
-        "width": 0.07916667,
-        "height": 0.07755102,
+        "top": 0.4895568,
+        "left": 0.50260417,
+        "width": 0.08489583,
+        "height": 0.08303617,
         "center": {
-          "x": 0.54427084,
-          "y": 0.52959184
+          "x": 0.54505209,
+          "y": 0.53107489
         }
       }
     },
     {
       "id": "0x3cba1d05f2fb0d87-42-52",
-      "faceId": "d4c93674-d533-4231-858d-db23d7ead96d",
+      "faceId": "2767a215-a611-4926-9df6-def67d3eebbc",
       "rect": {
-        "top": 0.47755102,
-        "left": 0.384375,
-        "width": 0.07760417,
-        "height": 0.07602041,
+        "top": 0.48038716,
+        "left": 0.38229167,
+        "width": 0.078125,
+        "height": 0.07641365,
         "center": {
-          "x": 0.42317709,
-          "y": 0.51556123
+          "x": 0.42135417,
+          "y": 0.51859399
         }
       }
     }

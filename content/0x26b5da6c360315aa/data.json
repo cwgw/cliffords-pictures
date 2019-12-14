@@ -1,0 +1,53 @@
+{
+  "id": "0x26b5da6c360315aa",
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAAC9UlEQVQoz22LWVMSAQDH9+P40ExTjc1YNuYwZiFo3AQi6IKALAIrh7Cw24quyM0qV5cGoqBF4Ikil2mN2ksemDWT14z6MaKem/nN7+F/ALvfdkuVwnJuObuysJrPFSvFza3N8ufyemF9cXXp02LmQzY9n0lnlxbzxcLOzg5QzM8npkmfHx912QIhd3zm9Yf0dHJ+6tU70umzYyMWy0vTIGocItBwxJ/NJIGVtN/vhDRqZo+0XWcAnW4kFBnzk0MIpgaVXLaQSme3UBmUF50dJpPyTdQFLM/ZXbhAJm7ksO73gDSrtdfh0OND/UqIx+A0UVrvPGq69eBhHfVpfV8vm/RYgdw8MU50aXubJS8aFNJnFlOXHVehVrmqj8XnN9Hb7lJbbrU+rmO33dPKmUEPAiynnBFnLwrTdHKKHqLbjALcJsUQ0KDlQtJWmbCxm3Nf2H4bZDcMqjhhLwp8SniiHrUD4WEw3TbAtOh5ZoPIYhQhMNfaTzMrKQPdjQpevVL4yNzPD9YOqfe+iAd2Y6JhIxMZYGnUbEUfB4K4gxqGHW6za58gymaV6KG8i6LXCH1uDEhMkSGPwYVJcAMbVjMl4HOu5LlYyoChjmE93WGg4TqqRtaikNFguNvpwoFEPBQOWFw4iBq4kIop6GGwJCyxnKOHeQ4r34vxx2x8ywBTr+MhiMLnJ4DZ2Wg0iLpHFC8tnTqdAIQE3WoxpO+xoVLPqCwwJvOOgiOYCLeKCXt/KDgGfEzHpt46gwGT16khCA1qh1HCSLjMfhKJhJFo2BwJGse92oBbGwpYY5MTwHp+KZOJp5Kh2WlyOk5OxiYmY6FYIjyTjMzNhVOpYHKWTMTdM+89c4nwYiYF7H3b2/5SqWyuVyq5cnmtUFrbKOVqLpZzpfJqsbRSKC7lN7Ib+YVyae3r9hZw8uv38cnPo+Pjo+rxYbV6UK3uHx3VOPjH/uFhje8H+zUf1kY/fgFnlzdnF9enF1en51e//0ct/9teXNdm55c3fwC00aVS76N6GQAAAABJRU5ErkJggg==",
+  "aspectRatio": 0.9760528488852188,
+  "transform": null,
+  "faces": [
+    {
+      "id": "0x26b5da6c360315aa-26-29",
+      "faceId": "0039eb07-c453-4ed6-a966-cbc2f76d2e71",
+      "rect": {
+        "top": 0.25521098,
+        "left": 0.22239583,
+        "width": 0.08072917,
+        "height": 0.0788002,
+        "center": {
+          "x": 0.26276041,
+          "y": 0.29461108
+        }
+      }
+    },
+    {
+      "id": "0x26b5da6c360315aa-41-33",
+      "faceId": "176ee5ca-81dc-41b0-af7e-a003617352f0",
+      "rect": {
+        "top": 0.30350788,
+        "left": 0.38541667,
+        "width": 0.05885417,
+        "height": 0.05744789,
+        "center": {
+          "x": 0.41484376,
+          "y": 0.33223183
+        }
+      }
+    },
+    {
+      "id": "0x26b5da6c360315aa-61-35",
+      "faceId": "a0747cbf-f3e1-4db1-8c35-720ca968ebd4",
+      "rect": {
+        "top": 0.31977631,
+        "left": 0.58229167,
+        "width": 0.0578125,
+        "height": 0.05643111,
+        "center": {
+          "x": 0.61119792,
+          "y": 0.34799187
+        }
+      }
+    }
+  ],
+  "people": null,
+  "date": null,
+  "location": null
+}

@@ -1,0 +1,53 @@
+{
+  "id": "0x259bcf27725bfdd7",
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADCUlEQVQozz3Q/zPaARzH8c+/sxt3DrdZKgy7CB8+qNb3T5Q+fYpqqk+fPvURagqpfAnTDcM4Vr4lJGNsbox1EdvIMOzfWNsPu3u8n/f6+Q1s7X5ajUYW15YWwvPL64vhjdBqdGUtGk41HAmFN5ZXo6H1rdDm7tru/vZBbB+YmJnuHfZ2eFptLpPTa3b1WT397d4Bm9eX0t43ZB/0O16NO8dm3LPL/tX3QaDT06XFVbCyli8rhRVl9QpQroTQxhqVhqVu5uhxPtECkzaJvQft9ZunggMA0WoSytgMiFLATGeAGeWV2RD0mM2i8Pk0WPIUUTCUTaWoukRjhKyd8sExO4CZDRxRVT4j+0nBg6KSjAowh1WdK2DT6wUFSH2xCmHIkWewNF+qZBhIkdtHAhihZ/Eq6YVZFHoak5nD5RQ3iJlaGYgrIaKpGlNXKeUMoYgulhZpDHynmwAMuK6WU0HLy6LS0iGQLodBvJHbgYl7zHXdhLhN/1yLltdJCmXyUh0u7nRbAMzYXMuuoNEzqdR0VlVek6y63QB7WxU+G+qxSu240KipUSnKtVo22YqmHggYTTrWc5Cal0nJfQhVUJX1IPlC4DTLOi0NdpPEiokIPR/TcUlS6uwyDI+4AKIF54hqaEWPcqhp5WWUOmGJBqnB1FyDmqfX8HC90GKSkBapw6HpH2ibmBwErA6rCBEUgvm5xdnMSjpfUCKtA5EGCGmoblJxcAxub0MdHeq+PvPoqCsYeAP0DPVqyWYuwqsSVfKktTKUhzYK1BpRsw4mLQpXl37I1+IfsU9NeuYDrzfWF4Cp4JzHP9DishlfEqSDtHVbHT1tLq+t39cxNup+Nzu8sjS+Fn67uRHY+RA++LwDbO3thaKRudDS9GJgdjkYWFlYCC+G1pcimysfdiL7n7ePDj/Gvu7FY/vHx0eniRPg5Ow8ljg7jCe+xI8P4ydHJ4lYIhE/PU18O/v24/v5xflF8iJ5mUym7jLlCkhe3V5e3SVTrlO9/TduL2/uft7cXf26/+/65v76b3//AV7ZldF/EU4lAAAAAElFTkSuQmCC",
+  "aspectRatio": 0.9776304888152444,
+  "transform": null,
+  "faces": [
+    {
+      "id": "0x259bcf27725bfdd7-53-33",
+      "faceId": "6a379d9c-9f1d-4054-83ca-0621821c51c8",
+      "rect": {
+        "top": 0.30397149,
+        "left": 0.503125,
+        "width": 0.05677083,
+        "height": 0.05549898,
+        "center": {
+          "x": 0.53151042,
+          "y": 0.33172098
+        }
+      }
+    },
+    {
+      "id": "0x259bcf27725bfdd7-57-41",
+      "faceId": "75f3bcf2-0a80-4f6c-8687-c9b2c8fff76e",
+      "rect": {
+        "top": 0.38696538,
+        "left": 0.54583333,
+        "width": 0.0421875,
+        "height": 0.04124236,
+        "center": {
+          "x": 0.56692708,
+          "y": 0.40758656
+        }
+      }
+    },
+    {
+      "id": "0x259bcf27725bfdd7-41-45",
+      "faceId": "70bd5cc0-f6e9-49f3-8520-56f8af307aa7",
+      "rect": {
+        "top": 0.43482688,
+        "left": 0.39114583,
+        "width": 0.03541667,
+        "height": 0.03462322,
+        "center": {
+          "x": 0.40885417,
+          "y": 0.45213849
+        }
+      }
+    }
+  ],
+  "people": null,
+  "date": null,
+  "location": null
+}

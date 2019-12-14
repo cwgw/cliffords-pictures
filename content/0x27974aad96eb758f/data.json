@@ -1,48 +1,48 @@
 {
   "id": "0x27974aad96eb758f",
-  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAAC+UlEQVQozyXL/U8SAQDG8ftnmpqSgvL+dhwccndwdwIHHCDKmi9hcQcKviEoEpW9rlqltUwC7oCybFlztX4oQaBoLUGX2f8Sq+2z7/b88ACfPn7Ye/P6XYnbyWVK2Uwum8k8z2SymSyXzRdyXDHPl/JcMVsocds72+/23gM7Ja7w8PZWOvYwFr6xEErMhaJRZiYSnF+cTiTnUldj6bV46trS1RvJuw9uPctuArkn9zYS4TuTzpQHm3EhI/bBIUKPW0AHNej3kxMXnJNT9FjAFWBG5xPhW/fWgI076evM6LJLH8Ek4yYxAQm1irNqaQcC9VKEwkXp7BREWEGHBw0w/tS1BHA7HY+N0+yQZnJQ5INFZo0AlHZB0k4SEtJmhcOiwkwySD+AWbTnx+nE6gKQWpqdGrYNI3IneM4O9iJKASwXmFVC2qjwYSBlUhm1/UpZjx6SeDzWhcUIsBgJjVI4CQ6YpV24ohuVCxCFaEircMM6r0lPGdQmtUgl7gRVQrsNm55hgLkQ4yUxi0qEDnTgsrOYTIDK+3G10qaDHAYDZQRJgxxW9xlAsXUIZdhLwCwb9BCoRSnExB2EvH3ogSV9sFRiUmpwSE9hRicBE6jGjIAURTJsEIiyQRpHEHmvUXQGlXTC4k6tqEvTfw6USQchnY00u902yoFb7TjtpdlwCIiGWSeJGeQiVV8H2N8Fibt1km5I1guppEYYIq2E2+d2ep0Oj2vY7w/NRICVRHzMP0JiiFGnRWGdFTPQBOy1mWjK4nJRPr9vIjA5HpgYCwQusuGl5STw6NF6Mrkano4ELgaDDDsXnU7GIulEdCU+G4vNx+OxVCq52nb58pW1m/cfrANvd/f44vZmhn+8mXu6lc/l+ZdF/tWLwosiz+Xz7V3geD7Pc1yhUNx+vbML1L7+qFS/7x80PlcaXyqNSrVRqzfq9Uat9q1SqVfKtbZyuVrer5bL9YNqA2i2freOTo+O//zXajs6bR2ftts8+tfW78O25slh89fP5slfQC1Vp97QtKoAAAAASUVORK5CYII=",
-  "aspectRatio": 0.9802143446001649,
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAAC9ElEQVQozx2SaU/aAACG+5MMOocyPDkKCKUVaCnFcrUIokyRcogHigiiE2RRp0aXXc6prSAeGZtbYpZlRkBh2Yd5zOOPTE2ePHmTN++3F/j54+joy/633FaeW89trbOb6xuPsNub2ztsJsdlc1wmx2Z3uf3Pe1+/HwL5PW73zRybGnsXCy5EAvHRQHjENzzMRKIDiRejqXQsPT85OxdPL0wtv57/uPkB2F5bWksEVr1k2tE+SiEuk9qIK3AMtJrV7h6CYWy+oL0/QPsHXeOJwfnlWeD90vSrUGeSVkYNTV60yQgJFJJquagKheptRmmnDbJRatKipBw6ZsA1PTsBLCYjcY95xAQGUGGPRoi38ZVinlrMI2GhkwBpo9yAihG4CcNl3c8tsUQYmB4P+R0Gl05kh+psUD0m47dL+AaF0KED3QYVjcm1qkaZuBZSNthsWDgcBCIhbxepIZUNhKSmA3yql/L1YINZJe3SwT0YQmkUqKJR1lytkPAJHPL7+4ARX58dhwlQYGjhkdJag6QOB5vINjkFI3ZNO6WFOhAJIhNAMqEeVXk8PcAw00tjEAHWG1t55ocBXyt6ppOI9AolCSMUrqU7NAQqRzUygtD2edzAENNLYZBewseaqwyiam1LjarxibJZAEnFKKy2kITTabVSxg4TbraZ+hkPMOT3WPVIu1igauDBLTVway3UWqsWC9RykVYDmywmp7vL7uq0Omi6y8EE/EB8fMztpIw6WKuSYYjChKooAuokEdqMUbTF5e5mBvz9QV+f3+cNBseiUWB1ZSUxORkKDXp9vkAwEAmHpqODyfjQVGxkYmIsnoilZpPJ1MxMKpVMv1xcXgHy+cPtTG5tg3t7f5RPWyzL7e5wBzkul+U4juVYdieTyWYyD8ru7h3kgbPyn0Lp93Gx8qtQOS6UC6XK2VmlXK6cnpaLxdNCoVS856RUOCmdFE6LpQpwcXlzcXl7cXX3yO19vry6u7y690N+bG/OL67Pz//9feD6P4gfdglQ5kStAAAAAElFTkSuQmCC",
+  "aspectRatio": 0.979235880398671,
   "transform": null,
   "faces": [
     {
       "id": "0x27974aad96eb758f-73-52",
-      "faceId": "d7127407-806c-4396-8e76-86ec659dd176",
+      "faceId": "78380330-5ab6-47ab-91b7-eb3e07c66f78",
       "rect": {
-        "top": 0.46809597,
-        "left": 0.678125,
-        "width": 0.10104167,
-        "height": 0.09903012,
+        "top": 0.46863845,
+        "left": 0.68020833,
+        "width": 0.10052083,
+        "height": 0.09841917,
         "center": {
-          "x": 0.72864584,
-          "y": 0.51761103
+          "x": 0.73046875,
+          "y": 0.51784804
         }
       }
     },
     {
       "id": "0x27974aad96eb758f-22-28",
-      "faceId": "0785e761-01be-4608-a43a-fa927ab10dfc",
+      "faceId": "4e586337-f92e-48b9-9737-90d304d7ac77",
       "rect": {
-        "top": 0.23072996,
-        "left": 0.16822917,
-        "width": 0.09895833,
-        "height": 0.09698826,
+        "top": 0.23049465,
+        "left": 0.16666667,
+        "width": 0.0984375,
+        "height": 0.0963794,
         "center": {
-          "x": 0.21770834,
-          "y": 0.27922409
+          "x": 0.21588542,
+          "y": 0.27868435
         }
       }
     },
     {
       "id": "0x27974aad96eb758f-55-29",
-      "faceId": "0f332f2a-54e2-40e6-8c4b-aeb1ce89bdce",
+      "faceId": "a019093d-1a02-49b7-bd8d-f66078fa333e",
       "rect": {
-        "top": 0.2531904,
-        "left": 0.51354167,
+        "top": 0.25191229,
+        "left": 0.5140625,
         "width": 0.08072917,
-        "height": 0.079122,
+        "height": 0.07904131,
         "center": {
-          "x": 0.55390625,
-          "y": 0.2927514
+          "x": 0.55442708,
+          "y": 0.29143295
         }
       }
     }

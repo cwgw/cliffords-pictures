@@ -1,48 +1,48 @@
 {
   "id": "0x20b1daed520b358b",
-  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAAC/klEQVQoz02S6VMSAQDF988oZzqn8KIgQAiRQxbcRWJZWXARLwIBRXYREBYIFVAQyybtouJSyyNswsbrsxwe9SXRMftvsuNDM78v7817M+/DA7Y2t/If1xZzuUzq3UI2s7K8VPic397a2NkubBTyaytLC9lUJvVmMZdZz6/t7u4A6bfJRCziHyXdhC3gJWIR6uV8fCEz9z43n3wZT0xS/lG7c3jA53bEJydS714DM7EwMWjUayBUITRoZLZ+1O8yJiLk07grGrSSFgxHJQqQhypbrSZDNBwEIiGvqRtVghwpv04lYejbeRYc9Fg7giTutiFGnRAW1XPvXhVy67Wo3OsaBibHRgd61IicLRfUIhJ6J8jsU3BtWgnZC9l7Zb0ot63ldhO9pplN06hAj3MIiI2PDvahGripXVSPSuiYmK5vZRjbeTZMbNGJ9Eq2jH+LQ68RcGgYIvO67MBUyG3rQTCIoxI1oGK6WtiIiRg9EM+Mio1qYQfIbGHdYNZd5rMuCnKfywFEA05bt6pLcR+XsbogHgZy1FIuBgu7EFCrFMtbGBz69cZbl+7fo2mRNspDAFE/6ejvsGhBu05GdinNGnnnA2nHAxmKQO2K1hYBi0G/2UCr4bNrdWhbwOsEohThMuncfepxKz7p6PeZ8YedKg0CKZRyqVzMa2YxmbfvNF4R8OpwDHpEOYGIj/CYccqsi5PGWZ897DANdmu1CAxDUpGkmctnsjk01r1rYmGDAYdDwRFgJhwIkZaw0zzrJ+YnfHGfy20dMBn0egz9s0oMw3wYatJqJMNDhkR8DEi9ej4Xj87FxpOPp1LPnryYmZmeiI5RAb/H7XHaRwiLkzCNkEaKGkpMh9KpV8DmxpdPq6v55Q+fV1cL+fX1tfXl9x8XcsvZzGI2nb64XSadzGaSS0vpfH5le2sT2N//Wi4dlEv7lfJBpXJULh+VykfF0uFe8WCvWNkrlv5SKpUrlYPDw2/A9+Oz4+qPavW8evKPk9Of/3Ehz6unv/3j6kXy7BcCDFTZvAMuyAAAAABJRU5ErkJggg==",
-  "aspectRatio": 0.9810543657331137,
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAAC9UlEQVQoz1WN2U4aARSG503amvbCVmu1aUQRLKACo4CyDQjMZAQBRUFWHZlBRhHcIVo1bqgEdFwqLnGvpreyKXcVq+2jdGx605P/4vwn35cDXF6cHyR3tzZiiViUSsSSX6mz08Pr67Pv12cXZwf7exS1sRZfX9lMrNPY1bcLILa6FBkPkF4H7rYMEc7wmC+6NLWzubi3vRxfjcxM+gfxnj6nmeizTYyQa9EFgKZ77e0GrQiW80y6JlenahjvnJ3EFqd9kZDD69AZNAJFU02rtN5q0o0GCGAsgFmNSrWkRtpQrhVXmSCO0yAmHdqQV0+6NTa9AGqqqKt+Lah9DyuFeK8VmAxidrNSJ2VBYAUiYRil1d0Qx4M24hZ5v6W5C+FCYBmP8YrPeqdV8L2eLiAcwtydUJuCrRV9QiUMvbjSLKm2QVzacelBs5ot45dyGUV8dolOISDoD1MBj8sk18tZMC2IGUhjZZuoulPBcyJNNliItDAba9+yPr6sr6EFoa/PBoz7Ha52mVnJMcnZHUpeW8tnuJmLKkGzrlnf2igDmZyqYkbZCx7zWRjAeoDxATvWAblRUb9BSphVdlRm0EgQjRSBFWqVBBSwWVUlleVF9axSRAX6vQ5gwmf3dWvJrtZJT/s0bh12GnuMGhRWqrXyFoWoQVjLZn9gMt4IuGVtWnDQRwuE3W+FQw50zmdbDnrDuLPXYjDAKkjVLG4RNAhruLwKTm2xSFhuREXDpAuYCRGjWFcYty6FvGtTwdlhkvQ47R0mo16H6GRqFahS1kEKNorwPU4kMkUC8eW5pchINDKSmI9sLS+sz89/mQiPBYKBAZ/f6yYwK45ZiH7z0GDPdGQwEV8ELk9Pjvf3jpO754f7l8fHJ4cnyb2j7a0kRW1TG3EqvkolotTmyu5O7Oho9+rqHMjl8tlMLpvO5jK529xdNpvPZPKp9F0qfZtKZVI3qb9zk07TRPYunwd+3D/dF34VHv7Lw8/f/0Lvz5U+PhUeHguFxz/FUHRPMDc9YgAAAABJRU5ErkJggg==",
+  "aspectRatio": 0.9809128630705394,
   "transform": null,
   "faces": [
     {
-      "id": "0x20b1daed520b358b-41-37",
-      "faceId": "ce3e461b-b97c-4467-975d-44e7fd49ce3e",
+      "id": "0x20b1daed520b358b-40-36",
+      "faceId": "08d408cc-26d2-4a7c-84a6-54786756660f",
       "rect": {
-        "top": 0.2999489,
-        "left": 0.3359375,
-        "width": 0.14427083,
-        "height": 0.14154318,
+        "top": 0.29943792,
+        "left": 0.33958333,
+        "width": 0.13020833,
+        "height": 0.12774655,
         "center": {
-          "x": 0.40807292,
-          "y": 0.37072049
+          "x": 0.4046875,
+          "y": 0.3633112
         }
       }
     },
     {
       "id": "0x20b1daed520b358b-54-44",
-      "faceId": "2e82b250-ac65-4335-9468-82f13f4a2ac4",
+      "faceId": "db108292-a8be-4830-8ac9-c2bae281a944",
       "rect": {
-        "top": 0.38834951,
-        "left": 0.48489583,
-        "width": 0.103125,
-        "height": 0.10117527,
+        "top": 0.38681656,
+        "left": 0.48541667,
+        "width": 0.10416667,
+        "height": 0.10219724,
         "center": {
-          "x": 0.53645833,
-          "y": 0.43893715
+          "x": 0.53750001,
+          "y": 0.43791518
         }
       }
     },
     {
       "id": "0x20b1daed520b358b-28-53",
-      "faceId": "982a9ac5-2d54-4371-be12-814d22f2a901",
+      "faceId": "77d2932f-4c05-4718-a4ce-45b17e8d2bea",
       "rect": {
-        "top": 0.48441492,
-        "left": 0.23541667,
+        "top": 0.48390393,
+        "left": 0.23385417,
         "width": 0.08697917,
         "height": 0.0853347,
         "center": {
-          "x": 0.27890626,
-          "y": 0.52708227
+          "x": 0.27734375,
+          "y": 0.52657128
         }
       }
     }

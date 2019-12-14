@@ -1,0 +1,39 @@
+{
+  "id": "0x2ab79b4da3d14fe3",
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADC0lEQVQozx3Kb0/aCADH8b6ee7BLtmzJZVkyn9ztzjv/nt6JAYQxJjhQRJQWobQFhQJSqcofCxMYN+daWwQHIqIbitucm7MURBHd5u3exrEln/ySX/IFisW9XHZjjWNXmZVkkk6vs6k0y3IMzdCrLLOW4tJpLpVi1te53Ga2uFsEOOZ5POz3E1MEbiYJ6/wc5vNhThxGMZPdbvK4YNKLkF6Lf84WXSI5bhlIRPwhD+y2qFGDGDFKzJB03CBWqXqlkja5pFWr7DBqeyBdrxWSzbgnolEfsEx54zPgAqxwjP1p1XeOj7SpB1v7RS1trTc77v0o7bgx1H97WNYyoe2cwtSLIQewnphLLyLPPI/8cL8D7IH07Rp164D4bvfv17t/+WGg7ZpG9NOovAUc7prGhhZDTmCHDRf+ca75xyLTcjcsgsGeibEuzeCvsr9vSzuvq/66ZZC3GFX3zKO9DkxDhXCglEm8pIm1RTCMK11WMWoWwZMik6Fbp/xZI7kzJr9rGfoNHmlHxvtcNm046AJKebrALbCP4ZDnEY7KbdYBOyqzWcRmfRfYTLV/OI29uKkPt8h8Tn0sTADbOSZNB55Q2KxrxIYoUev9KUwxjd23T4ptYJ8HlgZxFTWjoQh9NIAyzyggyS3HlnyzBIyiWsikhCA5Aium0Ae47SHhUIdJw8pjhH1iZxN46rk/n6GBeDxCkE7EbhyH1DqDYlQvASekGKzwuoapwCTz1J1LBXeykZcbseIW/aa0CURjSwTpsTnhSdQAwTrQpEYsardDFw4izAqZ34jvF1ff7acOX794f7B1fPQaWGXZWCJKLQUCFLkQ8s7NO4J+Rywyk2TChTz9Zj97dLjNH70qfywJ5YNqlQde7ZYKO9v5wmZuK7ux+SKTSWYzXCGf3tvdenew9/HobZk/rAgfqpXjk1r19OwM4CunvHDCC1VeqPCCcFwuH/N8uSwIlWrl5KT6Ta1Wa5bn9cbl+eUXoN64+ubi6vzyqtH06d/vvjZvvfH5tH5ZO7tobr3x5eLT14vP//0P/nzFxeIlpWsAAAAASUVORK5CYII=",
+  "aspectRatio": 0.9809128630705394,
+  "transform": null,
+  "faces": [
+    {
+      "id": "0x2ab79b4da3d14fe3-19-32",
+      "faceId": "8037d5d0-3c4a-47e1-9837-06fe14456bbd",
+      "rect": {
+        "top": 0.22534492,
+        "left": 0.09635417,
+        "width": 0.1921875,
+        "height": 0.18855391,
+        "center": {
+          "x": 0.19244792,
+          "y": 0.31962188
+        }
+      }
+    },
+    {
+      "id": "0x2ab79b4da3d14fe3-73-26",
+      "faceId": "5864a60d-ccf8-4606-a734-8256474b5c4f",
+      "rect": {
+        "top": 0.19877363,
+        "left": 0.66770833,
+        "width": 0.11822917,
+        "height": 0.11599387,
+        "center": {
+          "x": 0.72682292,
+          "y": 0.25677057
+        }
+      }
+    }
+  ],
+  "people": null,
+  "date": null,
+  "location": null
+}

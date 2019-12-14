@@ -1,48 +1,48 @@
 {
   "id": "0x2e934fa4f25b31a9",
-  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADBElEQVQozy3OC09SARQH8PtdSittZkt8kKBk4gMV46niMLrxELkkXJ73cgMUBEWELHBqkIUQXFRmai1LXbxR09x8lDUf36Travvtv7Oznf0P8GUjubz6MbawNB+NEcIxHF9c/LC29nVzI5lNZ/KZVC6Vzn7L5lPbO7m9vT0gNB9xe9zoc0SjV2kNKgOiNlsNbo89+NYXX3q3tBzCFwJ4dCqxOLv+KZpJrQNu97hSKePz25jMOja7jsejCYVNEMSzDg28mER8PpNnAnY75X6PKvrWsb42DwxbsSd9bEbzvcYHRYyW4o72W1xWWV9vzSDEwEw9FosQRfhGLXMY656ehBNxP2C3InKwk99R/qjlGp91Q9BVKuq9IxVVDMqpOrhFr++EtZ0quB1Bu7wTqveRSWDUhmr62WJ+ZR+7BOy9IwFJyv5qDURGVBRE+9BobNehHBjlo0Mizwt9JPIKcBIHco6khyzilYPCKqm4dlBBNcFUu7HejjYMYQyTmWu0CKwO6Ssfikf9wIgNhaScPn6tgEMSCu6LHlP6JRTjM4oTqXNjtFGMPowxzRjPaX8660eX8SnA6cBkEg6PTensqGCzqrnc6t5ukgIkWVU1Ll3NmI5i0zZYNK1j5p7gS+0a7gO8E+YBOY/FItPpZY30ciLbWksFnFI1WG5V3LVB9yyKatMAxa5jzoxDHyJeYGbKpoO7edwaGu0mmVxcVVVEpVxvby4Cu0o0T24jkjK9+K4arDBCje4hceyNC4iEvE77gFzGYBMlTZX1NBKdTiJ+kzyu1cmpmLIOgeo1/TSjiumyKcJvvMDqSmQu6HKNwgaDRKEExVKRTC5Sq0GzSTJmk3kcsokR2eiwzOVUT/sdi3gISKW3Pq8vJxLhcCQQnHs9PTtDCM7Nzodfx2KBhXhgAQ/EooF4PLSyktjc2gL2Dg539/e3d3dyhUImV0hmCsl0PpnJp7P5TD6fLRAKhNz2zs73H/sHx8DhydnRz7Njwq/zK6fn/4ajK2dH/5cXJ6cXP39f/vpz+Rc85ISEcA/aBwAAAABJRU5ErkJggg==",
-  "aspectRatio": 0.9827018121911038,
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADAklEQVQozzXJi08SAQAG8PuHWuVqapEZKmZQiFgoIiAonvJU7hDFAwR53IEHAsKEAIUMlQAFQ6G0h/ZEDkzT3EyzWX9HrNb227dv3wdsv3u/kX+RSqfjyUQ8lXy2klxdS+c289sfdgqlArFXLJYLReJTqfx5f584PDoAlpaX3DPTBpN2XAdrJ1R6o8qKId5Z+2I8lM09y79MZtcXn2fmc9nozusUUXgFTLumIFjM72Gw2U08HkUgaB4YoKvVPByHw2FLNIIFA/rAjCri16Tjju2tRcBi0g72s1jMWib9Ept1pburSsivkQ026jSsKQx0OqQ2VIQau6ex3idBzUbGD9jMGkjysK+rpqfzEiioEoPVQ5KbI0N39GNUi5FltfAmzXyDkYOifQH/2ErSBzgxRKfsUPbVyYTXlVLSCETWjlJMSIttgmY3tdkwjsXeO2nrtznlgeBEKuUHHCiihTohsEEuIg3LGmGoRTd+3z5J96KtPjvTjXfhThHmlEx7VXMRc2Y1CNhRZETBFvdSQEG9eOCuTEZVw1RUf38Wo4dwRgB/5MF5Tlzk8ygXI6b8WgjA7dphOVvAp3A59Xx+k0DYNAiSNcoG10TzY0tLwErzWpguc6cfB+Nh3VYmAPg8BljJ4XEb29tvtrWTmO032B3VYmGtEapzI/VeHdmla8YRmtfMic2qXqa8QCRk0SN8YQ/5Af0apflqQ9Nl6r3LHFYVBFaboRtTahI2cnsSJqPjbQFckok5gFTc48KHYCWTy21oZdTdo5FaGbf43DuwjGIebcG1VDtCM43SrNoOHz6UfOoCNvPLSzHnjHvMYJBCKlAiFymG+zXjg5hV6nMqgh7FY7fC65D7XOpI0PZ8ZQHYLey8fZPdWF9OJKMLT+fC86FwJLQQm0sk5jPp6PpaNJuJZlYja+lYPpd+t/0GOPp2fHB4sLdfJsqlXYL4tFv8WChWskAUi6UiUVEmiBJBlMt7Xw6+Hh4DJ2cX3yt+VPyqOD3/9a/8XS5O/l+V/fT899nP338Ay22kPWY+AG4AAAAASUVORK5CYII=",
+  "aspectRatio": 0.9817275747508306,
   "transform": null,
   "faces": [
     {
       "id": "0x2e934fa4f25b31a9-15-34",
-      "faceId": "47640a67-2b68-460b-a5c4-d3f3e62728d1",
+      "faceId": "84f3196c-d343-4797-a0b1-ba7550511e31",
       "rect": {
-        "top": 0.2988741,
-        "left": 0.10416667,
-        "width": 0.09166667,
-        "height": 0.09007165,
+        "top": 0.29498978,
+        "left": 0.09895833,
+        "width": 0.10052083,
+        "height": 0.09867076,
         "center": {
-          "x": 0.15000001,
-          "y": 0.34390992
+          "x": 0.14921874,
+          "y": 0.34432516
         }
       }
     },
     {
       "id": "0x2e934fa4f25b31a9-56-29",
-      "faceId": "03959aa8-fa99-4c85-869b-1d05d79470a5",
+      "faceId": "f57a9540-cfc5-4936-bf29-b3000d917a9e",
       "rect": {
-        "top": 0.25230297,
-        "left": 0.51875,
-        "width": 0.078125,
-        "height": 0.07676561,
+        "top": 0.25,
+        "left": 0.51770833,
+        "width": 0.08177083,
+        "height": 0.08026585,
         "center": {
-          "x": 0.5578125,
-          "y": 0.29068578
+          "x": 0.55859375,
+          "y": 0.29013293
         }
       }
     },
     {
-      "id": "0x2e934fa4f25b31a9-79-24",
-      "faceId": "ef4cb2f2-cf72-4c19-9619-c63c271baee0",
+      "id": "0x2e934fa4f25b31a9-79-23",
+      "faceId": "3e88cf97-89d9-46f9-97fe-e866e3861eb1",
       "rect": {
-        "top": 0.19907881,
-        "left": 0.74895833,
-        "width": 0.07604167,
-        "height": 0.07471853,
+        "top": 0.19734151,
+        "left": 0.75208333,
+        "width": 0.0765625,
+        "height": 0.07515337,
         "center": {
-          "x": 0.78697917,
-          "y": 0.23643808
+          "x": 0.79036458,
+          "y": 0.2349182
         }
       }
     }

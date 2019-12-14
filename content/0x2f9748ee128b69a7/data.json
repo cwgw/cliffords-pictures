@@ -1,0 +1,53 @@
+{
+  "id": "0x2f9748ee128b69a7",
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAACwklEQVQoz0XLa0/aABgF4P69fTJZ4jKzuCmaiMi8RwdSpEK5lFraAoKUm1zKtVAKWMRaREEFFApVsw8Tzdz+x5jOLHlyck7evIB8eysNer3+jTS4Gcg9+VZ6Ner9kduXlLsvfSDf3wPX1xdXV+LFReXy8qjVFjod8bpT67TFdktoXR23Wm9Gp+uzrtQGmo1KTcwIx9ETIVavpxvnufM6U6+lagJdE+KnYuLsNFk/TdTrqUaTa3dqgChky5yPy+HlglOoBsSTyHElcMi5OQYvseTRofek6j+ueKv8vihEmo0iUClHszSSPNhmEjBfcld5f5F1pmkzHTak4jCXJ/iyp8TibBYt5l1CNQkUc74opQs4F2P+DTaDFFkik7CGKI3PvRaktEnaxmRxOmYJ+qGDoI1hQgCbcvrJFdI65XXM0WFdmjbFwqCHXMTtSie+5PeBgYDR6dLZkM1dzBAKe4F8At93qFFoAjNPUu7lSGAz5FtzYkrUonAgShexShAbZsuKbnvZCOu8PjfA0PgepjaDH0zgOGab3SMWPKQKt8+g5inMOuuwLyDIon5HrdEvGS0g5d8DklGMtKsNmnHt+phBN2ExTaFWBWabxizTowe7dc4Eq7TbSi20aEX1ofAeEA3Yd82qrbX3K+p368tjms1xSP/JavpiN08jsMIIKbb0M6taxaZhwYqBoQMXEA/hpG1tR/NZszr+bf2jTjtpgmZRmwpHv+4iC7BpHoTmN/TzILy+64IjcQrgMtEYhXodIIFs4KiGJHQeNxTwwSG/mdo3uVyQg4TshBH3oMEolStkgOapeMIX+EKqlKeLhWSplD48zPI8U+GZcjlbLKZZLp3jMoUyWxGO6ufnwJ18L0v9frcn9bqS1JP60mj1/jap++ZmlP1BX76T774DD8OfD8Pn4eOv4dN/Px7/eXh69Xs4MprD5z+zyexa4+vz4gAAAABJRU5ErkJggg==",
+  "aspectRatio": 0.9809128630705394,
+  "transform": null,
+  "faces": [
+    {
+      "id": "0x2f9748ee128b69a7-85-35",
+      "faceId": "8c5d8e00-a246-4678-9271-598b9e1134f9",
+      "rect": {
+        "top": 0.31272356,
+        "left": 0.8140625,
+        "width": 0.0671875,
+        "height": 0.06591722,
+        "center": {
+          "x": 0.84765625,
+          "y": 0.34568217
+        }
+      }
+    },
+    {
+      "id": "0x2f9748ee128b69a7-18-34",
+      "faceId": "c748aa55-b4c8-466c-b2f9-3b81831ec7bf",
+      "rect": {
+        "top": 0.31323454,
+        "left": 0.1453125,
+        "width": 0.06197917,
+        "height": 0.06080736,
+        "center": {
+          "x": 0.17630209,
+          "y": 0.34363822
+        }
+      }
+    },
+    {
+      "id": "0x2f9748ee128b69a7-51-29",
+      "faceId": "86a66837-a959-4541-862c-dd1155f9a05b",
+      "rect": {
+        "top": 0.26775677,
+        "left": 0.48072917,
+        "width": 0.0515625,
+        "height": 0.05058763,
+        "center": {
+          "x": 0.50651042,
+          "y": 0.29305059
+        }
+      }
+    }
+  ],
+  "people": null,
+  "date": null,
+  "location": null
+}

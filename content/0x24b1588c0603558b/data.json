@@ -1,0 +1,67 @@
+{
+  "id": "0x24b1588c0603558b",
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADCElEQVQozx2L+z9aAQDF7/+zxy8zr1YeK8bMKKJIKo/CCuUxstR1Q1SkElmiB0m5qnsrU3luit72YMY2/B9rPuf7OZ9zzudzgGT6ayyZjMZjp7HoaTwWiZ1FoqeRs3A4chIOH0dODs6+7EaOfOGjnZPPB6dnUeDLyfHBUWBv3x/a9wX3/Z+CiO/Ttte7iXhsHpfJCxt8Tq17Te60KJ22JcQDA6EQ6vfbUXQN8Vo96JoTXl5b164Yp5f1kEEnWtUNmTS9i9Ns1ThnTj5kNGiB3V0YRUwet8HlWoK3Fq0WhV4nUk13K6B2uaR5BmySi+rFfW+Heoijw61qlRQIBLdR1ORy6bec2o31GeOCSC3rnBppgAaIYv4bUU/FQFdZB7OYzXzV39s0K5cAuwHY5TFuODQrZtmiTqSUdkgH6sS88g9dhEF2MZdVyKBia6tyKLWFvA6qUjYKeHccNqd+yTwl1wyLwQ4Bt6abiec34wSsAi4DR6/HVFY8Ly56WlGe28aqnYRGABi1Gdc1Sr1EOMHt5DfSaKVUEqaFnNdJw7Y34sjEfDzhWS7mER6f3UwnQaAQ2HRb9ZbZce2IAOSweBQStbS6Cksj5rMpWDYVRyFiCCVZeS8e4wnZdDpJIhkG7C6zblUJqYf6QA5HQGtkVlLqXraQC3hUHJeKo9dgXpdlFRQ+LivLZjJIYOaw7jBqDDJotn8Y4vQLme+4ZE5LRTejZJBRJGjCtdZjiJVZpYQnVZU57a010JgQ2HCsLCxPKzRCmZI/OdUDSjii90ywv1HKJ4t51QLOm1ZGaVNDURujfLCPNaOcABDEuWE3mK1zJpPCtKr4uCRbmJcuqiV61ci84r1ysk8KdktEneNjvWoVZLEYgcPDg1DIHwx4ggF3MOjx77hQ3zbq3fIim4jbtg1bHQ6z3b6y5bSgCBzaCwHJ5HkimfqvdCp1nk6kzmOp83iGZCqRTMQT8Vg8Fs0oHk+k0ulvP4DvF9cXlzeXV39+Xv+9urm9urn79TvDfYbrTMjUm9sHv3tY7v8Bn+KzTgjt8F8AAAAASUVORK5CYII=",
+  "aspectRatio": 0.978494623655914,
+  "transform": null,
+  "faces": [
+    {
+      "id": "0x24b1588c0603558b-42-37",
+      "faceId": "252675c4-652e-4ef0-9c47-1a4fb5819f20",
+      "rect": {
+        "top": 0.33384302,
+        "left": 0.38645833,
+        "width": 0.07083333,
+        "height": 0.06931702,
+        "center": {
+          "x": 0.421875,
+          "y": 0.36850153
+        }
+      }
+    },
+    {
+      "id": "0x24b1588c0603558b-59-26",
+      "faceId": "45156a58-b7cc-4a7d-b93f-e651e44b8e51",
+      "rect": {
+        "top": 0.23343527,
+        "left": 0.55520833,
+        "width": 0.06197917,
+        "height": 0.0606524,
+        "center": {
+          "x": 0.58619792,
+          "y": 0.26376147
+        }
+      }
+    },
+    {
+      "id": "0x24b1588c0603558b-49-29",
+      "faceId": "6d3a9b32-7f35-4bd7-a911-a6db35baab46",
+      "rect": {
+        "top": 0.26452599,
+        "left": 0.459375,
+        "width": 0.06145833,
+        "height": 0.06014271,
+        "center": {
+          "x": 0.49010417,
+          "y": 0.29459735
+        }
+      }
+    },
+    {
+      "id": "0x24b1588c0603558b-20-73",
+      "faceId": "a8a5dc63-7135-42c3-a250-9ebfb634e74a",
+      "rect": {
+        "top": 0.71202854,
+        "left": 0.1765625,
+        "width": 0.03802083,
+        "height": 0.03720693,
+        "center": {
+          "x": 0.19557292,
+          "y": 0.73063201
+        }
+      }
+    }
+  ],
+  "people": null,
+  "date": null,
+  "location": null
+}

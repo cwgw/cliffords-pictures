@@ -1,48 +1,48 @@
 {
   "id": "0x3098cae5f27b1dc7",
-  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADEUlEQVQozx3L+U9SAQDA8fdvtLZW64dmd2mNsktwColcJpekjolpYpqIXA/l8IEPfYAcIYgE78nV4/B5OzJt1VIfoh2G5NL6T6K270+f7QvkNj7NL63hGSKOpxOpVCKdTmbSKSKbWSDK4cRcWWI4jmezy2u5Dx8/A+HZOOJ0jhj0au2gBhzUDCtBk2oUBmHEMIYYDFa91qhRjwxBsCEw7SXmMsDY+IS8t1vAb2QxH3G4NU18Wksrvfs5t++lQN4naJNxmyWP+S2M53Kx1aKeRQOAGgT5At796uuVN87epZyn0SqaeJVdHTV9csazznq+6D6TfYvNqeqSPbaYeiMhF6BUq7g85u2qi5crTlGqzjTUVXQ8vTs8yIJAgVrBlUlpEiGlXUxR9bEccH804gGGNCpeE/MO5dLNq6drqs8JOdeUPbRJSOxHOsZNEu3LxoEuqrL7kUXb7HMo4pgX0OpUYlFjHfUK7d5ZHuOCTFKlV9T5bOKwS+qDW2Ady6SoNyvq7AZhwKmIoW7AZNR0y3iSJ7fami7J2ytVLx5YQIbPxos4mmdglsdAd4D0CbDBDUmmXYMxdBJwjOv1Q2J1D1XfWw1ra+0mpmeME0RYmJ2B2aghiOo3M1xGttvaFnAp/w1Br9EJSe3DjR4TPYRwIy4B5hVE3ey4ozZmu4dZHwYh+qSBjZifupEB7LUDwAKjAaTTb+WGbA0JzxPcL8IDoqSHE52ghUerQ+aHPiMd1jKNaoHV3BMMjAPJsD3iGYg4W2NuYWa6dS4kzc5Ik6/EKMKZsTQELVwfJIT1IqOu3QopZoIuYD6FptCJ1GsdgSpXktrVN+BiHEyHVXH/AObtn/UNoVM6v0vndo5MTdmTb6LAxrv13Gr27XJscw39uB79tB57n4vmlrAVIryUDa/Mz64sJhbmEwSBLy4trG9sAvnCNzK/l8+ThcLO/j65v0fuFnZ2yO2t7a2t7W2SJPO7u2Uid/fyha97X34A3w+PD0onxdLv4s//lU4OSsdl/F78dXB4/KN0XPx5Ujz6fXj0p1zx6M9fr2SWvyd9u8IAAAAASUVORK5CYII=",
-  "aspectRatio": 0.978688524590164,
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADEElEQVQozzWL+U9SAQCA37/S1uZaPzRbtjYXWWplh4IHpyKQJmI5xQPkFBGeisgt50uOJ9cD3uMWwrBEy1qKAepW4lHWv5H90Pbt++XbB2wUPq1l16OJRDiKhWNYJI5hyVgik0hl08lsOpZORhLRUDQSTcbf5td3Pn8BYF9Ab9QrwGmpjD8tn5IpBQqVaMkwYzCDOvPcvFYuW5BIlQKVZtbpsqSSGDCvXhzhDtHpBCKxmUJ9RGc+ecnBT/KoYgmLL2JxRqm97HZ6fxt3grGkFgf9EDAlEdJ6Opub6nD1Nc2N1wn4m0wGjjfWKhWSJie6+gZayN33aN13uSMdGtVYYHUZmBTwiOQ2HO7GnborzfdrqJ23xl8/1Ch6TIsD4AxjfBQ/ONA0zG6UCyk2Az8csAJ8EY9MxT+4X4urv9rWcp3dW68QElxGjt8xbtUNzU1TpZNtct5zA8hwW0UoYgPEUh6TSSA8v4VvucYk1068alDLu7w2TsTFXbVwzAvd2pkunazTru6DbaJI0AIoQQF3mMhh4oZZt0UjDaD4qWmR5LWy0Dd9iKXHrSFCKqJ9geLUs72QGA0uAya9ZG6aoZx6phY/tsx3OHQ0t7k36KDHIErU2h4y4n16klNLdxqHViFJ5HKAIblDNwipKbCeFHawUBc76mHH3YzUm86k7WnM3IqYyCtauk07CFmEiN8AhNwKn/W1f5kesdNScH/GP5Txc9IeZsLejplawoZWn45snqctKV7o1OOwSwPEfJrwCh+FBhPuvlzg1bvQaA4ZScNszN6DmEhBY7fX2L+s6l9UcrRqgcdtAjIxTwrRrgVn1iOSzeTsZgrciIPZkCwOCzAnH3NLUI8ChmYdVtC5YkAxP7BdyBfy8a08svPBv7uN7H4Mfy6Ett4FNjLe/Jp3Ixt8n0NzWTSzFn2bSxe2CkCpclQqlcrl4kFl7+iweHS4f1Aplr7t7Re/7hd3S9+K5fK/XCpXSpXDg6PvwI+Ti+PTi+rZf04vjk9+XfKj+vO4+rN6+qt69vvk/Pfp+Z9Ln5z/+QvI7bSbcEYjggAAAABJRU5ErkJggg==",
+  "aspectRatio": 0.976878612716763,
   "transform": null,
   "faces": [
     {
       "id": "0x3098cae5f27b1dc7-75-36",
-      "faceId": "eeac3a7f-6fb4-4697-b618-9f07583dec7a",
+      "faceId": "01d28eab-1708-4f85-bfa2-96c9c9ceae64",
       "rect": {
-        "top": 0.31039755,
-        "left": 0.70052083,
+        "top": 0.30992366,
+        "left": 0.70104167,
         "width": 0.10625,
-        "height": 0.10397554,
+        "height": 0.10381679,
         "center": {
-          "x": 0.75364583,
-          "y": 0.36238532
+          "x": 0.75416667,
+          "y": 0.36183206
         }
       }
     },
     {
-      "id": "0x3098cae5f27b1dc7-22-21",
-      "faceId": "41b6d8ad-1627-4e2b-bae5-1f77de919153",
+      "id": "0x3098cae5f27b1dc7-49-25",
+      "faceId": "f1a999f8-c0a1-4677-b424-9a258c9ee8b7",
       "rect": {
-        "top": 0.17125382,
-        "left": 0.18072917,
-        "width": 0.07083333,
-        "height": 0.06931702,
-        "center": {
-          "x": 0.21614584,
-          "y": 0.20591233
-        }
-      }
-    },
-    {
-      "id": "0x3098cae5f27b1dc7-49-26",
-      "faceId": "7a6b9b08-f5fb-4766-b17a-f84075ba8a23",
-      "rect": {
-        "top": 0.22375127,
-        "left": 0.4578125,
-        "width": 0.0671875,
-        "height": 0.06574924,
+        "top": 0.22035623,
+        "left": 0.45677083,
+        "width": 0.06927083,
+        "height": 0.06768448,
         "center": {
           "x": 0.49140625,
-          "y": 0.25662589
+          "y": 0.25419847
+        }
+      }
+    },
+    {
+      "id": "0x3098cae5f27b1dc7-21-20",
+      "faceId": "dc7af689-fa2c-47e0-bf1c-1feb9862ebd5",
+      "rect": {
+        "top": 0.17150127,
+        "left": 0.18020833,
+        "width": 0.06770833,
+        "height": 0.06615776,
+        "center": {
+          "x": 0.2140625,
+          "y": 0.20458015
         }
       }
     }

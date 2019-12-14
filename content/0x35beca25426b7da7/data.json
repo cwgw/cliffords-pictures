@@ -1,0 +1,53 @@
+{
+  "id": "0x35beca25426b7da7",
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAAC7klEQVQozzXLB08aARgG4PtLjTFN26CiTNlLjjvKVkDOAbgQKhsVRATiwcEhKg7EqmgRcWDVNNadqNWK4n8pmjR58ub98uUFjn+d7pbLWzvFje3tfKm0tbdfODgslA+3y+Vieb94UCrubxd2NwulfHHvx8HPEpDbWMcz6TAWDUxP+tGpQDw6mYxF0xiWSaaX8bmVxHw2lsqEk/NTM4todm0OQPG4K+Ayj5gMlk69xaAbQrqsvQOufnfAGpp2orgbm/FEsW8h1BbG3Ph8FAhE/GZbr7rnK9wpkuhFbRqBRC1Q6yXmfqXX2xWODiRwWzxhmcaG0aQzvRCpDcZMNkTVBcI6DtjO4UtbeSIKBNK1ap6lT+7zISg6hOPDs7MjCwujq2txIBSb6LN3aXrEsI7dpmZxQTqTQ+JzyFJxq1YtNJrkLrchNNmTwAYXM978xvvAPILIEaFQSWNLqTQhmcQitbIpAgFdArHkaj7SKxm0Skf92ljcspwNA/7IuGGgQ6hiUsWNJFFTM7+FyKPSRAwuxBZJ2aCCJdNx1N0co1Xi8XdjqXHAHXArDDKysPkzo57A/dwkbCKCVCrM5MjZIhUL1DAgHQPU05Qmfp9TO4F6ALvPAWkgApNQR/7whfORKG5ogVqoUgpLRuWraGItDTTQBXoK1MM12Dp8EQ/gGHXCGriB0VBPriNwP5HARipMpEFEBkxkK5oFHSRRJ4WrJbUhbN1wuyfsAYKRScSMCGUCJkjnK1mglgfpebCOK9VzZQhPYeQrzAKpkafsh02u3mA8CGSW5gOhcYtjoM/aPeQ02rzmEV+Nye4z2seNjoDJETTZ/EZHcCgYG5vLpoFyeS+/ubqUnc0sJZeyqezqzMqbVO57KreWyq2nchv48hq+sj6bL6wcHO4Ad7c311e/L85Pzs+OLs6OLs//u3h3eXx5eXTxVk5urk/vbq+A6stT9fmx+vxQff7zpnJffbp/qdy9VGpZOx/eXzWPry9/X6uVf3UvikxBg0ciAAAAAElFTkSuQmCC",
+  "aspectRatio": 0.9817275747508306,
+  "transform": null,
+  "faces": [
+    {
+      "id": "0x35beca25426b7da7-40-30",
+      "faceId": "de4aa4ba-5aaa-44a7-b8c5-fa197c696108",
+      "rect": {
+        "top": 0.27505112,
+        "left": 0.37135417,
+        "width": 0.05,
+        "height": 0.04907975,
+        "center": {
+          "x": 0.39635417,
+          "y": 0.29959099
+        }
+      }
+    },
+    {
+      "id": "0x35beca25426b7da7-49-25",
+      "faceId": "50de1187-de8e-4c4c-93fc-d91a7bcb626c",
+      "rect": {
+        "top": 0.22852761,
+        "left": 0.46458333,
+        "width": 0.04635417,
+        "height": 0.04550102,
+        "center": {
+          "x": 0.48776042,
+          "y": 0.25127812
+        }
+      }
+    },
+    {
+      "id": "0x35beca25426b7da7-61-29",
+      "faceId": "f72bac93-dc99-46af-aa25-b70b3de4cfeb",
+      "rect": {
+        "top": 0.27402863,
+        "left": 0.590625,
+        "width": 0.04166667,
+        "height": 0.0408998,
+        "center": {
+          "x": 0.61145833,
+          "y": 0.29447853
+        }
+      }
+    }
+  ],
+  "people": null,
+  "date": null,
+  "location": null
+}
