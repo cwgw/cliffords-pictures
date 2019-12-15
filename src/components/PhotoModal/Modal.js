@@ -5,7 +5,8 @@ import mousetrap from 'mousetrap';
 
 import { transparentize } from 'style/utils';
 
-import AlbumContext from 'components/AlbumViewState';
+import AlbumContext from 'context/AlbumViewState';
+
 import Button from 'components/Button';
 
 import Carousel from './Carousel';

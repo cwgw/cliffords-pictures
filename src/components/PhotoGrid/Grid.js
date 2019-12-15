@@ -6,9 +6,10 @@ import css from '@styled-system/css';
 import { space } from 'style/utils';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
 
+import AlbumContext from 'context/AlbumViewState';
+
 import Button from 'components/Button';
 import Pagination from 'components/Pagination';
-import AlbumContext from 'components/AlbumViewState';
 import Modal from 'components/PhotoModal';
 
 import GridItem from './GridItem';

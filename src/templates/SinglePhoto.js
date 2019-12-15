@@ -5,11 +5,12 @@ import mousetrap from 'mousetrap';
 
 import { breakpoints } from 'style/tokens';
 
+import EditorContext from 'context/EditorContext';
+
 import FaceScrim from 'components/FaceScrim';
 import Layout from 'components/Layout';
 import Photo from 'components/Photo';
 import Button from 'components/Button';
-import EditorContext from 'components/EditorContext';
 
 const SingleImage = ({
   pageContext,

@@ -1,6 +1,5 @@
 import React from 'react';
 
-// import AlbumContext from 'components/AlbumViewState';
 import Layout from 'components/Layout';
 import PhotoGrid from 'components/PhotoGrid';
 
