@@ -28,7 +28,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
-    "react-spring": "9.0.0-canary.808.12.11b2708",
+    "react-spring": "9.0.0-canary.808.14.192785c",
     "react-use-gesture": "^6.0.14",
     "styled-system": "^5.1.4"
   },

@@ -1,10 +1,4 @@
-import React from 'react';
+import shouldUpdateScroll from './should-update-scroll';
+import wrapRootElement from './wrap-root-element';
 
-import { Provider as AlbumViewProvider } from 'context/AlbumViewState';
-import { Provider as EditorProvider } from 'context/EditorContext';
-
-export const wrapRootElement = ({ element }) => (
-  <EditorProvider>
-    <AlbumViewProvider children={element} />
-  </EditorProvider>
-);
+export { shouldUpdateScroll, wrapRootElement };
