@@ -1,0 +1,39 @@
+{
+  "id": "0x319acfe7737b31a9",
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAATCAIAAAAWBRqYAAAACXBIWXMAAAsSAAALEgHS3X78AAADd0lEQVQoz03T609adxjA8fNfWLmVwpHb8XCAAgeOlIsIiFRFQAJWRVuUm3Jb5zasUBVGi6JIamsvyCVVQeLWxb5YtzZNNqFpaeNa1Gy1+192ZrekySe/PG+++eV58QA/P/u1Wq2WSpv5zful4oOtrVy5vFmp5Cu7hd3Pyvndcm6vWnq6v/f8xXNge/txZiV5cy44OzMxP+tKLviWk/7VpeDaciiLw4dUIHM7sL4aKeRWfvyhDGzcy0Rm3M6R7mGL1HlFNn1Ned3bFQloo2FtLKyJhbrmAl03AprF76zZ5etbjzeA7Or3fo/NclnQo6QOaGm2XuaYheOyQ9PDUGgUCjug8CgUcnAjU51Li5PFfAYPEn631ajnqTGyVkY2qKgmDc2up13to7nN4JSV6bexQsPQ7JQyHZ8o5teAO2dBnw65JCLJhCSlmKLDqEYF1aa+MNINjhuYrgH2tL191vd/sJ5JBPFAg0j5RBGXiAmoGimjX8ka7GRbVCyzijWkY02YON+4FUuLznxuFbibiQddg71qBOUSBBARE4J6FTLYI7Lqhb0KWC1m6DGaVdfmH8MSc44HGykgm16YdpoNSlgEE/h4gDIMOpHNJLf2dWjlPDGXjsIkDXbeYRZGwvZsJg6kb910OQa0l6CLUCuPQxSLGBqNaKBfbrzcoZLx+NAFhEnA+CRTNy/gtqRuxYDkYmzM3q+ScHisczCLgCA0rAPWqIW6zotyFBJwqAiDIIGJvWqu95opmYgCifnoqK1fLmbDjBYOo5XDpiAIiArZHUKWBAEFLLKA2SrlEvrUXJ/TfDuJ/xCPjQ8ZFSinHWxh0FpAOqGtjcxmnm9nUNpBEofWCoMtEvicsQsOTJrTqXlgJRV3j1vx/XhsEgsk0ukkGp1Cp1NAGhmk4kicNqIEIZu6+WGvbW0lDjzcyN742jdi7dF1ShQyMYahEpwURSUoevbIZahBI7061BP91nf/bgbYq1bu3UnPz82E/B6vx+1yuSdd7onJ/7hcHp/X81XQuxCdWc8u7WxvAS9f/vZ0f79S3ikUirlc4eGjL+SKj3L4oZRKxVJ5Z+fJk5+e/fICaLxrvn5zWH/19qD25veDL9Q+axzUG7Vao1Zv1F+9q78+BP5o/vW++fHD8enRyaejk7+Pz+BzE3d82jz+9K+j0w/Nj4fv/3x7ePIPtdR05+8clc0AAAAASUVORK5CYII=",
+  "aspectRatio": 0.8142857142857143,
+  "transform": null,
+  "faces": [
+    {
+      "id": "0x319acfe7737b31a9-58-35",
+      "faceId": "7565e4b2-e09e-469b-ace8-ad638a1c042c",
+      "rect": {
+        "top": 0.32084691,
+        "left": 0.541,
+        "width": 0.082,
+        "height": 0.06677524,
+        "center": {
+          "x": 0.582,
+          "y": 0.35423453
+        }
+      }
+    },
+    {
+      "id": "0x319acfe7737b31a9-50-35",
+      "faceId": "730c368e-a427-41c1-a7db-a6b0b07e7fec",
+      "rect": {
+        "top": 0.31555375,
+        "left": 0.459,
+        "width": 0.078,
+        "height": 0.06351792,
+        "center": {
+          "x": 0.498,
+          "y": 0.34731271
+        }
+      }
+    }
+  ],
+  "people": null,
+  "date": null,
+  "location": null
+}

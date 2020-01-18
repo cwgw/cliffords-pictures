@@ -1,0 +1,39 @@
+{
+  "id": "0x36974805e2fbbddb",
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAATCAIAAAAWBRqYAAAACXBIWXMAAAsSAAALEgHS3X78AAADcUlEQVQozz3L6U/bBhjHcf8RKwQndg7bSexcdmzHjnOSQJaQY8BoEWkDJCbASCkonIECaxeSqBOD7iiFQgsJHW3VbhLStmqTqk0bJWsH0yZKjxdt/5Q5vJj00e/Fo+cL7D1+Urn//epmeeXG+vLXa/9bqblZ22/Wvrq5sVG+e++7vR9++RVYL387X7w2OJq9IPadT4rnk6kLyVQimeqWpMSEKPak02JmKDuTK61c39p9ABSWv+zNZBojLZTAWTiW4lmaZ208w9lZTrCxDs7mFpwBb2v87KXpieXVVWC2UGhLxM12RqFVgQisQGEVCmEYjOtVOKHBcA1qwHDa4G3xpS72F5aXgMuL+bZEl9lOyzEYRCAIhTQYTOhVlBllKJ2Z1OEWHcFIQaM43F9cWQLmivmOnjjpYCCtUoEqVVq1zoBaKdwtkD4P63QxNG8heYs/6k+PDJSuLwELxcVzvXGrk4UwJYyqMByzWI1OBx0KuGIRXyjkdXk51kH5Iz7xYl/xi8+BhcJnnb1dtJOBUBhGlDpCR9tIT6MQDjfFWkMtkYDL76QFqzvgTvR1XykVgLn8lXPdnVYHrUBgSA1jeoxiScEt+AK+plDAG2jmPC6TzWrzCB3xzpmFeSC3MN/edZbkKLlaAUJyNaLGzQRlY3inIHjcvNtNCYKOoiw8F2lvG5uaBiZn52Iftxut5gYIrAcb5LBCjaG4yWClSZ6jOZ6xMDRiNBE0E4zGRscmgPHc5fBHrbjJKH3XyeqlVShhrQ5lLDoXQzhZo5U0IHo9QVLBcGQ0KwVTs6FITEfgZ2T1H9TVnZESOahFIM6k8lk1jRTCGjRaRGk0GYMt4VowmZsLx1oJo1EmB2VggwwEIUiOYzBvUvspjZ/U2AmVCYFpiykajWbHp4B84VpPUvQ1NdMse8rGcZzXZQ/7He3Njo4modVrD7rsseCHqWTq06sFYOP2ztV8aXgkK6YHUukBsX9wYPCT4UxmbCQzOZLJXRqaHh6ayAzNjI8XFktrt7aAn37+7cHDvTvl3fXNbcmt2+XNO5Wt7Uq5XClvV3a2y3e3anZ37j18tPfj4yfA879Pqs//3a8e/X5w+Iekerj/59HTmsP9A8lfT08dVI+qz/55dnQMHL989+LV+xeva04kb96/fFPbk9fSXfJWcvzqnfR26u1/eHZP2NgrOD0AAAAASUVORK5CYII=",
+  "aspectRatio": 0.8160190325138779,
+  "transform": null,
+  "faces": [
+    {
+      "id": "0x36974805e2fbbddb-49-18",
+      "faceId": "06b9efca-8b9e-4382-ace8-94c1bda95f0d",
+      "rect": {
+        "top": 0.13912689,
+        "left": 0.444,
+        "width": 0.0975,
+        "height": 0.07955936,
+        "center": {
+          "x": 0.49275,
+          "y": 0.17890657
+        }
+      }
+    },
+    {
+      "id": "0x36974805e2fbbddb-60-31",
+      "faceId": "cca3d8b0-0461-41ac-9aed-e005553762a5",
+      "rect": {
+        "top": 0.27090983,
+        "left": 0.557,
+        "width": 0.0845,
+        "height": 0.06895145,
+        "center": {
+          "x": 0.59925,
+          "y": 0.30538556
+        }
+      }
+    }
+  ],
+  "people": null,
+  "date": null,
+  "location": null
+}
