@@ -7,7 +7,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
-    "@reach/dialog": "^0.6",
+    "@reach/dialog": "^0.8",
     "@styled-system/css": "^5.1.4",
     "emotion-theming": "^10.0.18",
     "fs-extra": "^8.1.0",
@@ -28,12 +28,12 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
-    "react-spring": "9.0.0-canary.808.12.11b2708",
+    "react-spring": "9.0.0-canary.808.17.55c5691",
     "react-use-gesture": "^6.0.14",
     "styled-system": "^5.1.4"
   },
   "devDependencies": {
-    "husky": "^3.0.0",
+    "husky": "^4",
     "prettier": "^1.17.0"
   },
   "scripts": {
