@@ -1,25 +1,39 @@
 import {
   breakpoints,
   colors,
-  ease,
   fonts,
   fontWeights,
   lineHeights,
+  mediaQueries,
   fontSizes,
   shadows,
   space,
+  transitions,
 } from './tokens';
 
 const theme = {
   breakpoints,
   colors,
-  ease,
   fonts,
   fontWeights,
   lineHeights,
+  mediaQueries,
   fontSizes,
   shadows,
   space,
+  transitions,
 };
 
-export default theme;
+export {
+  theme as default,
+  breakpoints,
+  colors,
+  fonts,
+  fontWeights,
+  lineHeights,
+  mediaQueries,
+  fontSizes,
+  shadows,
+  space,
+  transitions,
+};
