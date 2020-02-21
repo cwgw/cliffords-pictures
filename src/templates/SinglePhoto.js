@@ -5,12 +5,8 @@ import mousetrap from 'mousetrap';
 
 import { breakpoints } from 'style/tokens';
 
-import EditorContext from 'context/EditorContext';
-
-import FaceScrim from 'components/FaceScrim';
 import Layout from 'components/Layout';
 import Photo from 'components/Photo';
-import Button from 'components/Button';
 
 const SingleImage = ({
   pageContext,
@@ -47,8 +43,6 @@ const SingleImage = ({
     };
   }, [toPrevious, toNext]);
 
-  const { isVisible, toggleVisibility } = React.useContext(EditorContext);
-
   return (
     <Layout>
       <div
@@ -67,19 +61,7 @@ const SingleImage = ({
             maxWidth: '100%',
             margin: '0 auto',
           })}
-        >
-          {isVisible && (
-            <FaceScrim faces={faces} aspectRatio={image.fluid.aspectRatio} />
-          )}
-          <figcaption>
-            <p>
-              <Button onClick={toggleVisibility}>
-                {isVisible ? 'Hide info' : 'Show info'}
-              </Button>
-            </p>
-            {isVisible && <p>id: {id}</p>}
-          </figcaption>
-        </Photo>
+        />
       </div>
     </Layout>
   );
@@ -107,16 +89,3 @@ export const query = graphql`
     }
   }
 `;
-// faces {
-//   id
-//   rect {
-//     top
-//     left
-//     width
-//     height
-//     center {
-//       x
-//       y
-//     }
-//   }
-// }
