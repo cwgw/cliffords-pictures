@@ -10,7 +10,7 @@ import AlbumContext from 'context/AlbumViewState';
 
 import Button from 'components/Button';
 import Pagination from 'components/Pagination';
-import Modal from 'components/PhotoModal';
+// import Modal from 'components/PhotoModal';
 
 import GridItem from './GridItem';
 
@@ -87,8 +87,8 @@ const PhotoGrid = ({ columnGap, itemWidth, pageData, rowGap }) => {
         {(photos.length ? photos : pageData.photos).map(node => (
           <GridItem
             key={node.id}
-            onClick={openModal}
-            isInitialized={isInitialized}
+            // onClick={openModal}
+            // isInitialized={isInitialized}
             {...node}
           />
         ))}
@@ -104,7 +104,6 @@ const PhotoGrid = ({ columnGap, itemWidth, pageData, rowGap }) => {
           </span>
         )}
       </Footer>
-      <Modal />
     </React.Fragment>
   );
 };

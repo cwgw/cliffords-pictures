@@ -1,4 +1,11 @@
-import shouldUpdateScroll from './should-update-scroll';
-import wrapRootElement from './wrap-root-element';
+import replaceComponentRenderer from './replaceComponentRenderer';
+import shouldUpdateScroll from './shouldUpdateScroll';
+import wrapRootElement from './wrapRootElement';
+import wrapPageElement from './wrapPageElement';
 
-export { shouldUpdateScroll, wrapRootElement };
+export {
+  replaceComponentRenderer,
+  shouldUpdateScroll,
+  wrapRootElement,
+  wrapPageElement,
+};
