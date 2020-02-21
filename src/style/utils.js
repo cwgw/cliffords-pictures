@@ -1,5 +1,5 @@
 import { transparentize as _transparentize } from 'polished';
-import { get as ssGet } from '@styled-system/core';
+import { get } from '@styled-system/core';
 
 import theme from './theme';
 
@@ -12,9 +12,9 @@ export const delve = (obj, key, def, p, undef) => {
   return obj === undef ? def : obj;
 };
 
-const get = (scale, key) => props => {
+const getToken = (scale, key) => props => {
   const theme = delve(props, 'theme', props);
-  return ssGet(theme, `${scale}.${key}`);
+  return get(theme, `${scale}.${key}`);
 };
 
 const color = Object.keys(theme.colors).reduce(
@@ -22,15 +22,15 @@ const color = Object.keys(theme.colors).reduce(
     f[color] = f(color)({ theme });
     return f;
   },
-  color => props => get('colors', color)(props)
+  color => props => getToken('colors', color)(props)
 );
 
 const space = Object.keys(theme.space).reduce(
   (f, n) => {
-    f[n] = get('space', n)({ theme });
+    f[n] = getToken('space', n)({ theme });
     return f;
   },
-  n => props => get('space', n)(props)
+  n => props => getToken('space', n)(props)
 );
 
 const transparentize = (n, c) => props => {
