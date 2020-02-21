@@ -15,6 +15,7 @@ import Modal from 'components/PhotoModal';
 import GridItem from './GridItem';
 
 const propTypes = {
+  itemWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   pageData: PropTypes.shape({
     photos: PropTypes.arrayOf(
       PropTypes.shape({
@@ -27,22 +28,19 @@ const propTypes = {
     pageTotal: PropTypes.number,
     paginationEndpoint: PropTypes.string,
   }).isRequired,
-  isInfiniteScrollAllowed: PropTypes.bool,
 };
 
 const defaultProps = {
-  isInfiniteScrollAllowed: false,
+  itemWidth: '384px',
+  columnGap: `${space.lg}px`,
+  rowGap: `${space.lg}px`,
 };
 
-const Grid = styled('ul')(
+const Grid = styled.ul(
   css({
     display: 'grid',
-    gridColumnGap: 'lg',
-    gridRowGap: 'lg',
-    gridTemplateColumns: `repeat(auto-fill, minmax(0, 384px))`,
     justifyContent: 'center',
     alignItems: 'center',
-    maxWidth: `calc(384px * 3 + ${space.lg}px * 2)`,
     padding: 'sm',
     marginY: 'xl',
     marginX: 'auto',
@@ -51,12 +49,12 @@ const Grid = styled('ul')(
   })
 );
 
-const Footer = styled('div')({
+const Footer = styled.div({
   textAlign: 'center',
   minHeight: '120px',
 });
 
-const PhotoGrid = ({ pageData }) => {
+const PhotoGrid = ({ columnGap, itemWidth, pageData, rowGap }) => {
   const {
     init,
     isInitialized,
@@ -78,7 +76,14 @@ const PhotoGrid = ({ pageData }) => {
 
   return (
     <React.Fragment>
-      <Grid>
+      <Grid
+        css={{
+          gridColumnGap: columnGap,
+          gridRowGap: rowGap,
+          gridTemplateColumns: `repeat(auto-fill, minmax(0, ${itemWidth}))`,
+          maxWidth: `calc(${itemWidth} * 3 + ${columnGap} * 2)`,
+        }}
+      >
         {(photos.length ? photos : pageData.photos).map(node => (
           <GridItem
             key={node.id}
