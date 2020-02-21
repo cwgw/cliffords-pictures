@@ -61,7 +61,7 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
         opacity: 1,
       },
       leave: {
-        transform: `matrix(0.9, 0, 0, 0.9, ${transitionDirection *
+        transform: `matrix(1, 0, 0, 1, ${transitionDirection *
           -dim.current.width}, 0)`,
         opacity: 0,
       },
@@ -69,13 +69,16 @@ const Carousel = ({ items, onChange, onDismiss, current, previous }) => {
     [dim.current.width, current]
   );
 
-  const [{ s, x, y, opacity }, setSpring] = useSpring(
-    () => ({ s: 0, x: 0, y: 0, opacity: 1 }),
-    {
-      tension: 750,
-      friction: 20,
-    }
-  );
+  const [{ s, x, y, opacity }, setSpring] = useSpring(() => ({
+    s: 0,
+    x: 0,
+    y: 0,
+    opacity: 1,
+    config: {
+      tension: 500,
+      friction: 30,
+    },
+  }));
 
   const bind = useGesture(
     {
