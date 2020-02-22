@@ -6,6 +6,7 @@ import { transparentize } from 'style/utils';
 import { spanParent } from 'style/shared';
 
 import Button from 'components/Button';
+import Carousel from './Carousel';
 
 const Modal = ({ handleRequestClose, isOpen, setContentRef, children }) => {
   return (
@@ -44,7 +45,7 @@ const Modal = ({ handleRequestClose, isOpen, setContentRef, children }) => {
           children="╳"
           title="Close"
         />
-        {children}
+        <Carousel dismiss={handleRequestClose}>{children}</Carousel>
       </DialogContent>
     </DialogOverlay>
   );

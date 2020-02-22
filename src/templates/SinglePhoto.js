@@ -2,10 +2,9 @@ import React from 'react';
 import css from '@styled-system/css';
 import { graphql, navigate } from 'gatsby';
 import mousetrap from 'mousetrap';
+import GatsbyImage from 'gatsby-image';
 
-import { breakpoints } from 'style/tokens';
-
-import Photo from 'components/Photo';
+import { color } from 'style/utils';
 
 const SingleImage = ({
   pageContext,
@@ -14,9 +13,11 @@ const SingleImage = ({
     photo: { image },
   },
 }) => {
+  console.log('Rendering SingleImage');
   const toNext = React.useCallback(() => {
-    if (!pageContext.next) return;
-    navigate(pageContext.next, {
+    console.log('toNext', pageContext.id);
+    if (!pageContext.nextPhotoPath) return;
+    navigate(pageContext.nextPhotoPath, {
       state: {
         ...(location.state || {}),
       },
@@ -24,8 +25,9 @@ const SingleImage = ({
   }, [pageContext, location]);
 
   const toPrevious = React.useCallback(() => {
-    if (!pageContext.prev) return;
-    navigate(pageContext.prev, {
+    console.log('toPrevious', pageContext.id);
+    if (!pageContext.prevPhotoPath) return;
+    navigate(pageContext.prevPhotoPath, {
       state: {
         ...(location.state || {}),
       },
@@ -33,6 +35,7 @@ const SingleImage = ({
   }, [pageContext, location]);
 
   React.useEffect(() => {
+    console.log('SinglePhoto useEffect hook');
     mousetrap.bind('left', toPrevious);
     mousetrap.bind('right', toNext);
 
@@ -40,25 +43,22 @@ const SingleImage = ({
       mousetrap.unbind('left');
       mousetrap.unbind('right');
     };
-  }, [toPrevious, toNext]);
+  }, [toPrevious, toNext, location]);
 
   return (
     <div
       css={css({
         margin: '0 auto',
-        padding: '0 1.5rem',
-        maxWidth: breakpoints.lg,
-        display: 'flex',
-        flexFlow: 'column nowrap',
+        maxWidth: '768px',
       })}
     >
-      <Photo
-        image={image}
+      <GatsbyImage
         css={css({
-          width: '768px',
-          maxWidth: '100%',
-          margin: '0 auto',
+          display: 'block',
+          boxShadow: 'raised',
         })}
+        backgroundColor={color.white}
+        fluid={image.fluid}
       />
     </div>
   );

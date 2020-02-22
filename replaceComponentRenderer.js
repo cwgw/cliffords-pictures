@@ -3,7 +3,7 @@ import get from 'lodash/get';
 
 import ModalRoutingContext from 'context/ModalRoutingContext';
 
-import Modal from 'components/PhotoModal';
+import Modal from 'components/Modal';
 
 const withoutPrefix = path => {
   const prefix =
@@ -12,7 +12,7 @@ const withoutPrefix = path => {
   return path.slice(prefix ? prefix.length : 0);
 };
 
-const ReplaceComponentRenderer = props => {
+const ComponentRenderer = props => {
   const pathname = React.useRef();
   const modalPage = React.useRef();
   const originPage = React.useRef();
@@ -116,7 +116,7 @@ const ReplaceComponentRenderer = props => {
 };
 
 const replaceComponentRenderer = ({ props }) => {
-  return React.createElement(ReplaceComponentRenderer, props);
+  return React.createElement(ComponentRenderer, props);
 };
 
 export default replaceComponentRenderer;
