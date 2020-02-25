@@ -12,4 +12,9 @@ const breakpoints = Object.entries(aliases).reduce((o, [key, value]) => {
   return o;
 }, scale);
 
-export default breakpoints;
+const mediaQueries = Object.keys(aliases).reduce((o, key) => {
+  o[key] = `@media screen and (min-width: ${breakpoints[key]})`;
+  return o;
+}, {});
+
+export { breakpoints, mediaQueries };

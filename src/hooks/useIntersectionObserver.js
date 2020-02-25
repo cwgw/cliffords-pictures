@@ -3,6 +3,37 @@ import React from 'react';
 let io;
 const listeners = new WeakMap();
 
+/**
+ *
+ * @param {function} cb - A function to be executed when intersections occur
+ * @returns {function} A setRef function. Use as the ref value for the element to be observed
+ */
+const useIntersectionObserver = cb => {
+  const [ref, setRef] = React.useState();
+
+  React.useLayoutEffect(() => {
+    if (ref) {
+      listenToIntersections(ref, cb);
+    }
+  }, [ref, cb]);
+
+  return [setRef];
+};
+
+function listenToIntersections(el, cb) {
+  const observer = getIO();
+
+  if (observer) {
+    observer.observe(el);
+    listeners.set(el, cb);
+  }
+
+  return () => {
+    observer.unobserve(el);
+    listeners.delete(el);
+  };
+}
+
 function getIO() {
   if (
     typeof io === `undefined` &&
@@ -28,31 +59,5 @@ function getIO() {
 
   return io;
 }
-
-const listenToIntersections = (el, cb) => {
-  const observer = getIO();
-
-  if (observer) {
-    observer.observe(el);
-    listeners.set(el, cb);
-  }
-
-  return () => {
-    observer.unobserve(el);
-    listeners.delete(el);
-  };
-};
-
-const useIntersectionObserver = cb => {
-  const [ref, setRef] = React.useState();
-
-  React.useLayoutEffect(() => {
-    if (ref) {
-      listenToIntersections(ref, cb);
-    }
-  }, [ref, cb]);
-
-  return [setRef];
-};
 
 export default useIntersectionObserver;

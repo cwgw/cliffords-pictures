@@ -118,67 +118,74 @@ exports.sourceNodes = async (
     );
   }
 
-  const validExtensions = ['.jpg', '.jpeg', '.png', '.webp'];
+  const allowedFileExtensions = ['.jpg', '.jpeg', '.png', '.webp'];
 
-  try {
-    const dirs = await fs.readdir(options.path);
-    if (dirs.length < 1) {
-      reporter.warn(
-        `No photo data was found in ${options.path}`,
-        'Are you sure you set the right path in plugin options?'
-      );
-    }
+  const dirs = fs.readdirSync(options.path);
 
-    const pendingNodes = dirs
-      .map(async id => {
-        if (!fs.existsSync(path.resolve(options.path, id, `data.json`))) {
-          return null;
-        }
-        try {
-          const data = await fs.readJSON(
-            path.resolve(options.path, id, 'data.json')
-          );
-          const files = await fs.readdir(path.resolve(options.path, id));
-          for (const file of files) {
-            const { ext, base } = path.parse(file);
-            if (validExtensions.indexOf(ext) < 0) {
-              continue;
-            }
-            await fs.ensureDir(path.resolve('public/photos', id));
-            const publicPath = path.join('photos', id, file);
-            await fs.copyFile(
-              path.resolve(options.path, id, file),
-              path.resolve('public', publicPath)
-            );
-            data.images = [
-              ...(data.images || []),
-              {
-                path: '/' + publicPath,
-                width: parseInt(base),
-                ext: ext.split('.').pop(),
-              },
-            ];
-          }
-          data.images.sort((a, b) => a.width - b.width);
-          return Promise.resolve(
-            createNode({
-              ...data,
-              children: [],
-              parent: '__SOURCE__',
-              internal: {
-                type: 'Photo',
-                contentDigest: createContentDigest(data),
-              },
-            })
-          );
-        } catch (err) {
-          reporter.error(err);
-        }
-      })
-      .filter(o => !!o);
-
-    return Promise.all(pendingNodes);
-  } catch (err) {
-    reporter.error(err);
+  if (dirs.length < 1) {
+    reporter.warn(
+      `No photo data was found in ${options.path}`,
+      'Are you sure you set the right path in plugin options?'
+    );
   }
+
+  const pendingNodes = dirs
+    .map(async id => {
+      if (!fs.existsSync(path.resolve(options.path, id, `data.json`))) {
+        return null;
+      }
+
+      try {
+        const data = await fs.readJSON(
+          path.resolve(options.path, id, 'data.json')
+        );
+
+        const files = await fs.readdir(path.resolve(options.path, id));
+
+        for (const file of files) {
+          const { ext, base } = path.parse(file);
+
+          if (!allowedFileExtensions.includes(ext)) {
+            continue;
+          }
+
+          await fs.ensureDir(path.resolve('public/photos', id));
+
+          const publicPath = path.join('photos', id, file);
+
+          await fs.copyFile(
+            path.resolve(options.path, id, file),
+            path.resolve('public', publicPath)
+          );
+
+          data.images = [
+            ...(data.images || []),
+            {
+              path: `/${publicPath}`,
+              width: parseInt(base, 10),
+              ext: ext.split('.').pop(),
+            },
+          ];
+        }
+
+        data.images.sort((a, b) => a.width - b.width);
+
+        return Promise.resolve(
+          createNode({
+            ...data,
+            children: [],
+            parent: '__SOURCE__',
+            internal: {
+              type: 'Photo',
+              contentDigest: createContentDigest(data),
+            },
+          })
+        );
+      } catch (error) {
+        reporter.error(error);
+      }
+    })
+    .filter(o => !!o);
+
+  return Promise.all(pendingNodes);
 };

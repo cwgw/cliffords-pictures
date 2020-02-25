@@ -3,9 +3,7 @@ import styled from '@emotion/styled';
 import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby';
 import css from '@styled-system/css';
 
-import { transparentize } from 'style/utils';
-
-const Wrapper = styled('header')({
+const Wrapper = styled.header({
   margin: '0 auto 4rem',
   padding: '1rem 0 0',
   textAlign: 'center',
@@ -16,14 +14,12 @@ const Wrapper = styled('header')({
 const Link = styled(GatsbyLink)(
   css({
     display: 'inline-block',
-    fontSize: '2rem',
+    fontSize: '8',
     fontFamily: 'serif',
     fontVariationSettings: '"wght" 300, "opsz" 50, "XOPQ" 120, "PWGT" 150',
-    textShadow: `0 0 12px ${transparentize(
-      0.8,
-      'primary'
-    )}, 0 0 3px ${transparentize(0.6, 'primary')}`,
     textDecoration: 'none',
+    paddingY: 'xs',
+    paddingX: 'sm',
   })
 );
 
