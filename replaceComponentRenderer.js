@@ -19,7 +19,7 @@ const ComponentRenderer = props => {
 
   const contentRef = React.useRef();
 
-  const { location, navigate, pageResources } = props;
+  const { location, navigate, pageResources, pageContext } = props;
 
   React.useEffect(() => {
     if (location.pathname !== pathname.current) {
@@ -44,14 +44,6 @@ const ComponentRenderer = props => {
       contentRef.current.scrollTop = 0;
     }
   });
-
-  const handleRequestClose = React.useCallback(() => {
-    navigate(withoutPrefix(originPage.current.location.pathname), {
-      state: {
-        noScroll: true,
-      },
-    });
-  }, [originPage, navigate]);
 
   // render modal if props location has modal
   const isModal = !!originPage.current && get(location, 'state.modal', false);
@@ -92,8 +84,26 @@ const ComponentRenderer = props => {
     <>
       {pageElement}
       <Modal
-        handleRequestClose={handleRequestClose}
+        onDismiss={() => {
+          navigate(withoutPrefix(originPage.current.location.pathname), {
+            state: { noScroll: true },
+          });
+        }}
         setContentRef={node => (contentRef.current = node)}
+        onPrevious={() => {
+          if (pageContext.prevPhotoPath) {
+            navigate(pageContext.prevPhotoPath, {
+              state: location.state || {},
+            });
+          }
+        }}
+        onNext={() => {
+          if (pageContext.nextPhotoPath) {
+            navigate(pageContext.nextPhotoPath, {
+              state: location.state || {},
+            });
+          }
+        }}
         isOpen={!!isModal}
       >
         {modalElement ? (

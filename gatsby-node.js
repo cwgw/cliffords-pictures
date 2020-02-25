@@ -85,7 +85,6 @@ exports.createPages = ({
         component: SinglePhoto,
         context: {
           id: node.id,
-          index: i,
           nextPhotoPath: next.fields.slug,
           prevPhotoPath: prev.fields.slug,
         },

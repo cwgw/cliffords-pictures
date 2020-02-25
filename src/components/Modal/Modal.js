@@ -1,41 +1,46 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import css from '@styled-system/css';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
+import { animated, useSpring } from 'react-spring';
 
-import { transparentize } from 'style/utils';
 import { spanParent } from 'style/shared';
 
 import Button from 'components/Button';
 import Carousel from './Carousel';
 
-const Modal = ({ handleRequestClose, isOpen, setContentRef, children }) => {
+const Overlay = animated(
+  styled(DialogOverlay)(
+    css({
+      ...spanParent,
+      position: 'fixed',
+      backdropFilter: 'blur(4px)',
+      color: 'white',
+    })
+  )
+);
+
+const Content = styled(DialogContent)({
+  outline: 'none',
+});
+
+const Modal = ({
+  onDismiss,
+  isOpen,
+  setContentRef,
+  children,
+  onNext,
+  onPrevious,
+}) => {
+  const { backgroundColor } = useSpring({
+    backgroundColor: isOpen ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0)',
+  });
+
   return (
-    <DialogOverlay
-      isOpen={isOpen}
-      onDismiss={handleRequestClose}
-      css={css({
-        ...spanParent,
-        position: 'fixed',
-        display: 'flex',
-        alignItems: 'center',
-        padding: 'sm',
-        backgroundColor: transparentize(0.1, 'black'),
-        backdropFilter: 'blur(4px)',
-        color: 'white',
-      })}
-    >
-      <DialogContent
-        ref={setContentRef}
-        css={css({
-          width: '100%',
-          maxWidth: '768px',
-          margin: 'auto',
-          outline: 'none',
-        })}
-        aria-label="Photo modal"
-      >
+    <Overlay isOpen={isOpen} onDismiss={onDismiss} style={{ backgroundColor }}>
+      <Content ref={setContentRef} aria-label="Photo modal">
         <Button
-          onClick={handleRequestClose}
+          onClick={onDismiss}
           css={css({
             position: 'fixed',
             top: 'sm',
@@ -45,9 +50,11 @@ const Modal = ({ handleRequestClose, isOpen, setContentRef, children }) => {
           children="╳"
           title="Close"
         />
-        <Carousel dismiss={handleRequestClose}>{children}</Carousel>
-      </DialogContent>
-    </DialogOverlay>
+        <Carousel onDismiss={onDismiss} onRight={onNext} onLeft={onPrevious}>
+          {children}
+        </Carousel>
+      </Content>
+    </Overlay>
   );
 };
 
