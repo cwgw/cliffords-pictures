@@ -1,7 +1,7 @@
 import React from 'react';
 import get from 'lodash/get';
 
-import ModalRoutingContext from 'context/ModalRoutingContext';
+import ModalContext from 'context/ModalContext';
 
 import Modal from 'components/Modal';
 
@@ -108,7 +108,7 @@ const ComponentRenderer = props => {
       >
         {modalElement ? (
           <React.Fragment key={props.location.key}>
-            <ModalRoutingContext.Provider
+            <ModalContext.Provider
               value={{
                 modal: true,
                 closeTo: originPage.current
@@ -117,7 +117,7 @@ const ComponentRenderer = props => {
               }}
             >
               {modalElement}
-            </ModalRoutingContext.Provider>
+            </ModalContext.Provider>
           </React.Fragment>
         ) : null}
       </Modal>

@@ -4,7 +4,7 @@ import { Link as GatsbyLink } from 'gatsby';
 import styled from '@emotion/styled';
 import { variant } from 'styled-system';
 
-import ModalRoutingContext from 'context/ModalRoutingContext';
+import ModalContext from 'context/ModalContext';
 import { spanParent } from 'style/shared';
 
 const propTypes = {
@@ -45,7 +45,7 @@ const Link = styled(
     target,
     to,
   }) => {
-    const { closeTo } = React.useContext(ModalRoutingContext);
+    const { closeTo } = React.useContext(ModalContext);
 
     if (/^\/(?!\/)/.test(to)) {
       return (
