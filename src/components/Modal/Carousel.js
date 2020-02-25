@@ -40,7 +40,7 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
     from: {
       transform: `matrix(0.8, 0, 0, 0.8, ${direction.current *
         windowWidth}, 0)`,
-      opacity: 0,
+      opacity: 1,
       position: 'relative',
     },
     enter: {
@@ -58,8 +58,8 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
   const [{ s, x, y, opacity }, setSpring] = useSpring(
     () => ({ s: 0, x: 0, y: 0, opacity: 1 }),
     {
-      tension: 750,
-      friction: 20,
+      tension: 1000,
+      friction: 16,
     }
   );
 
@@ -68,9 +68,8 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
       down,
       last,
       movement: [mx, my],
-      delta: [dx, dy],
       vxvy: [vx, vy],
-      memo = [x.animation.to, y.animation.to],
+      memo = [x.animation.to, y.animation.to, s.animation.to],
       cancel,
       canceled,
     }) => {
@@ -80,24 +79,28 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
 
       if (Math.abs(my) > Math.abs(mx)) {
         // mostly vertical swiping
-        if (last && ((my > 0 && vy * dy > 0.5) || my > windowHeight / 2)) {
+        if (last && ((my > 0 && vy > 0.5) || my > windowHeight / 2)) {
+          // trigger dismissal
           cancel();
           setSpring({
             x: 0,
-            y: 0,
-            s: -0.75,
+            y: memo[1] + my,
+            s: memo[2] - 0.4,
             opacity: 0,
             onRest: onDismiss,
+            config: {
+              tension: 350,
+              friction: 30,
+              clamp: true,
+            },
           });
 
           return;
         }
       } else {
         // mostly horizontal swiping
-        if (
-          last &&
-          ((mx * vx > 0 && vx * dx > 0.5) || Math.abs(mx) > windowWidth / 3)
-        ) {
+        if (last && ((mx > 0 && vx > 0.5) || Math.abs(mx) > windowWidth / 3)) {
+          // trigger photo change
           if (mx > 0) {
             handleLeft();
           } else {
