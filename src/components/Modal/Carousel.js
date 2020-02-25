@@ -16,7 +16,6 @@ const propTypes = {
 
 const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
   const direction = React.useRef(0);
-  const touchRef = React.useRef();
 
   const { width: windowWidth, height: windowHeight } = useWindowSize();
 
@@ -99,7 +98,10 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
         }
       } else {
         // mostly horizontal swiping
-        if (last && ((mx > 0 && vx > 0.5) || Math.abs(mx) > windowWidth / 3)) {
+        if (
+          last &&
+          ((Math.abs(mx) > 0 && vx > 0.5) || Math.abs(mx) > windowWidth / 3)
+        ) {
           // trigger photo change
           if (mx > 0) {
             handleLeft();
@@ -124,13 +126,15 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
   });
 
   return (
-    <div css={{ position: 'relative' }} {...bind()} ref={touchRef}>
+    <div css={{ position: 'relative' }} {...bind()}>
       {transition((values, item) => {
         return (
           <animated.div
             style={{
               ...values,
               pointerEvents: 'none',
+              width: '100%',
+              height: '100%',
             }}
           >
             <animated.div
