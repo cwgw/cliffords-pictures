@@ -7,3 +7,5 @@ My grandfather took a lot of pictures. He had a Polaroid instant camera hanging 
 He passed a few years ago, and we discovered about a thousand photos in bags and boxes. I decided to scan them and put them on the web to share with my family.
 
 If you're curious you can see the site at [cliffords.pictures](https://cliffords.pictures).
+
+Source images and build scripts are at [cliffords-pictures-source](https://github.com/cwgw/cliffords-pictures-source).
