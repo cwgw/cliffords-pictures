@@ -78,13 +78,6 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
         return;
       }
 
-      console.log({
-        vx,
-        vy,
-        dx,
-        dy,
-      });
-
       if (Math.abs(my) > Math.abs(mx)) {
         // mostly vertical swiping
         if (last && ((my > 0 && vy * dy > 0.5) || my > windowHeight / 2)) {
