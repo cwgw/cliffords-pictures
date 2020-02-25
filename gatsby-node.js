@@ -68,8 +68,9 @@ exports.createPages = ({
       reporter.panicOnBuild(errors);
     }
     const HomePage = path.resolve('src/templates/HomePage.js');
+    const AlbumPage = path.resolve('src/templates/AlbumPage.js');
     const SinglePhoto = path.resolve('src/templates/SinglePhoto.js');
-    const ListTemplate = path.resolve('src/templates/PaginatedPhotoList.js');
+
     const photos = data.photos.edges.map(({ node }) => node);
     const perPageLimit = 18;
     const pageTotal = Math.ceil(photos.length / perPageLimit);
@@ -84,8 +85,8 @@ exports.createPages = ({
         component: SinglePhoto,
         context: {
           id: node.id,
-          next: next.fields.slug,
-          prev: prev.fields.slug,
+          nextPhotoPath: next.fields.slug,
+          prevPhotoPath: prev.fields.slug,
         },
       });
     });
@@ -100,18 +101,16 @@ exports.createPages = ({
         photos: photos.slice(i * perPageLimit, i * perPageLimit + perPageLimit),
       };
 
-      createPaginationJSON({
-        data: context,
-        reporter,
-      });
+      createPaginationJSON({ data: context, reporter });
 
-      context.prev = pageIndex - 1 > 0 ? `/page/${pageIndex - 1}` : null;
-      context.next =
+      context.prevPage = pageIndex - 1 > 0 ? `/page/${pageIndex - 1}` : null;
+
+      context.nextPage =
         pageIndex + 1 < pageTotal ? `/page/${pageIndex + 1}` : null;
 
       createPage({
         path: `/page/${i + 1}`,
-        component: ListTemplate,
+        component: AlbumPage,
         context,
       });
 
@@ -126,17 +125,13 @@ exports.createPages = ({
   });
 };
 
-const createPaginationJSON = ({ data, reporter }) => {
+const createPaginationJSON = async ({ data, reporter }) => {
   const dir = path.join('public', data.paginationEndpoint);
-  fs.ensureDir(dir)
-    .then(() =>
-      fs
-        .writeJSON(path.join(dir, `${data.pageIndex}.json`), data)
-        .catch(err => {
-          reporter.panicOnBuild(`Couldn't write pagination data`, err);
-        })
-    )
-    .catch(err => {
-      reporter.panicOnBuild(`Couldn't write pagination data`, err);
-    });
+  fs.ensureDirSync(dir);
+
+  try {
+    await fs.writeJSON(path.join(dir, `${data.pageIndex}.json`), data);
+  } catch (error) {
+    reporter.panicOnBuild(`Couldn't write pagination data`, error);
+  }
 };

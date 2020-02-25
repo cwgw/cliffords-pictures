@@ -4,12 +4,14 @@ import { Link as GatsbyLink } from 'gatsby';
 import styled from '@emotion/styled';
 import { variant } from 'styled-system';
 
-import { span } from 'style/shared';
+import ModalRoutingContext from 'context/ModalRoutingContext';
+import { spanParent } from 'style/shared';
 
 const propTypes = {
   activeClassName: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
+  inModal: PropTypes.bool,
   onClick: PropTypes.func,
   rel: PropTypes.string,
   state: PropTypes.object,
@@ -22,8 +24,10 @@ const defaultProps = {
   activeClassName: null,
   children: null,
   className: null,
+  inModal: false,
   onClick: null,
   rel: null,
+  state: {},
   tabIndex: null,
   target: '_blank',
 };
@@ -33,26 +37,37 @@ const Link = styled(
     activeClassName,
     children,
     className,
+    inModal,
     onClick,
     rel,
     state,
     tabIndex,
     target,
     to,
-  }) =>
-    /^\/(?!\/)/.test(to) ? (
-      <GatsbyLink
-        activeClassName={activeClassName}
-        className={className}
-        onClick={onClick}
-        state={state}
-        tabIndex={tabIndex}
-        rel={rel}
-        to={to}
-      >
-        {children}
-      </GatsbyLink>
-    ) : (
+  }) => {
+    const { closeTo } = React.useContext(ModalRoutingContext);
+
+    if (/^\/(?!\/)/.test(to)) {
+      return (
+        <GatsbyLink
+          activeClassName={activeClassName}
+          className={className}
+          onClick={onClick}
+          state={{
+            modal: inModal,
+            noScroll: to === closeTo,
+            ...state,
+          }}
+          tabIndex={tabIndex}
+          rel={rel}
+          to={to}
+        >
+          {children}
+        </GatsbyLink>
+      );
+    }
+
+    return (
       <a
         className={className}
         href={to}
@@ -63,11 +78,12 @@ const Link = styled(
       >
         {children}
       </a>
-    )
+    );
+  }
 )(
   variant({
     variants: {
-      span,
+      spanParent,
     },
   })
 );

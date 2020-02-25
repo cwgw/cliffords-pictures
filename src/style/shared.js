@@ -12,7 +12,7 @@ const hideVisually = {
   border: '0',
 };
 
-const span = {
+const spanParent = {
   position: 'absolute',
   top: 0,
   right: 0,
@@ -29,4 +29,4 @@ const outline = {
 
 const type = {};
 
-export { hideVisually, outline, span, type };
+export { hideVisually, outline, spanParent, type };

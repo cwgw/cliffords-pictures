@@ -1,21 +1,22 @@
-import breakpoints from './breakpoints';
+import { breakpoints, mediaQueries } from './breakpoints';
 import colors from './colors';
+import fonts from './fonts';
 import fontSizes from './font-sizes';
 import fontWeights from './font-weights';
 import lineHeights from './line-heights';
-import fonts from './fonts';
 import shadows from './shadows';
 import space from './space';
-import ease from './transitions';
+import transitions from './transitions';
 
 export {
   breakpoints,
   colors,
-  ease,
   fonts,
+  fontSizes,
   fontWeights,
   lineHeights,
-  fontSizes,
+  mediaQueries,
   shadows,
   space,
+  transitions,
 };
