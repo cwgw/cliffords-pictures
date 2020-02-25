@@ -1,25 +1,45 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import styled from '@emotion/styled';
 import css from '@styled-system/css';
 import GatsbyImage from 'gatsby-image';
+
+import ModalContext from 'context/ModalContext';
+
+const Image = styled(GatsbyImage)({
+  margin: 'auto',
+  width: '100%',
+  maxWidth: '768px',
+});
 
 const SingleImage = ({
   data: {
     photo: { image },
   },
 }) => {
+  const { modal } = React.useContext(ModalContext);
+
+  if (modal) {
+    return (
+      <Image
+        css={{
+          height: '100%',
+          maxHeight: '100vh',
+        }}
+        imgStyle={{
+          objectFit: 'contain',
+        }}
+        backgroundColor="transparent"
+        fluid={image.fluid}
+      />
+    );
+  }
+
   return (
-    <GatsbyImage
+    <Image
       css={css({
-        display: 'block',
         boxShadow: 'raised',
-        width: '100%',
-        maxHeight: '100%',
-        maxWidth: '768px',
       })}
-      style={{
-        margin: 'auto',
-      }}
       backgroundColor="transparent"
       fluid={image.fluid}
     />

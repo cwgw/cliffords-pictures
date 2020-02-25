@@ -124,21 +124,12 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
   });
 
   return (
-    <div
-      css={{
-        position: 'relative',
-        margin: 'auto',
-      }}
-      {...bind()}
-      ref={touchRef}
-    >
+    <div css={{ position: 'relative' }} {...bind()} ref={touchRef}>
       {transition((values, item) => {
         return (
           <animated.div
             style={{
               ...values,
-              width: '100%',
-              height: '100%',
               pointerEvents: 'none',
             }}
           >
@@ -149,6 +140,7 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
                   (s, x, y) => `matrix(${1 + s},0,0,${1 + s},${x},${y})`
                 ),
                 opacity,
+                height: '100vh',
               }}
             >
               {item}
