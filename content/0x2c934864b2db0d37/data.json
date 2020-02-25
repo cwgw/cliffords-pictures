@@ -6,7 +6,7 @@
   "faces": [
     {
       "id": "0x2c934864b2db0d37-23-43",
-      "faceId": "9bbc0b55-a2ce-4975-a555-99fb798f7bb0",
+      "faceId": "bfc8c29d-8be1-4bca-a342-42fd398850e4",
       "rect": {
         "top": 0.39529181,
         "left": 0.202,
@@ -20,7 +20,7 @@
     },
     {
       "id": "0x2c934864b2db0d37-88-42",
-      "faceId": "540f794b-9347-402c-b517-c4662d097aa0",
+      "faceId": "ff0990f9-cbb7-4462-aa4d-268e875d031d",
       "rect": {
         "top": 0.38940657,
         "left": 0.8515,
@@ -34,7 +34,7 @@
     },
     {
       "id": "0x2c934864b2db0d37-19-35",
-      "faceId": "42afad6c-a5f4-47b8-8563-aabac882c5b2",
+      "faceId": "045040e9-3978-48b3-9165-854633c9f026",
       "rect": {
         "top": 0.32466896,
         "left": 0.161,
@@ -48,7 +48,7 @@
     },
     {
       "id": "0x2c934864b2db0d37-80-42",
-      "faceId": "dea4c540-7499-481a-9d68-6b5fc12a8e2d",
+      "faceId": "0d9a7ac8-2adb-4b7b-9aa1-3e5ab22b9d1f",
       "rect": {
         "top": 0.39725356,
         "left": 0.775,
@@ -62,7 +62,7 @@
     },
     {
       "id": "0x2c934864b2db0d37-28-36",
-      "faceId": "3b419f96-4d7d-40ad-87f6-48ee74d9d52d",
+      "faceId": "cb751686-aca3-47ec-bc9e-c2aea6115346",
       "rect": {
         "top": 0.3374203,
         "left": 0.258,
@@ -76,7 +76,7 @@
     },
     {
       "id": "0x2c934864b2db0d37-67-31",
-      "faceId": "911b4844-b6b8-46a1-9737-ec6f7accbe3f",
+      "faceId": "0c710f75-85dd-4b19-a0c9-27aa76c8115d",
       "rect": {
         "top": 0.28739578,
         "left": 0.647,
@@ -90,7 +90,7 @@
     },
     {
       "id": "0x2c934864b2db0d37-54-33",
-      "faceId": "2bc7d6bf-30da-4e4c-b6bc-0c3b19f9f001",
+      "faceId": "3ccf0dea-a200-4cac-ab3f-6b3f016d3f8a",
       "rect": {
         "top": 0.31436979,
         "left": 0.5195,
@@ -104,7 +104,7 @@
     },
     {
       "id": "0x2c934864b2db0d37-38-33",
-      "faceId": "b90137ba-35f9-4955-aa96-40e3c822920f",
+      "faceId": "c0961a90-8906-45db-bbe4-aee9ea0191bf",
       "rect": {
         "top": 0.31682197,
         "left": 0.363,
