@@ -16,10 +16,9 @@ const propTypes = {
 
 const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
   const direction = React.useRef(0);
-  const axis = React.useRef(null);
   const touchRef = React.useRef();
 
-  const { width: windowWidth } = useWindowSize();
+  const { width: windowWidth, height: windowHeight } = useWindowSize();
 
   const handleLeft = React.useCallback(() => {
     direction.current = -1;
@@ -64,106 +63,69 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
     }
   );
 
-  const bind = useGesture(
-    {
-      onDrag: ({
-        down,
-        last,
-        movement: [mx, my],
-        // direction: [dirx, diry],
-        delta: [dx, dy],
-        vxvy: [vx, vy],
-        memo = [x.animation.to, y.animation.to],
-        cancel,
-        canceled,
-      }) => {
-        // if (!axis.current) {
-        //   if (Math.abs(dirx) > Math.abs(diry)) {
-        //     axis.current = 'x';
-        //   } else if (Math.abs(diry) > Math.abs(dirx)) {
-        //     axis.current = 'xy';
-        //   }
-        // }
+  const bind = useGesture({
+    onDrag: ({
+      down,
+      last,
+      movement: [mx, my],
+      delta: [dx, dy],
+      vxvy: [vx, vy],
+      memo = [x.animation.to, y.animation.to],
+      cancel,
+      canceled,
+    }) => {
+      if (canceled) {
+        return;
+      }
 
-        if (canceled) {
-          // axis.current = null;
+      console.log({
+        vx,
+        vy,
+        dx,
+        dy,
+      });
+
+      if (Math.abs(my) > Math.abs(mx)) {
+        // mostly vertical swiping
+        if (last && ((my > 0 && vy * dy > 0.5) || my > windowHeight / 2)) {
+          cancel();
+          setSpring({
+            x: 0,
+            y: 0,
+            s: -0.75,
+            opacity: 0,
+            onRest: onDismiss,
+          });
+
           return;
         }
-
-        if (Math.abs(my) > Math.abs(mx)) {
-          // mostly vertical swiping
-          if (last && ((my > 0 && vy * dy > 0.5) || my > windowWidth / 2)) {
-            cancel();
-            setSpring({
-              x: 0,
-              y: 0,
-              s: -0.75,
-              opacity: 0,
-              onRest: onDismiss,
-            });
-            axis.current = null;
-            return;
+      } else {
+        // mostly horizontal swiping
+        if (
+          last &&
+          ((mx * vx > 0 && vx * dx > 0.5) || Math.abs(mx) > windowWidth / 3)
+        ) {
+          if (mx > 0) {
+            handleLeft();
+          } else {
+            handleRight();
           }
 
-          // setSpring({
-          //   x: down ? memo[0] + mx : 0,
-          //   y: down ? memo[1] + my : 0,
-          //   s: down ? Math.max(my, 0) / -1000 : 0,
-          // });
-        } else {
-          // mostly horizontal swiping
-          if (
-            last &&
-            ((mx * vx > 0 && vx * dx > 0.5) ||
-              // Math.abs(mx) > (windowWidth * 2) / 3)
-              Math.abs(mx) > windowWidth / 3)
-          ) {
-            if (mx > 0) {
-              handleLeft();
-            } else {
-              handleRight();
-            }
-
-            cancel();
-            setSpring({ x: 0, y: 0, s: 0 });
-            axis.current = null;
-            return;
-          }
-
-          // setSpring({
-          //   x: down ? memo[0] + mx : 0,
-          //   y: 0,
-          //   s: 0,
-          // });
+          cancel();
+          setSpring({ x: 0, y: 0, s: 0 });
+          return;
         }
+      }
 
-        setSpring({
-          x: down ? memo[0] + mx : 0,
-          y: down ? memo[1] + my : 0,
-          s: down ? Math.max(my, 0) / -1000 : 0,
-        });
+      setSpring({
+        x: down ? memo[0] + mx : 0,
+        y: down ? memo[1] + my : 0,
+        s: down ? Math.max(my, 0) / -1000 : 0,
+      });
 
-        // if (axis.current === 'x') {
-        // }
-
-        // if (axis.current === 'xy') {
-
-        // }
-
-        // if (last) {
-        //   axis.current = null;
-        // }
-
-        return memo;
-      },
+      return memo;
     },
-    {
-      // eventOptions: {
-      //   capture: true,
-      //   passive: false,
-      // },
-    }
-  );
+  });
 
   return (
     <div
