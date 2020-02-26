@@ -30,13 +30,16 @@ const Album = ({
     isEnabled,
     hasMore,
     sentinelRef,
-  } = useInfiniteScroll({ pageIndex, pageTotal, items: photos }, state => {
-    const index = state.pageIndex + 1;
-    const uri = `${__PATH_PREFIX__}/${paginationEndpoint}/${index}.json`;
-    return fetch(uri)
-      .then(res => res.json())
-      .then(({ photos, pageIndex }) => ({ items: photos, pageIndex }));
-  });
+  } = useInfiniteScroll(
+    { pageIndex, pageTotal, items: photos },
+    async state => {
+      const index = state.pageIndex + 1;
+      const uri = `${__PATH_PREFIX__}/${paginationEndpoint}/${index}.json`;
+      return fetch(uri)
+        .then(res => res.json())
+        .then(({ photos, pageIndex }) => ({ items: photos, pageIndex }));
+    }
+  );
 
   let footer = <Pagination nextPage={nextPage} prevPage={prevPage} />;
 
@@ -52,7 +55,7 @@ const Album = ({
 
   return (
     <React.Fragment>
-      <Grid items={items} />
+      <Grid items={items.length > 0 ? items : photos} />
       <div
         css={{
           textAlign: 'center',
