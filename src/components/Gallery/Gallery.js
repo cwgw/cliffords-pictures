@@ -15,7 +15,7 @@ const propTypes = {
   photos: PropTypes.array.isRequired,
 };
 
-const Album = ({
+const Gallery = ({
   pageIndex,
   pageTotal,
   nextPage,
@@ -68,6 +68,6 @@ const Album = ({
   );
 };
 
-Album.propTypes = propTypes;
+Gallery.propTypes = propTypes;
 
-export default Album;
+export default Gallery;
