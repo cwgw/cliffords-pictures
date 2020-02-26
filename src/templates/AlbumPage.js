@@ -1,5 +1,5 @@
 import React from 'react';
 
-import Album from 'components/Album';
+import Gallery from 'components/Gallery';
 
-export default ({ pageContext }) => <Album {...pageContext} />;
+export default ({ pageContext }) => <Gallery {...pageContext} />;
