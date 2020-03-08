@@ -1,0 +1,67 @@
+{
+  "id": "0x35b6caec16039dbf",
+  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAATCAIAAAAWBRqYAAAACXBIWXMAAAsSAAALEgHS3X78AAADS0lEQVQoz13P+VPaCBQH8Pxzu+3O1u2urdut1GPrWayYiFLlEEIoQgQCyBUSknCEI4RAAoKCilQsYhAEdHd6/DEbd3/bmc9858289+bNA1oXzXpNrIgZUUgoJCEpFv8lJIo8I3C0wFFFnpZK7HG1eHpaBxonUokns4kDlkIyDJJL2LjkRy5pVzIbR9I0nKYe5ZKowEUqUhY4rnJ82p0kdhIRTZrYyFEQR2/mGW2e3sxRYIbcYKOaFK5hSR2X3C/xBHBSzfBpB0tCbHQ1T6uLifeKArOWp97lyJVMdIWNLCdDS8pOljEXuSDQOM6WuAOO2eaZdSkNHeW05TSkLGRwZW4xHlAsxYPLqSjIJWCpEAFqlZRyKxWFsuSayGqPstulJJjGVwjPbMihCjpmwuh8FFtiwpDyXqVEAoUcSYVNuGeV9i9yMY0QB3OEmvbNB+1/YPAUBr/22mYD6ALh32BpRBJiQJI6DKBazDoXsKto72LcvxjzzIccr33IS7f5hcvyygW/cSFzXqc6GtzLpnGAxjGfHUSNKtTwwmN+5TZNOfWT+/rnTpPiN9TyO2pR2QwqxPgWteui+CGQJH3KBdT4Btl6bgafGd4/3Vl7ogefwjsTdtOkC5l2IzPI7rRpexY2QV4fBvBshPDrD8xzJnDiw7sfdas/6NRPdsGfYf3kgW066FrAsWXM9qfdtOCwbgUOvUCZp6igybE3t6t59mHtJ4v2F7thyglPe51vyYA6Q2kLCR2Lg7FDiAyaU/EwUC3FlQrWz26tT+g3f8VsMzH/aiq6kaO3pYyxXrQ2JVu9YK7kLGXOVRUZoCaxRBA27sxDmsk9g4oIrItpQ12wnoofW1XnVd3VabivjtFPNXfrJHJ5xgGNmsDEPFYE2jUs7ztBNm5tlLF2PfC5EeqchbvnkW4TV7JzTnYuMp32EdBqNgp8KoRjWMBBUJhYil2eZ24uObmdl9t870pRUMhXpZvPtW7nAuhed8/Oz8RKWRCLlZp00Tq5uW725dZA/vSop7hU9OV2T+7IsgwMBg9yb3jdve10e125f9u/u7sbjYbj0fC/HI9G94rhcDwYjG/7Y2A0+joafx3fP7p/+PY/D4++P/z1TekOR18Gd3//AyOUKkbpEIYZAAAAAElFTkSuQmCC",
+  "aspectRatio": 0.813962713209044,
+  "transform": null,
+  "faces": [
+    {
+      "id": "0x35b6caec16039dbf-31-47",
+      "faceId": "6edc5bd8-940f-4b60-87d3-d5e36af56b25",
+      "rect": {
+        "top": 0.43956044,
+        "left": 0.2815,
+        "width": 0.065,
+        "height": 0.05291005,
+        "center": {
+          "x": 0.314,
+          "y": 0.46601547
+        }
+      }
+    },
+    {
+      "id": "0x35b6caec16039dbf-63-34",
+      "faceId": "9680a433-b4b2-41b3-a1aa-8e2c7a3be660",
+      "rect": {
+        "top": 0.31013431,
+        "left": 0.598,
+        "width": 0.064,
+        "height": 0.05209605,
+        "center": {
+          "x": 0.63,
+          "y": 0.33618234
+        }
+      }
+    },
+    {
+      "id": "0x35b6caec16039dbf-44-45",
+      "faceId": "c70161b5-c078-47a9-8625-0a08d24848fe",
+      "rect": {
+        "top": 0.42328042,
+        "left": 0.407,
+        "width": 0.0565,
+        "height": 0.04599105,
+        "center": {
+          "x": 0.43525,
+          "y": 0.44627595
+        }
+      }
+    },
+    {
+      "id": "0x35b6caec16039dbf-85-45",
+      "faceId": "4c7f0a3f-c6c9-4c33-a3dd-4d458f72f5d0",
+      "rect": {
+        "top": 0.42490842,
+        "left": 0.8245,
+        "width": 0.056,
+        "height": 0.04558405,
+        "center": {
+          "x": 0.8525,
+          "y": 0.44770045
+        }
+      }
+    }
+  ],
+  "people": null,
+  "date": null,
+  "location": null
+}
