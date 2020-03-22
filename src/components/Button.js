@@ -54,7 +54,7 @@ const variants = variant({
 const Button = styled(({ to, ...props }) => {
   const Element = to ? Link : 'button';
   return <Element to={to} {...props} />;
-})(sharedStyles, variants, props => {
+})(sharedStyles, variants, (props) => {
   if (props.disabled) {
     return {
       opacity: 0.35,

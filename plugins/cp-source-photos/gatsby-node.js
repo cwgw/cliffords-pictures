@@ -130,7 +130,7 @@ exports.sourceNodes = async (
   }
 
   const pendingNodes = dirs
-    .map(async id => {
+    .map(async (id) => {
       if (!fs.existsSync(path.resolve(options.path, id, `data.json`))) {
         return null;
       }
@@ -185,7 +185,7 @@ exports.sourceNodes = async (
         reporter.error(error);
       }
     })
-    .filter(o => !!o);
+    .filter((o) => !!o);
 
   return Promise.all(pendingNodes);
 };

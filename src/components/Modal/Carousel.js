@@ -35,10 +35,11 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
   });
 
   const transition = useTransition(children, {
-    key: item => item.key,
+    key: (item) => item.key,
     from: {
-      transform: `matrix(0.8, 0, 0, 0.8, ${direction.current *
-        windowWidth}, 0)`,
+      transform: `matrix(0.8, 0, 0, 0.8, ${
+        direction.current * windowWidth
+      }, 0)`,
       opacity: 1,
       position: 'relative',
     },

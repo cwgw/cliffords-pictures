@@ -32,11 +32,11 @@ const Gallery = ({
     sentinelRef,
   } = useInfiniteScroll(
     { pageIndex, pageTotal, items: photos },
-    async state => {
+    async (state) => {
       const index = state.pageIndex + 1;
       const uri = `${__PATH_PREFIX__}/${paginationEndpoint}/${index}.json`;
       return fetch(uri)
-        .then(res => res.json())
+        .then((res) => res.json())
         .then(({ photos, pageIndex }) => ({ items: photos, pageIndex }));
     }
   );

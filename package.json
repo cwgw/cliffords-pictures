@@ -7,10 +7,10 @@
   "dependencies": {
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
-    "@reach/dialog": "^0.8",
+    "@reach/dialog": "^0.9",
     "@styled-system/css": "^5.1.4",
     "emotion-theming": "^10.0.18",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9",
     "gatsby": "^2.18.7",
     "gatsby-image": "^2.0.39",
     "gatsby-plugin-emotion": "^4.1.6",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "husky": "^4",
-    "prettier": "^1.17.0"
+    "prettier": "^2"
   },
   "scripts": {
     "build": "gatsby build",
