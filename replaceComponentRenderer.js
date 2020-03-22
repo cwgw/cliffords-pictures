@@ -5,14 +5,14 @@ import ModalContext from 'context/ModalContext';
 
 import Modal from 'components/Modal';
 
-const withoutPrefix = path => {
+const withoutPrefix = (path) => {
   const prefix =
     typeof __BASE_PATH__ !== `undefined` ? __BASE_PATH__ : __PATH_PREFIX__;
 
   return path.slice(prefix ? prefix.length : 0);
 };
 
-const ComponentRenderer = props => {
+const ComponentRenderer = (props) => {
   const pathname = React.useRef();
   const modalPage = React.useRef();
   const originPage = React.useRef();
@@ -89,7 +89,7 @@ const ComponentRenderer = props => {
             state: { noScroll: true },
           });
         }}
-        setContentRef={node => (contentRef.current = node)}
+        setContentRef={(node) => (contentRef.current = node)}
         onPrevious={() => {
           if (pageContext.prevPhotoPath) {
             navigate(pageContext.prevPhotoPath, {

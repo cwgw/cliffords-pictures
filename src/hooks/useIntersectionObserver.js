@@ -8,7 +8,7 @@ const listeners = new WeakMap();
  * @param {function} cb - A function to be executed when intersections occur
  * @returns {function} A setRef function. Use as the ref value for the element to be observed
  */
-const useIntersectionObserver = cb => {
+const useIntersectionObserver = (cb) => {
   const [ref, setRef] = React.useState();
 
   React.useLayoutEffect(() => {
@@ -41,8 +41,8 @@ function getIO() {
     window.IntersectionObserver
   ) {
     io = new window.IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (listeners.has(entry.target)) {
             const cb = listeners.get(entry.target);
             // Edge doesn't currently support isIntersecting,
