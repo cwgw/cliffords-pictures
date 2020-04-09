@@ -7,7 +7,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
-    "@reach/dialog": "^0.9",
+    "@reach/dialog": "^0.10",
     "@styled-system/css": "^5.1.4",
     "emotion-theming": "^10.0.18",
     "fs-extra": "^9",
