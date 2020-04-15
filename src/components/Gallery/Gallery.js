@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import useInfiniteScroll from 'hooks/useInfiniteScroll';
 
 import Button from 'components/Button';
+import AnimatedText from 'components/AnimatedText';
 
 import Pagination from './Pagination';
 import Grid from './Grid';
@@ -44,13 +45,13 @@ const Gallery = ({
   let footer = <Pagination nextPage={nextPage} prevPage={prevPage} />;
 
   if (isInitialized) {
-    footer = isEnabled ? (
-      <span ref={sentinelRef}>
-        {hasMore() ? `Loading more…` : `You've reached the end!`}
-      </span>
-    ) : (
-      <Button onClick={enable}>Load more</Button>
-    );
+    if (isEnabled && hasMore()) {
+      footer = <AnimatedText ref={sentinelRef}>Loading...</AnimatedText>;
+    } else if (isEnabled) {
+      footer = <span ref={sentinelRef}>You've reached the end!</span>;
+    } else {
+      footer = <Button onClick={enable}>Load more</Button>;
+    }
   }
 
   return (
