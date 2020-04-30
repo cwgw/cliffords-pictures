@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "husky": "^4",
+    "lint-staged": "^10.2.1",
     "prettier": "^2"
   },
   "scripts": {
@@ -50,7 +51,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run format"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn run format"
+    ]
   }
 }
