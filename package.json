@@ -55,9 +55,8 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "yarn run format",
-      "git add"
+    "*.{js|jsx|json}": [
+      "yarn run format"
     ]
   }
 }
