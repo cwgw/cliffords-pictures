@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import css from '@styled-system/css';
 
 import global from 'style/global';
