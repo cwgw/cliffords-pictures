@@ -6,7 +6,7 @@
   "faces": [
     {
       "id": "0x20bcd9e452eb7d8f-79-38",
-      "faceId": "db6167c5-84d1-4c2a-b3f0-242453063dfd",
+      "faceId": "3ad5baa1-393f-4023-81d2-d35825fdac88",
       "rect": {
         "top": 0.33300638,
         "left": 0.744,
@@ -20,7 +20,7 @@
     },
     {
       "id": "0x20bcd9e452eb7d8f-70-29",
-      "faceId": "6f303dea-0b2a-4831-9638-00e97400daf6",
+      "faceId": "6fd4e238-93ba-473c-8629-76026d8fcb77",
       "rect": {
         "top": 0.25355566,
         "left": 0.6565,
@@ -34,7 +34,7 @@
     },
     {
       "id": "0x20bcd9e452eb7d8f-30-56",
-      "faceId": "96183c60-2d04-4495-9299-4e14860d77d6",
+      "faceId": "bb3dd609-33ef-409f-9d91-47180bc20f42",
       "rect": {
         "top": 0.52721923,
         "left": 0.2595,
@@ -48,7 +48,7 @@
     },
     {
       "id": "0x20bcd9e452eb7d8f-48-43",
-      "faceId": "e732aeba-59b2-4fc3-aaa5-8f2e33b3fb21",
+      "faceId": "973023fd-848c-420a-906d-90ec0c3053d7",
       "rect": {
         "top": 0.39038744,
         "left": 0.4445,
@@ -62,7 +62,7 @@
     },
     {
       "id": "0x20bcd9e452eb7d8f-55-29",
-      "faceId": "a7a3370f-6e24-4a25-a65d-a43bd5e9d7ef",
+      "faceId": "bef64a92-946b-4ec1-92e2-636dd1e2071c",
       "rect": {
         "top": 0.25698872,
         "left": 0.5165,
@@ -76,7 +76,7 @@
     },
     {
       "id": "0x20bcd9e452eb7d8f-12-55",
-      "faceId": "a7861872-e08c-4a4a-9b72-37b7ba1a240b",
+      "faceId": "b75a8184-e1fa-4c3c-ac48-054c1eb15b14",
       "rect": {
         "top": 0.52231486,
         "left": 0.089,
@@ -90,7 +90,7 @@
     },
     {
       "id": "0x20bcd9e452eb7d8f-23-36",
-      "faceId": "d5b572f2-e6fd-4e06-a91c-6b1559733035",
+      "faceId": "48fd5e4c-e058-4cfb-a79a-53a02fb1f13f",
       "rect": {
         "top": 0.33104463,
         "left": 0.2025,
