@@ -1,14 +1,14 @@
 {
   "id": "0x311d4ca4d3cb45a3",
   "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsSAAALEgHS3X78AAADDElEQVQozy3SeztaAQDH8fNWNosN2xobs0eIHpGmhVhLLmVHLfcupxzk0sFRLtWI3K15rOMohSnHpQfDY8mp1rDt2e2NTNtewOf5/vH7AZ8uvgfIiM+3h9nnLa97DahqWA9NmNtt04h9QW+bMVjMiEHfOWIcsL21be/6gMjVjwAZJoiN+ZnB/h4JrCrWanh6XaV1pG5hXDVpUqE9MhgSd3Y0TowbNz0e4OLLrwAZ8nock5YObWtRi+wJ1EjrbWON6ctnzdLxIakOfiGXFULNAtNw9/q6C7j8+us8eA1w66i6TZXfAFLlsuQedfbrft6MqcZiEHdDRY01OXLpsyFU43atXIPfZCi85V2ZtLS2Q+y6l0lNkmStMtuI8KaGRaNoVUdzobQis76GPYBAq04cuPr2DzisY7BGzgYrHoBCqkKS3qcuMHbyUE1Ri5heWZwKCvOQLiWOY1EQDIWJazAKQ03syrL7Am4CWJYEidO1tdnq6kxJ8SNBQVKtML+vB8Lx5f8FwuOwmmFFfQGfe5ebG8fPuyMpvNfEodax7oHMRPHThwqQazJoV10O4PLb7/Ng2Lu5MmZsbZKyStiJBVkUbgalPDNWRLslTqdIGQny0nRUVfHGqvd61qPgjAxtrOFDA2qwmslixGenxTBTYzgpN3kPbwjTKA2sJB2YP4M2uN+N7/uIKPAHgk4nhnQrBc8ZdNptWmoMPYWSl0rhpMUJGVSlIMuo4WMT8I57/uSDL7rD6VkQx+0d7S3FXDrtSRwtLZZBi2fR75YwkyXPM3XN3DmDZN2m2/csfjw5AC6igFzG7e1/AT0jnklP5OQnl3Iei/hZmvpCC1LlmFJsLesPiSX/6SHw+ctPfyDkcjtRtPNlDY/PyxEJcmXip/JXRVqFwITUYlZoy4741ixHe84z/wkQubw+X4TY2Z6bs/YhcFdb40B3i7EfGhuEp81d2CxKrIx+8Mwe7y5/PN4hyXPg08UPMnx1dOLf9HgxbMm+uOC0v3Hji2uOpfcubGfTcby34T8izk4PyPNAOHL5B6PLl+xNvCL8AAAAAElFTkSuQmCC",
-  "aspectRatio": 1.021978021978022,
+  "aspectRatio": 0.978494623655914,
   "transform": {
     "rotate": 90
   },
   "faces": [
     {
       "id": "0x311d4ca4d3cb45a3-63-41",
-      "faceId": "99803259-0cc5-4580-973e-f8eaeca07790",
+      "faceId": "d45f9d33-9ab8-4f3b-a0b5-896b69f413d3",
       "rect": {
         "top": 0.369,
         "left": 0.58610568,
@@ -22,7 +22,7 @@
     },
     {
       "id": "0x311d4ca4d3cb45a3-81-30",
-      "faceId": "e6e8b228-7014-4c0d-8d73-0a601a5b8e3f",
+      "faceId": "b9e991fb-7142-4fd4-aa1a-3158b369a5f9",
       "rect": {
         "top": 0.268,
         "left": 0.77299413,
@@ -36,7 +36,7 @@
     },
     {
       "id": "0x311d4ca4d3cb45a3-48-44",
-      "faceId": "a3fa174a-5fa3-46ee-ab5e-32fcd4292dff",
+      "faceId": "e0ba90a2-e818-4e3c-a461-7a4edde7c3b6",
       "rect": {
         "top": 0.402,
         "left": 0.44471624,
