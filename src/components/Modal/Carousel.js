@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSpring, useTransition, animated, to } from 'react-spring';
+import { useTransition, animated, to } from 'react-spring';
 import { useGesture } from 'react-use-gesture';
 
 import useWindowSize from 'hooks/useWindowSize';
@@ -34,33 +34,36 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
     onRight: handleRight,
   });
 
-  const transition = useTransition(children, {
-    key: (item) => item.key,
-    from: {
-      transform: `matrix(0.8, 0, 0, 0.8, ${
-        direction.current * windowWidth
-      }, 0)`,
-      opacity: 1,
-      position: 'relative',
-    },
-    enter: {
-      transform: `matrix(1, 0, 0, 1, 0, 0)`,
-      opacity: 1,
-      position: 'relative',
-    },
-    leave: {
-      transform: `matrix(1, 0, 0, 1, ${direction.current * -windowWidth}, 0)`,
-      position: 'absolute',
-      opacity: 0,
-    },
-  });
-
-  const [{ s, x, y, opacity }, setSpring] = useSpring(
-    () => ({ s: 0, x: 0, y: 0, opacity: 1 }),
+  const [transition, update] = useTransition(
+    children,
     {
-      tension: 1000,
-      friction: 16,
-    }
+      key: (item) => item.key,
+      from: {
+        x: direction.current * windowWidth,
+        y: 0,
+        s: 0.8,
+        opacity: 1,
+        position: 'relative',
+        zIndex: 1,
+      },
+      enter: {
+        x: 0,
+        y: 0,
+        s: 1,
+        opacity: 1,
+        position: 'relative',
+        zIndex: 1,
+      },
+      leave: {
+        x: direction.current * -windowWidth,
+        y: 0,
+        s: 1,
+        position: 'absolute',
+        opacity: 0,
+        zIndex: 0,
+      },
+    },
+    [children]
   );
 
   const bind = useGesture({
@@ -69,7 +72,6 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
       last,
       movement: [mx, my],
       vxvy: [vx, vy],
-      memo = [x.animation.to, y.animation.to, s.animation.to],
       cancel,
       canceled,
     }) => {
@@ -82,17 +84,9 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
         if (last && ((my > 0 && vy > 0.5) || my > windowHeight / 2)) {
           // trigger dismissal
           cancel();
-          setSpring({
-            x: 0,
-            y: memo[1] + my,
-            s: memo[2] - 0.4,
+          update({
             opacity: 0,
             onRest: onDismiss,
-            config: {
-              tension: 350,
-              friction: 30,
-              clamp: true,
-            },
           });
 
           return;
@@ -111,45 +105,50 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
           }
 
           cancel();
-          setSpring({ x: 0, y: 0, s: 0 });
           return;
         }
       }
 
-      setSpring({
-        x: down ? memo[0] + mx : 0,
-        y: down ? memo[1] + my : 0,
-        s: down ? Math.max(my, 0) / -1000 : 0,
+      update({
+        x: down ? mx : 0,
+        y: down ? my : 0,
+        s: down ? Math.max(my, 0) / -1000 + 1 : 1,
+        opacity: down ? Math.max(my, 0) / -1000 + 1 : 1,
       });
-
-      return memo;
     },
   });
 
   return (
-    <div css={{ position: 'relative' }} {...bind()}>
-      {transition((values, item) => {
+    <div
+      css={{
+        position: 'relative',
+        // display: 'flex',
+        // alignItems: 'center',
+        // justifyContent: 'center',
+      }}
+    >
+      {transition(({ x, y, s, ...style }, item, t) => {
         return (
           <animated.div
+            {...bind()}
             style={{
-              ...values,
-              pointerEvents: 'none',
+              transform: to(
+                [s, x, y],
+                (s, x, y) => `matrix(${s},0,0,${s},${x},${y})`
+              ),
+              ...style,
               width: '100%',
               height: '100%',
             }}
           >
-            <animated.div
+            <div
               style={{
-                transform: to(
-                  [s, x, y],
-                  (s, x, y) => `matrix(${1 + s},0,0,${1 + s},${x},${y})`
-                ),
-                opacity,
                 height: '100vh',
+                pointerEvents: 'none',
               }}
             >
               {item}
-            </animated.div>
+            </div>
           </animated.div>
         );
       })}
