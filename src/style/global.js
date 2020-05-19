@@ -4,6 +4,7 @@ import fonts from 'assets/fonts';
 export default {
   ':root': {
     '@font-face': fonts,
+    '--reach-dialog': 1,
   },
   '*, *::before, *::after': {
     boxSizing: 'inherit',
