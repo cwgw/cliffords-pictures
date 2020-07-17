@@ -21,7 +21,7 @@
     "gatsby-source-filesystem": "^2.1.40",
     "gatsby-transformer-json": "^2.1.11",
     "gatsby-transformer-yaml": "^2.1.12",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "mousetrap": "^1.6.3",
     "polished": "^3.2.0",
     "prop-types": "^15.7.2",
