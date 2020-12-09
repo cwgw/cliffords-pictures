@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useTransition, animated, to } from 'react-spring';
+import { useTransition, animated, to } from '@react-spring/web';
 import { useGesture } from 'react-use-gesture';
 
 import useWindowSize from 'hooks/useWindowSize';

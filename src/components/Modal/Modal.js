@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import css from '@styled-system/css';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
-import { animated, useSpring } from 'react-spring';
+import { animated, useSpring } from '@react-spring/web';
 
 import { spanParent } from 'style/shared';
 
