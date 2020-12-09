@@ -32,30 +32,23 @@
     "styled-system": "^5.1.4"
   },
   "devDependencies": {
-    "husky": "^4",
-    "lint-staged": "^10.2.1",
-    "prettier": "^2"
+    "husky": "^5.0.4",
+    "pinst": "^2.1.1",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0"
   },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.{js,jsx,json}'",
-    "start": "npm run develop",
+    "postinstall": "husky install",
+    "precommit": "pretty-quick --staged --pattern '**/*.{js,jsx,json}'",
+    "start": "yarn run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/cwgw/cliffords-pictures"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,json}": [
-      "yarn run format"
-    ]
   }
 }
