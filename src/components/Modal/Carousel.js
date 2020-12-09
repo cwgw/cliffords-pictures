@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useTransition, animated, to } from '@react-spring/web';
-import { useGesture } from 'react-use-gesture';
+import React from "react";
+import PropTypes from "prop-types";
+import { useTransition, animated, to } from "@react-spring/web";
+import { useGesture } from "react-use-gesture";
 
-import useWindowSize from 'hooks/useWindowSize';
-import useKeyboardNavigation from 'hooks/useKeyboardNavigation';
+import useWindowSize from "hooks/useWindowSize";
+import useKeyboardNavigation from "hooks/useKeyboardNavigation";
 
 const propTypes = {
   items: PropTypes.array,
@@ -37,13 +37,13 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
   const [transition, update] = useTransition(
     children,
     {
-      key: (item) => item.key,
+      keys: (item, i) => (item ? item.key : i),
       from: {
         x: direction.current * windowWidth,
         y: 0,
         s: 0.8,
         opacity: 1,
-        position: 'relative',
+        position: "relative",
         zIndex: 1,
       },
       enter: {
@@ -51,14 +51,14 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
         y: 0,
         s: 1,
         opacity: 1,
-        position: 'relative',
+        position: "relative",
         zIndex: 1,
       },
       leave: {
         x: direction.current * -windowWidth,
         y: 0,
         s: 1,
-        position: 'absolute',
+        position: "absolute",
         opacity: 0,
         zIndex: 0,
       },
@@ -120,8 +120,8 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
 
   return (
     <div
-      css={{
-        position: 'relative',
+      style={{
+        position: "relative",
         // display: 'flex',
         // alignItems: 'center',
         // justifyContent: 'center',
@@ -137,14 +137,14 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
                 (s, x, y) => `matrix(${s},0,0,${s},${x},${y})`
               ),
               ...style,
-              width: '100%',
-              height: '100%',
+              width: "100%",
+              height: "100%",
             }}
           >
             <div
               style={{
-                height: '100vh',
-                pointerEvents: 'none',
+                height: "100vh",
+                pointerEvents: "none",
               }}
             >
               {item}
@@ -158,4 +158,4 @@ const Carousel = ({ onLeft, onRight, onDismiss, children }) => {
 
 Carousel.propTypes = propTypes;
 
-export default Carousel;
+export { Carousel };

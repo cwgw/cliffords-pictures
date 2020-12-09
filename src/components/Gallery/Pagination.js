@@ -1,9 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
-import css from '@styled-system/css';
+import React from "react";
+import PropTypes from "prop-types";
 
-import Button from 'components/Button';
+import { Button } from "../Button";
+import { Box } from "../Box";
 
 const propTypes = {
   nextPage: PropTypes.string,
@@ -15,31 +14,39 @@ const defaultProps = {
   prevPage: null,
 };
 
-const Nav = styled.nav(
-  css({
-    marginY: 'lg',
-    marginX: 'auto',
-    paddingX: 'md',
-    maxWidth: '768px',
-    boxSizing: 'content-box',
-  })
+const Nav = (props) => (
+  <Box
+    as="nav"
+    sx={{
+      marginY: "lg",
+      marginX: "auto",
+      paddingX: "md",
+      maxWidth: "768px",
+      boxSizing: "content-box",
+    }}
+    {...props}
+  />
 );
 
-const List = styled.ul(
-  css({
-    padding: 0,
-    margin: 0,
-    listStyle: 'none',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-    gridGap: 'md',
-  })
+const List = (props) => (
+  <Box
+    as="ul"
+    sx={{
+      padding: 0,
+      margin: 0,
+      listStyle: "none",
+      display: "grid",
+      gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+      gridGap: "md",
+    }}
+    {...props}
+  />
 );
 
 const Pagination = ({ nextPage, prevPage }) => {
   const navItems = [
-    [prevPage, { justifySelf: 'end' }, `←`],
-    [nextPage, { justifySelf: 'start', gridColumn: 2 }, `→`],
+    [prevPage, { justifySelf: "end" }, `←`],
+    [nextPage, { justifySelf: "start", gridColumn: 2 }, `→`],
   ];
 
   return (
@@ -47,11 +54,11 @@ const Pagination = ({ nextPage, prevPage }) => {
       <List>
         {navItems.map(([slug, style, text]) =>
           slug ? (
-            <li key={slug} css={{ display: 'inline-block', ...style }}>
+            <Box as="li" key={slug} sx={{ display: "inline-block", ...style }}>
               <Button to={slug} disabled={!!!slug}>
                 {text}
               </Button>
-            </li>
+            </Box>
           ) : null
         )}
       </List>
@@ -63,4 +70,4 @@ Pagination.propTypes = propTypes;
 
 Pagination.defaultProps = defaultProps;
 
-export default Pagination;
+export { Pagination };

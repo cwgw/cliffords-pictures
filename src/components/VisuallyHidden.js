@@ -1,6 +1,9 @@
-import styled from '@emotion/styled';
-import { hideVisually } from 'style/shared';
+import React from "react";
 
-const VisuallyHidden = styled('span')(hideVisually);
+import { Box } from "./Box";
 
-export default VisuallyHidden;
+const VisuallyHidden = (props) => (
+  <Box as="span" variant="visuallyHidden" {...props} />
+);
+
+export { VisuallyHidden };

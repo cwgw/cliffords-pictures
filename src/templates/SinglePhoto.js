@@ -1,16 +1,14 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import styled from '@emotion/styled';
-import css from '@styled-system/css';
-import GatsbyImage from 'gatsby-image';
+import React from "react";
+import { graphql } from "gatsby";
+import GatsbyImage from "gatsby-image";
 
-import ModalContext from 'context/ModalContext';
+import ModalContext from "context/ModalContext";
+import { Box } from "../components/Box";
+import { Image } from "../components/Image";
 
-const Image = styled(GatsbyImage)({
-  margin: 'auto',
-  width: '100%',
-  maxWidth: '768px',
-});
+React.forwardRef((props, ref) => (
+  <Box as={GatsbyImage} ref={ref} __css={{}} {...props} />
+));
 
 const SingleImage = ({
   data: {
@@ -22,13 +20,14 @@ const SingleImage = ({
   if (modal) {
     return (
       <Image
-        css={{
-          height: '100%',
-          maxHeight: '100vh',
+        sx={{
+          width: "100%",
+          height: "100%",
+          maxWidth: "768px",
+          maxHeight: "100vh",
+          margin: "auto",
         }}
-        imgStyle={{
-          objectFit: 'contain',
-        }}
+        imgStyle={{ objectFit: "contain" }}
         backgroundColor="transparent"
         fluid={image.fluid}
       />
@@ -37,9 +36,12 @@ const SingleImage = ({
 
   return (
     <Image
-      css={css({
-        boxShadow: 'raised',
-      })}
+      sx={{
+        width: "100%",
+        maxWidth: "768px",
+        margin: "auto",
+        boxShadow: "raised",
+      }}
       backgroundColor="transparent"
       fluid={image.fluid}
     />

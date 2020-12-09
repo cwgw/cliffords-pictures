@@ -1,13 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import useInfiniteScroll from 'hooks/useInfiniteScroll';
-
-import Button from 'components/Button';
-import AnimatedText from 'components/AnimatedText';
-
-import Pagination from './Pagination';
-import Grid from './Grid';
+import useInfiniteScroll from "hooks/useInfiniteScroll";
+import { Box } from "../Box";
+import { Button } from "../Button";
+import { Pagination } from "./Pagination";
+import { Grid } from "./Grid";
 
 const propTypes = {
   pageIndex: PropTypes.number.isRequired,
@@ -46,7 +44,7 @@ const Gallery = ({
 
   if (isInitialized) {
     if (isEnabled && hasMore()) {
-      footer = <AnimatedText ref={sentinelRef}>Loading...</AnimatedText>;
+      footer = <span ref={sentinelRef}>Loading...</span>;
     } else if (isEnabled) {
       footer = <span ref={sentinelRef}>You've reached the end!</span>;
     } else {
@@ -57,18 +55,11 @@ const Gallery = ({
   return (
     <React.Fragment>
       <Grid items={items.length > 0 ? items : photos} />
-      <div
-        css={{
-          textAlign: 'center',
-          minHeight: '120px',
-        }}
-      >
-        {footer}
-      </div>
+      <Box sx={{ textAlign: "center", minHeight: "120px" }}>{footer}</Box>
     </React.Fragment>
   );
 };
 
 Gallery.propTypes = propTypes;
 
-export default Gallery;
+export { Gallery };
