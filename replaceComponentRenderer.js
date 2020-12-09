@@ -1,9 +1,9 @@
-import React from 'react';
-import get from 'lodash/get';
+import React from "react";
+import get from "lodash/get";
 
-import ModalContext from 'context/ModalContext';
+import ModalContext from "context/ModalContext";
 
-import Modal from 'components/Modal';
+import { Modal } from "components/Modal";
 
 const withoutPrefix = (path) => {
   const prefix =
@@ -24,7 +24,7 @@ const ComponentRenderer = (props) => {
   React.useEffect(() => {
     if (location.pathname !== pathname.current) {
       pathname.current = location.pathname;
-      if (get(location, 'state.modal', false)) {
+      if (get(location, "state.modal", false)) {
         // old page was a modal, keep track so we can render the contents while closing
         modalPage.current = props;
       } else {
@@ -37,7 +37,7 @@ const ComponentRenderer = (props) => {
   React.useLayoutEffect(() => {
     if (
       location.pathname !== pathname.current &&
-      get(location, 'state.modal') &&
+      get(location, "state.modal") &&
       contentRef.current
     ) {
       // modal remains open after path change, so make sure it's scrolled to the top
@@ -46,7 +46,7 @@ const ComponentRenderer = (props) => {
   });
 
   // render modal if props location has modal
-  const isModal = !!originPage.current && get(location, 'state.modal', false);
+  const isModal = !!originPage.current && get(location, "state.modal", false);
 
   // the page is the previous path if this is a modal, otherwise it's the current path
   const pageElement = isModal
@@ -72,10 +72,10 @@ const ComponentRenderer = (props) => {
     // the old modal content to close, so render the last modal content we have cached
 
     modalElement = React.createElement(
-      get(modalPage.current, 'pageResources.component'),
+      get(modalPage.current, "pageResources.component"),
       {
         ...modalPage.current,
-        key: get(modalPage.current, 'pageResources.page.path'),
+        key: get(modalPage.current, "pageResources.page.path"),
       }
     );
   }
@@ -113,7 +113,7 @@ const ComponentRenderer = (props) => {
                 modal: true,
                 closeTo: originPage.current
                   ? withoutPrefix(originPage.current.location.pathname)
-                  : '/',
+                  : "/",
               }}
             >
               {modalElement}

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import useIntersectionObserver from 'hooks/useIntersectionObserver';
+import useIntersectionObserver from "hooks/useIntersectionObserver";
 
 const initialState = {
   items: [],
@@ -11,10 +11,10 @@ const initialState = {
 };
 
 const actions = {
-  initialized: 'INITIALIZED',
-  enabled: 'ENABLED',
-  disabled: 'DISABLED',
-  itemsAdded: 'ITEMS_ADDED',
+  initialized: "INITIALIZED",
+  enabled: "ENABLED",
+  disabled: "DISABLED",
+  itemsAdded: "ITEMS_ADDED",
 };
 
 function reducer(state, action) {

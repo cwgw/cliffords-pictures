@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const getSize = () => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     const { innerWidth: width, innerHeight: height } = window;
     return { width, height };
   }
@@ -16,9 +16,9 @@ const useWindowSize = () => {
   }
 
   React.useEffect(() => {
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 

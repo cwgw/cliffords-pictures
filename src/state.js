@@ -14,7 +14,7 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'INITIALIZE':
+    case "INITIALIZE":
       const {
         pageIndex,
         pageTotal,
@@ -29,15 +29,15 @@ function reducer(state, action) {
         photos: state.photos.length ? state.photos.concat(photos) : photos,
         isInitialized: true,
       };
-    case 'OPEN_MODAL':
+    case "OPEN_MODAL":
       return { ...state, isModalOpen: true };
-    case 'CLOSE_MODAL':
+    case "CLOSE_MODAL":
       return { ...state, isModalOpen: false };
-    case 'ENABLE_INFINITE_SCROLL':
+    case "ENABLE_INFINITE_SCROLL":
       return { ...state, isInfiniteScrollEnabled: true };
-    case 'DISABLE_INFINITE_SCROLL':
+    case "DISABLE_INFINITE_SCROLL":
       return { ...state, isInfiniteScrollEnabled: false };
-    case 'CHANGE_PHOTO':
+    case "CHANGE_PHOTO":
       const { current, previous } = state.photoIndex;
       const next = current + action.index;
       let photoIndex = { current, previous };
@@ -48,7 +48,7 @@ function reducer(state, action) {
         };
       }
       return { ...state, photoIndex };
-    case 'ADD_PHOTOS':
+    case "ADD_PHOTOS":
       const photos = state.photos.length
         ? state.photos.concat(action.data)
         : action.data;
