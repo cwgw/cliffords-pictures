@@ -1,13 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
-import css from '@styled-system/css';
-import GatsbyImage from 'gatsby-image';
+import React from "react";
+import PropTypes from "prop-types";
+import GatsbyImage from "gatsby-image";
 
-import { space } from 'style/utils';
-
-import VisuallyHidden from 'components/VisuallyHidden';
-import Link from 'components/Link';
+import { space } from "../../style";
+import { Box } from "../Box";
+import { VisuallyHidden } from "../VisuallyHidden";
+import { Link } from "../Link";
 
 const propTypes = {
   children: PropTypes.node,
@@ -19,47 +17,45 @@ const propTypes = {
 
 const defaultProps = {
   children: null,
-  columnGap: `${space.lg}px`,
+  columnGap: "lg",
   items: [],
-  itemWidth: '384px',
-  rowGap: `${space.lg}px`,
+  itemWidth: "384px",
+  rowGap: "lg",
 };
 
-const List = styled.ul(
-  css({
-    display: 'grid',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 'sm',
-    marginY: 'xl',
-    marginX: 'auto',
-    boxSizing: 'content-box',
-    listStyle: 'none',
-  })
+const List = (props) => (
+  <Box
+    as="ul"
+    __css={{
+      display: "grid",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: "sm",
+      marginY: "xl",
+      marginX: "auto",
+      boxSizing: "content-box",
+      listStyle: "none",
+    }}
+    {...props}
+  />
 );
 
 const Grid = ({ columnGap, items, itemWidth, rowGap }) => (
   <List
-    style={{
+    sx={{
       gridColumnGap: columnGap,
       gridRowGap: rowGap,
       gridTemplateColumns: `repeat(auto-fill, minmax(0, ${itemWidth}))`,
-      maxWidth: `calc(${itemWidth} * 3 + ${columnGap} * 2)`,
+      maxWidth: (t) => `calc(${itemWidth} * 3 + ${space(columnGap)(t)} * 2)`,
     }}
   >
     {items.map(({ id, image, fields }) => (
-      <li
-        key={id}
-        css={css({
-          position: 'relative',
-          boxShadow: 'slight',
-        })}
-      >
+      <Box key={id} as="li" sx={{ position: "relative", boxShadow: "slight" }}>
         <GatsbyImage {...image} />
         <Link to={fields.slug} variant="spanParent" inModal>
           <VisuallyHidden>View photo</VisuallyHidden>
         </Link>
-      </li>
+      </Box>
     ))}
   </List>
 );
@@ -68,4 +64,4 @@ Grid.propTypes = propTypes;
 
 Grid.defaultProps = defaultProps;
 
-export default Grid;
+export { Grid };

@@ -1,19 +1,19 @@
-const path = require('path');
-const fs = require('fs-extra');
+const path = require("path");
+const fs = require("fs-extra");
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      modules: [path.resolve(__dirname, "src"), "node_modules"],
     },
   });
 };
 
 exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
-  if (node.internal.type === 'Photo') {
+  if (node.internal.type === "Photo") {
     createNodeField({
       node,
-      name: 'slug',
+      name: "slug",
       value: `/photo/${node.id}`,
     });
   }
@@ -67,9 +67,9 @@ exports.createPages = ({
     if (errors) {
       reporter.panicOnBuild(errors);
     }
-    const HomePage = path.resolve('src/templates/HomePage.js');
-    const AlbumPage = path.resolve('src/templates/AlbumPage.js');
-    const SinglePhoto = path.resolve('src/templates/SinglePhoto.js');
+    const HomePage = path.resolve("src/templates/HomePage.js");
+    const AlbumPage = path.resolve("src/templates/AlbumPage.js");
+    const SinglePhoto = path.resolve("src/templates/SinglePhoto.js");
 
     const photos = data.photos.edges.map(({ node }) => node);
     const perPageLimit = 18;
@@ -97,7 +97,7 @@ exports.createPages = ({
         pageIndex,
         pageTotal,
         photoTotal: photos.length,
-        paginationEndpoint: path.join('static/pagination', hash),
+        paginationEndpoint: path.join("static/pagination", hash),
         photos: photos.slice(i * perPageLimit, i * perPageLimit + perPageLimit),
       };
 
@@ -116,7 +116,7 @@ exports.createPages = ({
 
       if (!i) {
         createPage({
-          path: '/',
+          path: "/",
           component: HomePage,
           context,
         });
@@ -126,7 +126,7 @@ exports.createPages = ({
 };
 
 const createPaginationJSON = async ({ data, reporter }) => {
-  const dir = path.join('public', data.paginationEndpoint);
+  const dir = path.join("public", data.paginationEndpoint);
   fs.ensureDirSync(dir);
 
   try {

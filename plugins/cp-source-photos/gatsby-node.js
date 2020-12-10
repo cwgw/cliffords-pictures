@@ -1,5 +1,5 @@
-const path = require('path');
-const fs = require('fs-extra');
+const path = require("path");
+const fs = require("fs-extra");
 const {
   GraphQLObjectType,
   GraphQLString,
@@ -16,7 +16,7 @@ exports.createSchemaCustomization = (
   function resolveFluid(node, { maxWidth }) {
     return node.images.reduce(
       (o, { width: size, path, ext }, i, arr) => {
-        if (ext === 'webp') {
+        if (ext === "webp") {
           if (withWebp) {
             o.srcSetWebp.push(`${path} ${size}w`);
             if (size <= maxWidth) {
@@ -40,9 +40,9 @@ exports.createSchemaCustomization = (
         }
 
         if (i + 1 === arr.length) {
-          o.sizes = o.sizes.join(', ');
-          o.srcSet = o.srcSet.join(', ');
-          o.srcSetWebp = o.srcSetWebp.join(', ');
+          o.sizes = o.sizes.join(", ");
+          o.srcSet = o.srcSet.join(", ");
+          o.srcSetWebp = o.srcSetWebp.join(", ");
         }
 
         return o;
@@ -61,15 +61,15 @@ exports.createSchemaCustomization = (
 
   const typeDefs = [
     schema.buildObjectType({
-      name: 'Photo',
+      name: "Photo",
       fields: {
         image: {
           type: new GraphQLObjectType({
-            name: 'PhotoImage',
+            name: "PhotoImage",
             fields: {
               fluid: {
                 type: new GraphQLObjectType({
-                  name: 'PhotoImageFluid',
+                  name: "PhotoImageFluid",
                   fields: {
                     aspectRatio: { type: GraphQLFloat },
                     base64: { type: GraphQLString },
@@ -96,7 +96,7 @@ exports.createSchemaCustomization = (
           },
         },
       },
-      interfaces: ['Node'],
+      interfaces: ["Node"],
       extensions: {
         infer: true,
       },
@@ -118,14 +118,14 @@ exports.sourceNodes = async (
     );
   }
 
-  const allowedFileExtensions = ['.jpg', '.jpeg', '.png', '.webp'];
+  const allowedFileExtensions = [".jpg", ".jpeg", ".png", ".webp"];
 
   const dirs = fs.readdirSync(options.path);
 
   if (dirs.length < 1) {
     reporter.warn(
       `No photo data was found in ${options.path}`,
-      'Are you sure you set the right path in plugin options?'
+      "Are you sure you set the right path in plugin options?"
     );
   }
 
@@ -137,7 +137,7 @@ exports.sourceNodes = async (
 
       try {
         const data = await fs.readJSON(
-          path.resolve(options.path, id, 'data.json')
+          path.resolve(options.path, id, "data.json")
         );
 
         const files = await fs.readdir(path.resolve(options.path, id));
@@ -149,13 +149,13 @@ exports.sourceNodes = async (
             continue;
           }
 
-          await fs.ensureDir(path.resolve('public/photos', id));
+          await fs.ensureDir(path.resolve("public/photos", id));
 
-          const publicPath = path.join('photos', id, file);
+          const publicPath = path.join("photos", id, file);
 
           await fs.copyFile(
             path.resolve(options.path, id, file),
-            path.resolve('public', publicPath)
+            path.resolve("public", publicPath)
           );
 
           data.images = [
@@ -163,7 +163,7 @@ exports.sourceNodes = async (
             {
               path: `/${publicPath}`,
               width: parseInt(base, 10),
-              ext: ext.split('.').pop(),
+              ext: ext.split(".").pop(),
             },
           ];
         }
@@ -174,9 +174,9 @@ exports.sourceNodes = async (
           createNode({
             ...data,
             children: [],
-            parent: '__SOURCE__',
+            parent: "__SOURCE__",
             internal: {
-              type: 'Photo',
+              type: "Photo",
               contentDigest: createContentDigest(data),
             },
           })

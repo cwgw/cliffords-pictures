@@ -1,27 +1,25 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import css from '@styled-system/css';
-import { DialogOverlay, DialogContent } from '@reach/dialog';
-import { animated, useSpring } from 'react-spring';
+import React from "react";
+import { DialogOverlay, DialogContent } from "@reach/dialog";
+import { animated, useSpring } from "@react-spring/web";
 
-import { spanParent } from 'style/shared';
-
-import Button from 'components/Button';
-import Carousel from './Carousel';
+import { createComponent } from "../../style";
+import { Button } from "../Button";
+import { Carousel } from "./Carousel";
 
 const Overlay = animated(
-  styled(DialogOverlay)(
-    css({
-      ...spanParent,
-      position: 'fixed',
-      backdropFilter: 'blur(4px)',
-      color: 'white',
-    })
-  )
+  createComponent(DialogOverlay, {
+    baseStyles: {
+      variant: "spanParent",
+      position: "fixed",
+      backdropFilter: "blur(4px)",
+      color: "white",
+    },
+    forwardProps: ["isOpen", "onDismiss"],
+  })
 );
 
-const Content = styled(DialogContent)({
-  outline: 'none',
+const Content = createComponent(DialogContent, {
+  baseStyles: { outline: "none" },
 });
 
 const Modal = ({
@@ -33,7 +31,7 @@ const Modal = ({
   onPrevious,
 }) => {
   const { backgroundColor } = useSpring({
-    backgroundColor: isOpen ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0)',
+    backgroundColor: isOpen ? "rgba(0,0,0,0.9)" : "rgba(0,0,0,0)",
   });
 
   return (
@@ -41,12 +39,12 @@ const Modal = ({
       <Content ref={setContentRef} aria-label="Photo modal">
         <Button
           onClick={onDismiss}
-          css={css({
-            position: 'fixed',
-            top: 'sm',
-            right: 'sm',
+          sx={{
+            position: "fixed",
+            top: "sm",
+            right: "sm",
             zIndex: 1000,
-          })}
+          }}
           children="╳"
           title="Close"
         />
@@ -58,4 +56,4 @@ const Modal = ({
   );
 };
 
-export default Modal;
+export { Modal };

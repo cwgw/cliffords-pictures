@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 let io;
 const listeners = new WeakMap();

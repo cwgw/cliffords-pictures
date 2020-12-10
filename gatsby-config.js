@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: "Clifford's Pictures",
-    description: '',
-    author: 'Charlie',
+    description: "",
+    author: "Charlie",
   },
   plugins: [
     // {
@@ -18,15 +18,15 @@ module.exports = {
     //   },
     // },
     {
-      resolve: 'cp-source-photos',
+      resolve: "cp-source-photos",
       options: {
         path: `${__dirname}/content`,
         withWebp: true,
         withBase64: true,
       },
     },
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-offline',
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-theme-ui",
+    "gatsby-plugin-offline",
   ],
 };

@@ -29,4 +29,4 @@ const fontSizes = Object.entries(aliases).reduce((o, [key, value]) => {
   return o;
 }, scale);
 
-export default fontSizes;
+export { fontSizes };

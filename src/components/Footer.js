@@ -1,12 +1,7 @@
-import React from 'react';
-import css from '@styled-system/css';
+import React from "react";
 
-const Footer = () => (
-  <footer
-    css={css({
-      minHeight: '120px',
-    })}
-  />
-);
+import { Box } from "./Box";
 
-export default Footer;
+const Footer = () => <Box as="footer" sx={{ minHeight: "120px" }} />;
+
+export { Footer };

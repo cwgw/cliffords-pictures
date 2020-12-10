@@ -1,5 +1,5 @@
-import React from 'react';
+import React from "react";
 
-import Layout from 'components/Layout';
+import { Layout } from "./src/layouts";
 
 export default ({ element, props }) => <Layout {...props}>{element}</Layout>;

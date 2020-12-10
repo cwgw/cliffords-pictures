@@ -1,95 +1,51 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link as GatsbyLink } from 'gatsby';
-import styled from '@emotion/styled';
-import { variant } from 'styled-system';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link as GatsbyLink } from "gatsby";
 
-import ModalContext from 'context/ModalContext';
-import { spanParent } from 'style/shared';
+import { createComponent } from "../style";
+import ModalContext from "context/ModalContext";
 
 const propTypes = {
   activeClassName: PropTypes.string,
-  children: PropTypes.node,
-  className: PropTypes.string,
+  activeStyle: PropTypes.string,
   inModal: PropTypes.bool,
-  onClick: PropTypes.func,
-  rel: PropTypes.string,
+  partiallyActive: PropTypes.string,
+  replace: PropTypes.string,
   state: PropTypes.object,
-  tabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  target: PropTypes.string,
-  to: PropTypes.string.isRequired,
+  to: PropTypes.string,
+  href: PropTypes.string,
 };
 
-const defaultProps = {
-  activeClassName: null,
-  children: null,
-  className: null,
-  inModal: false,
-  onClick: null,
-  rel: null,
-  state: {},
-  tabIndex: null,
-  target: '_blank',
-};
-
-const Link = styled(
-  ({
-    activeClassName,
-    children,
-    className,
-    inModal,
-    onClick,
-    rel,
-    state,
-    tabIndex,
-    target,
-    to,
-  }) => {
+const Link = createComponent(
+  React.forwardRef(({ href, inModal, state, to, ...rest }, ref) => {
     const { closeTo } = React.useContext(ModalContext);
+    const props = { ref, ...rest };
+    const url = href || to;
+    let el = "a";
 
-    if (/^\/(?!\/)/.test(to)) {
-      return (
-        <GatsbyLink
-          activeClassName={activeClassName}
-          className={className}
-          onClick={onClick}
-          state={{
-            modal: inModal,
-            noScroll: to === closeTo,
-            ...state,
-          }}
-          tabIndex={tabIndex}
-          rel={rel}
-          to={to}
-        >
-          {children}
-        </GatsbyLink>
-      );
+    if (/^\/(?!\/)/.test(url)) {
+      el = GatsbyLink;
+      props.to = url;
+      props.state = {
+        modal: !!inModal,
+        noScroll: to === closeTo,
+        ...(state || {}),
+      };
+    } else {
+      props.href = url;
+      props.rel = "noreferrer noopener";
+      props.target = "_blank";
     }
 
-    return (
-      <a
-        className={className}
-        href={to}
-        onClick={onClick}
-        rel={rel || 'noopener noreferrer'}
-        tabIndex={tabIndex}
-        target={target}
-      >
-        {children}
-      </a>
-    );
+    return React.createElement(el, props);
+  }),
+  {
+    themeKey: "",
+    defaultVariant: "styles.a",
+    forwardProps: Object.keys(propTypes),
   }
-)(
-  variant({
-    variants: {
-      spanParent,
-    },
-  })
 );
 
 Link.propTypes = propTypes;
 
-Link.defaultProps = defaultProps;
-
-export default Link;
+export { Link };

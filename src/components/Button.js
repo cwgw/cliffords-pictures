@@ -1,72 +1,65 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
-import { variant } from 'styled-system';
-import css from '@styled-system/css';
+import React from "react";
 
-import { transparentize } from 'style/utils';
-import Link from 'components/Link';
+import { Box } from "./Box";
+import { Link } from "./Link";
 
-const propTypes = {
-  to: PropTypes.string,
-  variant: PropTypes.string,
-};
-
-const defaultProps = {
-  to: null,
-  variant: 'default',
-};
-
-const sharedStyles = css({
-  display: 'inline-block',
-  maxWidth: '100%',
-  verticalAlign: 'middle',
-  border: '1px solid',
-  fontFamily: 'sans',
-  textAlign: 'center',
-  textDecoration: 'none',
-  textTransform: 'uppercase',
-  overflow: 'hidden',
-  whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis',
-  userSelect: 'none',
-  '&:active': {
-    transform: 'translate(0, 2px)',
+const baseStyles = {
+  display: "inline-block",
+  maxWidth: "100%",
+  margin: 0,
+  padding: 0,
+  verticalAlign: "middle",
+  overflow: "hidden",
+  border: "1px solid",
+  borderRadius: 0,
+  background: "none",
+  color: "inherit",
+  fontFamily: "sans",
+  fontSize: "inherit",
+  lineHeight: "inherit",
+  cursor: "pointer",
+  textAlign: "center",
+  textDecoration: "none",
+  textOverflow: "ellipsis",
+  textTransform: "uppercase",
+  whiteSpace: "nowrap",
+  WebkitAppearance: "none",
+  MozApperance: "none",
+  userSelect: "none",
+  "&:active": {
+    transform: "translate(0, 2px)",
   },
-  '&:focus': {
+  "&:focus": {
     zIndex: 1,
   },
-});
-
-const variants = variant({
-  variants: {
-    default: {
-      paddingY: 'xs',
-      paddingX: 'sm',
-      borderColor: transparentize(0.75, 'primary'),
-      '&:hover, &:focus': {
-        borderColor: 'currentColor',
-      },
-    },
+  "&[data-disabled]": {
+    opacity: 0.35,
+    cursor: "auto",
   },
-});
+};
 
-const Button = styled(({ to, ...props }) => {
-  const Element = to ? Link : 'button';
-  return <Element to={to} {...props} />;
-})(sharedStyles, variants, (props) => {
-  if (props.disabled) {
-    return {
-      opacity: 0.35,
-      cursor: 'auto',
-      '&:hover': {},
-      '&:hover, &:focus': {},
-    };
+const Button = React.forwardRef(({ disabled, ...rest }, ref) => {
+  let props = rest;
+  if (props.to) {
+    props.as = Link;
+  } else {
+    props.as = props.as || "button";
+    props.type = "button";
   }
+
+  if (disabled) {
+    props["data-disabled"] = true;
+  }
+
+  return (
+    <Box
+      __css={baseStyles}
+      __themeKey="buttons"
+      variant="default"
+      ref={ref}
+      {...props}
+    />
+  );
 });
 
-Button.defaultProps = defaultProps;
-
-Button.propTypes = propTypes;
-
-export default Button;
+export { Button };

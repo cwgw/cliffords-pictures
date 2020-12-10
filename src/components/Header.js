@@ -1,27 +1,8 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby';
-import css from '@styled-system/css';
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
-const Wrapper = styled.header({
-  margin: '0 auto 4rem',
-  padding: '1rem 0 0',
-  textAlign: 'center',
-  borderTop: '1px solid transparent',
-  borderBottom: '1px solid transparent',
-});
-
-const Link = styled(GatsbyLink)(
-  css({
-    display: 'inline-block',
-    fontSize: '8',
-    fontFamily: 'serif',
-    fontVariationSettings: '"wght" 300, "opsz" 50, "XOPQ" 120, "PWGT" 150',
-    textDecoration: 'none',
-    paddingY: 'xs',
-    paddingX: 'sm',
-  })
-);
+import { Box } from "./Box";
+import { Link } from "./Link";
 
 const Header = () => {
   const {
@@ -38,7 +19,35 @@ const Header = () => {
     }
   `);
 
-  return <Wrapper>{title && <Link to="/">{title}</Link>}</Wrapper>;
+  return (
+    <Box
+      as="header"
+      sx={{
+        margin: "0 auto 4rem",
+        padding: "1rem 0 0",
+        textAlign: "center",
+        borderTop: "1px solid transparent",
+        borderBottom: "1px solid transparent",
+      }}
+    >
+      {title && (
+        <Link
+          to="/"
+          sx={{
+            display: "inline-block",
+            fontSize: 8,
+            fontFamily: "serif",
+            fontVariationSettings:
+              '"wght" 300, "opsz" 50, "XOPQ" 120, "PWGT" 150',
+            textDecoration: "none",
+            py: "xs",
+            px: "sm",
+          }}
+          children={title}
+        />
+      )}
+    </Box>
+  );
 };
 
-export default Header;
+export { Header };
