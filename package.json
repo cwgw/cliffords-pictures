@@ -45,7 +45,9 @@
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.{js,jsx,json}'",
     "postinstall": "husky install",
+    "postpublish": "pinst --enable",
     "precommit": "pretty-quick --staged --pattern '**/*.{js,jsx,json}'",
+    "prepublishOnly": "pinst --disable",
     "start": "yarn run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
