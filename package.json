@@ -44,7 +44,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.{js,jsx,json}'",
-    "postinstall": "test -z $NETLIFY && husky install",
+    "postinstall": "[[ -z $NETLIFY ]] && husky install",
     "precommit": "pretty-quick --staged --pattern '**/*.{js,jsx,json}'",
     "start": "yarn run develop",
     "serve": "gatsby serve",
