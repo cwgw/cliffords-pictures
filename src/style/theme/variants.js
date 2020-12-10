@@ -34,6 +34,7 @@ const spanParent = {
 
 const outline = {
   outline: (t) => `3px solid ${t.colors.secondary}`,
+  outlineOffset: 3,
   transition: `outline 100ms`,
   transitionTimingFunction: "in",
 };
