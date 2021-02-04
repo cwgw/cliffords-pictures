@@ -1,5 +1,4 @@
 const path = require("path");
-const fs = require("fs-extra");
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -9,129 +8,72 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
-exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
-  if (node.internal.type === "Photo") {
-    createNodeField({
-      node,
-      name: "slug",
-      value: `/photo/${node.id}`,
-    });
-  }
+exports.createPages = ({ actions: { createPage }, graphql }) => {
+  return Promise.all([createPhotoPages({ graphql, createPage })]);
 };
 
-exports.createPages = ({
-  actions: { createPage },
-  createContentDigest,
-  graphql,
-  reporter,
-}) => {
-  return graphql(`
-    {
-      photos: allPhoto(sort: { fields: id }) {
+async function createPhotoPages({ graphql, createPage }) {
+  const { data, errors } = await graphql(`
+    query {
+      allPhoto(sort: { fields: id }) {
         edges {
           node {
             id
-            fields {
-              slug
-            }
-            aspectRatio
-            image {
-              fluid(maxWidth: 384) {
-                src
-                srcSet
-                srcSetWebp
-                srcWebp
-                sizes
-                aspectRatio
-                base64
-                width
-                height
-              }
-              full: fluid(maxWidth: 768) {
-                src
-                srcSet
-                srcSetWebp
-                srcWebp
-                sizes
-                aspectRatio
-                base64
-                width
-                height
-              }
-            }
+            slug
           }
         }
       }
     }
-  `).then(({ data, errors }) => {
-    if (errors) {
-      reporter.panicOnBuild(errors);
-    }
-    const HomePage = path.resolve("src/templates/HomePage.js");
-    const AlbumPage = path.resolve("src/templates/AlbumPage.js");
-    const SinglePhoto = path.resolve("src/templates/SinglePhoto.js");
+  `);
 
-    const photos = data.photos.edges.map(({ node }) => node);
-    const perPageLimit = 18;
-    const pageTotal = Math.ceil(photos.length / perPageLimit);
+  if (errors) {
+    throw new Error(errors);
+  }
 
-    const hash = createContentDigest({ photos, perPageLimit, pageTotal });
+  const albumTemplate = path.resolve("src/templates/AlbumPage.js");
+  const photoTemplate = path.resolve("src/templates/SinglePhoto.js");
+  const perPage = 12;
+  const total = Math.ceil(data.allPhoto.edges.length / perPage);
 
-    photos.forEach((node, i, arr) => {
-      const next = i + 1 === arr.length ? arr[0] : arr[i + 1];
-      const prev = i - 1 < 0 ? arr[arr.length - 1] : arr[i - 1];
-      createPage({
-        path: node.fields.slug,
-        component: SinglePhoto,
-        context: {
-          id: node.id,
-          nextPhotoPath: next.fields.slug,
-          prevPhotoPath: prev.fields.slug,
+  data.allPhoto.edges.forEach(({ node }, i, arr) => {
+    createPage({
+      path: node.slug,
+      component: photoTemplate,
+      context: {
+        id: node.id,
+        navigation: {
+          next: i + 1 < arr.length ? arr[i + 1].node.slug : null,
+          prev: i - 1 >= 0 ? arr[i - 1].node.slug : null,
         },
-      });
-    });
-
-    Array.from({ length: pageTotal }).forEach((_, i, arr) => {
-      const pageIndex = i + 1;
-      const context = {
-        pageIndex,
-        pageTotal,
-        photoTotal: photos.length,
-        paginationEndpoint: path.join("static/pagination", hash),
-        photos: photos.slice(i * perPageLimit, i * perPageLimit + perPageLimit),
-      };
-
-      createPaginationJSON({ data: context, reporter });
-
-      context.prevPage = pageIndex - 1 > 0 ? `/page/${pageIndex - 1}` : null;
-
-      context.nextPage =
-        pageIndex + 1 < pageTotal ? `/page/${pageIndex + 1}` : null;
-
-      createPage({
-        path: `/page/${i + 1}`,
-        component: AlbumPage,
-        context,
-      });
-
-      if (!i) {
-        createPage({
-          path: "/",
-          component: HomePage,
-          context,
-        });
-      }
+      },
     });
   });
-};
 
-const createPaginationJSON = async ({ data, reporter }) => {
-  const dir = path.join("public", data.paginationEndpoint);
-  fs.ensureDirSync(dir);
+  Array.from({ length: total }).forEach((el, i) => {
+    const index = i + 1;
+    const context = {
+      limit: perPage,
+      skip: i * perPage,
+      pagination: {
+        index,
+        total,
+        next: index + 1 < total ? index + 1 : null,
+        prev: index - 1 >= 0 ? index - 1 : null,
+      },
+    };
 
-  try {
-    await fs.writeJSON(path.join(dir, `${data.pageIndex}.json`), data);
-  } catch (error) {
-    reporter.panicOnBuild(`Couldn't write pagination data`, error);
-  }
-};
+    createPage({
+      path: `/photos/${index}`,
+      component: albumTemplate,
+      context,
+    });
+
+    if (i < 1) {
+      createPage({
+        path: "/",
+        component: path.resolve("src/templates/HomePage.js"),
+        context,
+      });
+    }
+  });
+}

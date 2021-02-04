@@ -140,6 +140,8 @@ exports.sourceNodes = async (
           path.resolve(options.path, id, "data.json")
         );
 
+        data.slug = `/photo/${data.id}`;
+
         const files = await fs.readdir(path.resolve(options.path, id));
 
         for (const file of files) {

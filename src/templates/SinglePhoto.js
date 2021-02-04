@@ -1,23 +1,17 @@
 import React from "react";
 import { graphql } from "gatsby";
-import GatsbyImage from "gatsby-image";
 
-import ModalContext from "context/ModalContext";
-import { Box } from "../components/Box";
+import { useModalState } from "../context/modal";
 import { Image } from "../components/Image";
-
-React.forwardRef((props, ref) => (
-  <Box as={GatsbyImage} ref={ref} __css={{}} {...props} />
-));
 
 const SingleImage = ({
   data: {
     photo: { image },
   },
 }) => {
-  const { modal } = React.useContext(ModalContext);
+  const { isOpen } = useModalState();
 
-  if (modal) {
+  if (isOpen) {
     return (
       <Image
         sx={{

@@ -2,14 +2,15 @@ import React from "react";
 import { DialogOverlay, DialogContent } from "@reach/dialog";
 import { animated, useSpring } from "@react-spring/web";
 
-import { createComponent } from "../../style";
-import { Button } from "../Button";
+import { useModalProps } from "../context/modal";
+import { createComponent } from "../style";
+import { Button } from "./Button";
 import { Carousel } from "./Carousel";
 
 const Overlay = animated(
   createComponent(DialogOverlay, {
     baseStyles: {
-      variant: "spanParent",
+      variant: "cover",
       position: "fixed",
       backdropFilter: "blur(4px)",
       color: "white",
@@ -22,21 +23,16 @@ const Content = createComponent(DialogContent, {
   baseStyles: { outline: "none" },
 });
 
-const Modal = ({
-  onDismiss,
-  isOpen,
-  setContentRef,
-  children,
-  onNext,
-  onPrevious,
-}) => {
+const Modal = ({ isOpen, children }) => {
+  const { onDismiss, onNext, onPrevious } = useModalProps();
+
   const { backgroundColor } = useSpring({
     backgroundColor: isOpen ? "rgba(0,0,0,0.9)" : "rgba(0,0,0,0)",
   });
 
   return (
     <Overlay isOpen={isOpen} onDismiss={onDismiss} style={{ backgroundColor }}>
-      <Content ref={setContentRef} aria-label="Photo modal">
+      <Content aria-label="Photo modal">
         <Button
           onClick={onDismiss}
           sx={{

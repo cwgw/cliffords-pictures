@@ -1,5 +1,4 @@
-import replaceComponentRenderer from "./replaceComponentRenderer";
-import shouldUpdateScroll from "./shouldUpdateScroll";
-import wrapPageElement from "./wrapPageElement";
-
-export { replaceComponentRenderer, shouldUpdateScroll, wrapPageElement };
+export { replaceComponentRenderer } from "./replaceComponentRenderer";
+export { shouldUpdateScroll } from "./shouldUpdateScroll";
+export { wrapPageElement } from "./wrapPageElement";
+export { wrapRootElement } from "./wrapRootElement";
