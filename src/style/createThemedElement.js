@@ -3,6 +3,7 @@ import memoize from "@emotion/memoize";
 import isPropValid from "@emotion/is-prop-valid";
 import { compose } from "styled-system";
 import { css, get } from "theme-ui";
+import merge from "deepmerge";
 
 function createShouldForwardProp({ yes = [], no = [] }) {
   const y = new RegExp(`^(${yes.join("|")})$`);
@@ -12,7 +13,14 @@ function createShouldForwardProp({ yes = [], no = [] }) {
   });
 }
 
-export function createComponent(
+function mergeVariants({ variant, theme, __themeKey }) {
+  const variants = Array.isArray(variant) ? variant : [variant];
+  return variants.reduce((memo, v) => {
+    return merge(memo, get(theme, `${__themeKey}.${v}`, get(theme, v)) || {});
+  }, {});
+}
+
+function createThemedElement(
   component = "div",
   {
     systemProps = [],
@@ -24,32 +32,21 @@ export function createComponent(
 ) {
   const shouldForwardProp = createShouldForwardProp({
     yes: forwardProps,
-    no: systemProps.reduce((arr, p) => {
-      return p.propNames ? arr.concat(p.propNames) : arr;
+    no: systemProps.reduce((memo, p) => {
+      return p.propNames ? memo.concat(p.propNames) : memo;
     }, []),
   });
 
-  const style = ({
-    __css = {},
-    __themeKey = themeKey,
-    sx = {},
-    variant = defaultVariant,
-    theme,
-  }) => {
-    return css({
-      ...baseStyles,
-      ...__css,
-      ...(Array.isArray(variant)
-        ? variant.reduce(
-            (obj, v) => ({
-              ...obj,
-              ...get(theme, `${__themeKey}.${v}`, get(theme, v)),
-            }),
-            {}
-          )
-        : get(theme, `${__themeKey}.${variant}`, get(theme, variant))),
-      ...sx,
-    });
+  const style = (props) => {
+    const {
+      __css = {},
+      __themeKey = themeKey,
+      sx = {},
+      variant = defaultVariant,
+      theme,
+    } = props;
+    const variants = mergeVariants({ variant, theme, __themeKey });
+    return css(merge.all([baseStyles, __css, variants, sx]));
   };
 
   return styled(component, { shouldForwardProp })(
@@ -57,3 +54,5 @@ export function createComponent(
     style
   );
 }
+
+export { createThemedElement };

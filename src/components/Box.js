@@ -1,5 +1,3 @@
-import { createComponent } from "../style";
+import { createThemedElement } from "../style";
 
-export const Box = createComponent("div", {
-  baseStyles: { display: "block", m: 0 },
-});
+export const Box = createThemedElement("div");

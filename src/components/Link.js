@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link as GatsbyLink } from "gatsby";
 
-import { createComponent } from "../style";
+import { createThemedElement } from "../style";
 
 const propTypes = {
   activeClassName: PropTypes.string,
@@ -15,7 +15,7 @@ const propTypes = {
   href: PropTypes.string,
 };
 
-const ThemeLink = createComponent("a", {
+const ThemeLink = createThemedElement("a", {
   themeKey: "links",
   defaultVariant: "styles.a",
   forwardProps: Object.keys(propTypes),

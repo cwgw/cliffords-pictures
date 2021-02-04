@@ -3,12 +3,12 @@ import { DialogOverlay, DialogContent } from "@reach/dialog";
 import { animated, useSpring } from "@react-spring/web";
 
 import { useModalProps } from "../context/modal";
-import { createComponent } from "../style";
+import { createThemedElement } from "../style";
 import { Button } from "./Button";
 import { Carousel } from "./Carousel";
 
 const Overlay = animated(
-  createComponent(DialogOverlay, {
+  createThemedElement(DialogOverlay, {
     baseStyles: {
       variant: "cover",
       position: "fixed",
@@ -19,7 +19,7 @@ const Overlay = animated(
   })
 );
 
-const Content = createComponent(DialogContent, {
+const Content = createThemedElement(DialogContent, {
   baseStyles: { outline: "none" },
 });
 

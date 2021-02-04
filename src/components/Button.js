@@ -1,6 +1,6 @@
 import React from "react";
 
-import { createComponent } from "../style/createComponent";
+import { createThemedElement } from "../style/createThemedElement";
 import { Link } from "./Link";
 
 const baseStyles = {
@@ -37,7 +37,7 @@ const baseStyles = {
   },
 };
 
-const ThemedButton = createComponent("button", {
+const ThemedButton = createThemedElement("button", {
   themeKey: "buttons",
   defaultVariant: "default",
   baseStyles,
