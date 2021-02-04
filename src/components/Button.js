@@ -1,13 +1,12 @@
 import React from "react";
 
-import { Box } from "./Box";
+import { createComponent } from "../style/createComponent";
 import { Link } from "./Link";
 
 const baseStyles = {
   display: "inline-block",
   maxWidth: "100%",
-  margin: 0,
-  padding: 0,
+  p: 0,
   verticalAlign: "middle",
   overflow: "hidden",
   border: "1px solid",
@@ -26,40 +25,39 @@ const baseStyles = {
   WebkitAppearance: "none",
   MozApperance: "none",
   userSelect: "none",
-  "&:active": {
+  "&:not(:disabled):not([data-disabled]):active": {
     transform: "translate(0, 2px)",
   },
   "&:focus": {
     zIndex: 1,
   },
-  "&[data-disabled]": {
+  "&:disabled, &[data-disabled]": {
     opacity: 0.35,
     cursor: "auto",
   },
 };
 
+const ThemedButton = createComponent("button", {
+  themeKey: "buttons",
+  defaultVariant: "default",
+  baseStyles,
+  forwardProps: ["to", "state"],
+});
+
 const Button = React.forwardRef(({ disabled, ...rest }, ref) => {
   let props = rest;
+
   if (props.to) {
     props.as = Link;
+    if (disabled) {
+      props["data-disabled"] = true;
+    }
   } else {
-    props.as = props.as || "button";
     props.type = "button";
+    props.disabled = disabled;
   }
 
-  if (disabled) {
-    props["data-disabled"] = true;
-  }
-
-  return (
-    <Box
-      __css={baseStyles}
-      __themeKey="buttons"
-      variant="default"
-      ref={ref}
-      {...props}
-    />
-  );
+  return <ThemedButton ref={ref} {...props} />;
 });
 
 export { Button };

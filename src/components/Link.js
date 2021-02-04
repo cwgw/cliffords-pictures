@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Link as GatsbyLink } from "gatsby";
 
 import { createComponent } from "../style";
-import ModalContext from "context/ModalContext";
 
 const propTypes = {
   activeClassName: PropTypes.string,
@@ -16,35 +15,27 @@ const propTypes = {
   href: PropTypes.string,
 };
 
-const Link = createComponent(
-  React.forwardRef(({ href, inModal, state, to, ...rest }, ref) => {
-    const { closeTo } = React.useContext(ModalContext);
-    const props = { ref, ...rest };
-    const url = href || to;
-    let el = "a";
+const ThemeLink = createComponent("a", {
+  themeKey: "links",
+  defaultVariant: "styles.a",
+  forwardProps: Object.keys(propTypes),
+});
 
-    if (/^\/(?!\/)/.test(url)) {
-      el = GatsbyLink;
-      props.to = url;
-      props.state = {
-        modal: !!inModal,
-        noScroll: to === closeTo,
-        ...(state || {}),
-      };
-    } else {
-      props.href = url;
-      props.rel = "noreferrer noopener";
-      props.target = "_blank";
-    }
+const Link = React.forwardRef(({ href, inModal, to, ...rest }, ref) => {
+  const props = { ref, ...rest };
+  const url = href || to;
 
-    return React.createElement(el, props);
-  }),
-  {
-    themeKey: "",
-    defaultVariant: "styles.a",
-    forwardProps: Object.keys(propTypes),
+  if (/^\/(?!\/)/.test(url)) {
+    props.as = GatsbyLink;
+    props.to = url;
+  } else {
+    props.href = url;
+    props.rel = "noreferrer noopener";
+    props.target = "_blank";
   }
-);
+
+  return <ThemeLink {...props} />;
+});
 
 Link.propTypes = propTypes;
 
