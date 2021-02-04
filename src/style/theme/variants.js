@@ -9,6 +9,15 @@ const buttons = {
       borderColor: "currentColor",
     },
   },
+  plain: {
+    py: 0.5,
+    px: 1,
+    border: "none",
+    color: "#777",
+    "&:hover": {
+      color: "inherit",
+    },
+  },
 };
 
 const visuallyHidden = {
@@ -23,7 +32,7 @@ const visuallyHidden = {
   border: "0",
 };
 
-const spanParent = {
+const cover = {
   position: "absolute",
   top: 0,
   right: 0,
@@ -39,4 +48,4 @@ const outline = {
   transitionTimingFunction: "in",
 };
 
-export { buttons, visuallyHidden, outline, spanParent };
+export { buttons, visuallyHidden, outline, cover };
