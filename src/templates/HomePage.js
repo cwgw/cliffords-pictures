@@ -3,7 +3,11 @@ import { graphql } from "gatsby";
 
 import { Gallery } from "../components/Gallery";
 
-export default (props) => <Gallery {...props} />;
+const HomeTemplate = (props) => {
+  return <Gallery {...props} />;
+};
+
+export default HomeTemplate;
 
 export const query = graphql`
   query HomeTemplateQuery($skip: Int!, $limit: Int!) {
