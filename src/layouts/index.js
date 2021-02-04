@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
                 href={url}
                 as="font"
                 type={`font/${format}`}
-                crossorigin="anonymous"
+                crossOrigin="anonymous"
               />,
             ]),
           []
