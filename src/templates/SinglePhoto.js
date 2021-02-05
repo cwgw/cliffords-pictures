@@ -1,41 +1,36 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import { useModalState } from "../context/modal";
+import { useIsModal } from "../context/modal";
 import { Image } from "../components/Image";
+
+const style = {
+  default: {
+    width: "100%",
+    maxWidth: "768px",
+    margin: "auto",
+    boxShadow: "raised",
+  },
+  modal: {
+    width: "100%",
+    height: "100%",
+    maxWidth: "768px",
+    maxHeight: "100vh",
+    margin: "auto",
+  },
+};
 
 const SingleImage = ({
   data: {
     photo: { image },
   },
 }) => {
-  const { isOpen } = useModalState();
-
-  if (isOpen) {
-    return (
-      <Image
-        sx={{
-          width: "100%",
-          height: "100%",
-          maxWidth: "768px",
-          maxHeight: "100vh",
-          margin: "auto",
-        }}
-        imgStyle={{ objectFit: "contain" }}
-        backgroundColor="transparent"
-        fluid={image.fluid}
-      />
-    );
-  }
+  const isModal = useIsModal();
 
   return (
     <Image
-      sx={{
-        width: "100%",
-        maxWidth: "768px",
-        margin: "auto",
-        boxShadow: "raised",
-      }}
+      sx={isModal ? style.modal : style.default}
+      imgStyle={{ objectFit: "contain" }}
       backgroundColor="transparent"
       fluid={image.fluid}
     />
