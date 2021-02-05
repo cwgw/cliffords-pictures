@@ -7,6 +7,15 @@ import { createThemedElement } from "../style";
 import { Button } from "./Button";
 import { Carousel } from "./Carousel";
 
+const style = {
+  close: {
+    position: "fixed",
+    top: "sm",
+    right: "sm",
+    zIndex: 1000,
+  },
+};
+
 const Overlay = animated(
   createThemedElement(DialogOverlay, {
     baseStyles: {
@@ -23,8 +32,8 @@ const Content = createThemedElement(DialogContent, {
   baseStyles: { outline: "none" },
 });
 
-const Modal = ({ isOpen, children }) => {
-  const { onDismiss, onNext, onPrevious } = useModalProps();
+const Modal = ({ children }) => {
+  const { isOpen, onDismiss, onNext, onPrevious } = useModalProps();
 
   const { backgroundColor } = useSpring({
     backgroundColor: isOpen ? "rgba(0,0,0,0.9)" : "rgba(0,0,0,0)",
@@ -33,17 +42,9 @@ const Modal = ({ isOpen, children }) => {
   return (
     <Overlay isOpen={isOpen} onDismiss={onDismiss} style={{ backgroundColor }}>
       <Content aria-label="Photo modal">
-        <Button
-          onClick={onDismiss}
-          sx={{
-            position: "fixed",
-            top: "sm",
-            right: "sm",
-            zIndex: 1000,
-          }}
-          children="╳"
-          title="Close"
-        />
+        <Button onClick={onDismiss} sx={style.close} title="Close">
+          {"╳"}
+        </Button>
         <Carousel onDismiss={onDismiss} onRight={onNext} onLeft={onPrevious}>
           {children}
         </Carousel>

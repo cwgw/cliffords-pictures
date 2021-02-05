@@ -1,99 +1,66 @@
 import React from "react";
 import { navigate } from "gatsby";
 
+import { Modal } from "../components/Modal";
+
 const ModalContext = React.createContext();
 
-const LOCATION_CHANGED = "LOCATION_CHANGED";
-
-const initialState = {
-  origin: null,
-  next: null,
-  prev: null,
-  isOpen: false,
-};
-
-const prefetch = (path) => {
-  if (typeof window !== "undefined") {
-    return window.___loader.prefetch(path);
-  }
-};
-
-const ModalProvider = ({ children }) => {
-  const [state, dispatch] = React.useReducer(reducer, initialState);
+const ModalProvider = ({ props, children }) => {
+  const origin = React.useRef(null);
+  const isOpen = Boolean(origin.current && props.location.state.modal);
 
   React.useEffect(() => {
-    if (state.prev) {
-      prefetch(state.prev);
+    if (!isOpen) {
+      origin.current = props;
+    }
+  }, [props, isOpen]);
+
+  const getOriginPath = React.useCallback(() => {
+    if (isOpen && origin.current) {
+      return origin.current.pageResources.page.path;
     }
 
-    if (state.next) {
-      prefetch(state.next);
-    }
-  }, [state.next, state.prev]);
-
-  const handleLocationChange = React.useCallback(
-    (payload) => {
-      dispatch([LOCATION_CHANGED, payload]);
-    },
-    [dispatch]
-  );
+    return null;
+  }, [isOpen]);
 
   const onDismiss = React.useCallback(() => {
-    if (state.origin) {
-      navigate(state.origin, { state: { noScroll: true } });
+    const path = getOriginPath();
+    if (path) {
+      navigate(path, { state: { noScroll: true } });
     }
-  }, [state.origin]);
+  }, [getOriginPath]);
 
-  const onPrevious = React.useCallback(() => {
-    if (state.prev) {
-      navigate(state.prev, { state: { noScroll: true, modal: true } });
-    }
-  }, [state.prev]);
+  let pageElement = children;
+  let modalElement = null;
 
-  const onNext = React.useCallback(() => {
-    if (state.next) {
-      navigate(state.next, { state: { noScroll: true, modal: true } });
-    }
-  }, [state.next]);
+  if (isOpen) {
+    modalElement = createElement(props);
+    pageElement = createElement(origin.current);
+  }
 
   return (
-    <ModalContext.Provider
-      value={{
-        onDismiss,
-        onPrevious,
-        onNext,
-        handleLocationChange,
-        state,
-      }}
-      children={children}
-    />
+    <ModalContext.Provider value={{ onDismiss, isOpen }}>
+      {pageElement}
+      <Modal>{modalElement}</Modal>
+    </ModalContext.Provider>
   );
 };
 
-function reducer(state, [action, payload]) {
-  switch (action) {
-    case LOCATION_CHANGED: {
-      return payload ? { ...state, ...payload } : initialState;
-    }
-    default: {
-      return state;
-    }
-  }
-}
-
-function useOnLocationChange() {
-  const { handleLocationChange } = React.useContext(ModalContext);
-  return handleLocationChange;
+function createElement(props) {
+  return React.createElement(props.pageResources.component, {
+    ...props,
+    key: props.pageResources.page.path,
+  });
 }
 
 function useModalProps() {
-  const { onDismiss, onPrevious, onNext } = React.useContext(ModalContext);
-  return { onDismiss, onPrevious, onNext };
+  const props = React.useContext(ModalContext);
+  return props;
 }
 
-function useModalState() {
-  const { state } = React.useContext(ModalContext);
-  return state;
+function useIsModal() {
+  const { isOpen } = React.useContext(ModalContext);
+  return isOpen;
 }
 
-export { ModalProvider, useModalProps, useModalState, useOnLocationChange };
+export { ModalProvider, useModalProps, useIsModal };

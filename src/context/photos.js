@@ -1,23 +1,16 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { useLocation } from "@reach/router";
 
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 const PhotosContext = React.createContext();
 
-const initialState = {
-  photos: [],
-  index: null,
-  total: null,
-  next: null,
-  prev: null,
-};
-
 const INITIALIZED = "INITIALIZED";
 const PHOTOS_ADDED = "PHOTOS_ADDED";
 
 const PhotosProvider = ({ props, loadPage, children }) => {
-  const [state, dispatch] = React.useReducer(reducer, initialState);
+  const [state, dispatch] = React.useReducer(reducer, getInitialState());
   const [refs] = React.useState(new Map());
   const pageKey = React.useRef(null);
   const loaded = React.useRef([]);
@@ -38,39 +31,62 @@ const PhotosProvider = ({ props, loadPage, children }) => {
     }
   }, [loadPage, refs, state.next]);
 
-  const getPhoto = React.useCallback(
-    (id) => {
-      return refs.has(id) ? refs.get(id) : null;
-    },
-    [refs]
-  );
-
-  function hasMore() {
-    return !!state.next;
-  }
-
   return (
     <PhotosContext.Provider
-      value={{ getPhoto, hasMore, loadPhotos, state }}
+      value={{ loadPhotos, refs, state }}
       children={children}
     />
   );
 };
 
+function getInitialState() {
+  return {
+    photos: [],
+    index: null,
+    total: null,
+    next: null,
+    prev: null,
+  };
+}
+
 function reducer(state, [action, payload]) {
   switch (action) {
     case INITIALIZED: {
       const { photos, pagination } = payload;
-      return { photos, ...pagination };
+      return {
+        ...normalizePhotos(photos),
+        ...pagination,
+      };
     }
     case PHOTOS_ADDED: {
-      const { photos, pagination } = payload;
-      return { photos: state.photos.concat(photos), ...pagination };
+      const { photos, photosByKey } = normalizePhotos(payload.photos);
+      return {
+        photos: state.photos.concat(photos),
+        photosByKey: { ...state.photosByKey, ...photosByKey },
+        ...payload.pagination,
+      };
     }
     default: {
       return state;
     }
   }
+}
+
+function normalizePhotos(photos) {
+  const key = "slug";
+  return photos.reduce(
+    (memo, item) => {
+      memo.photos.push(item[key]);
+      memo.photosByKey[item[key]] = item;
+      return memo;
+    },
+    { photos: [], photosByKey: {} }
+  );
+}
+
+function denormalizePhotos(state) {
+  const { photos, photosByKey } = state;
+  return photos.map((key) => photosByKey[key]);
 }
 
 function areValidProps(props) {
@@ -96,11 +112,16 @@ function transformPayload({ data, pageContext }, refs) {
   }
 }
 
+/**
+ * Hooks
+ */
+
 function useInfiniteScroll() {
-  const { loadPhotos, hasMore, state } = React.useContext(PhotosContext);
+  const { loadPhotos, state } = React.useContext(PhotosContext);
   const [isEnabled, setEnabled] = React.useState(false);
   const enable = React.useCallback(() => setEnabled(true), [setEnabled]);
   const disable = React.useCallback(() => setEnabled(false), [setEnabled]);
+  const hasMore = React.useCallback(() => !!state.next, [state.next]);
   const ref = useIntersectionObserver(loadPhotos);
 
   return {
@@ -109,25 +130,39 @@ function useInfiniteScroll() {
     disable,
     ref,
     hasMore,
-    photos: state.photos,
+    photos: denormalizePhotos(state),
   };
 }
 
-function useLoadPhotos() {
-  const { loadPhotos } = React.useContext(PhotosContext);
-  return loadPhotos;
+function prefetch(path) {
+  if (typeof window !== "undefined") {
+    return window.___loader.prefetch(path);
+  }
 }
 
-function useGetPhoto() {
-  const { getPhoto } = React.useContext(PhotosContext);
-  return getPhoto;
-}
-
-function usePhotos() {
+function useGetSiblings() {
+  const location = useLocation();
   const {
-    state: { photos },
+    state: { photos, photosByKey },
   } = React.useContext(PhotosContext);
-  return photos;
+
+  let previous = null;
+  let next = null;
+
+  if (photosByKey[location.pathname]) {
+    const i = photos.indexOf(photosByKey[location.pathname].slug);
+    if (photos[i - 1]) {
+      previous = photosByKey[photos[i - 1]];
+      prefetch(previous.slug);
+    }
+
+    if (photos[i + 1]) {
+      next = photosByKey[photos[i + 1]];
+      prefetch(next.slug);
+    }
+  }
+
+  return { previous, next };
 }
 
 const PhotoFragment = graphql`
@@ -151,11 +186,4 @@ const PhotoFragment = graphql`
   }
 `;
 
-export {
-  PhotoFragment,
-  PhotosProvider,
-  useGetPhoto,
-  useInfiniteScroll,
-  useLoadPhotos,
-  usePhotos,
-};
+export { PhotoFragment, PhotosProvider, useGetSiblings, useInfiniteScroll };
