@@ -1,6 +1,7 @@
 const scale = [0, 4, 8, 16, 32, 64, 128, 256, 512];
 
 const aliases = {
+  0.5: 2,
   xs: scale[1],
   sm: scale[2],
   md: scale[3],

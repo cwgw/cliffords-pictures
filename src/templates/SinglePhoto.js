@@ -1,47 +1,36 @@
 import React from "react";
 import { graphql } from "gatsby";
-import GatsbyImage from "gatsby-image";
 
-import ModalContext from "context/ModalContext";
-import { Box } from "../components/Box";
+import { useIsModal } from "../context/modal";
 import { Image } from "../components/Image";
 
-React.forwardRef((props, ref) => (
-  <Box as={GatsbyImage} ref={ref} __css={{}} {...props} />
-));
+const style = {
+  default: {
+    width: "100%",
+    maxWidth: "768px",
+    margin: "auto",
+    boxShadow: "raised",
+  },
+  modal: {
+    width: "100%",
+    height: "100%",
+    maxWidth: "768px",
+    maxHeight: "100vh",
+    margin: "auto",
+  },
+};
 
 const SingleImage = ({
   data: {
     photo: { image },
   },
 }) => {
-  const { modal } = React.useContext(ModalContext);
-
-  if (modal) {
-    return (
-      <Image
-        sx={{
-          width: "100%",
-          height: "100%",
-          maxWidth: "768px",
-          maxHeight: "100vh",
-          margin: "auto",
-        }}
-        imgStyle={{ objectFit: "contain" }}
-        backgroundColor="transparent"
-        fluid={image.fluid}
-      />
-    );
-  }
+  const isModal = useIsModal();
 
   return (
     <Image
-      sx={{
-        width: "100%",
-        maxWidth: "768px",
-        margin: "auto",
-        boxShadow: "raised",
-      }}
+      sx={isModal ? style.modal : style.default}
+      imgStyle={{ objectFit: "contain" }}
       backgroundColor="transparent"
       fluid={image.fluid}
     />

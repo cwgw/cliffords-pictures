@@ -1,3 +1,1 @@
-import wrapPageElement from "./wrapPageElement";
-
-export { wrapPageElement };
+export { wrapPageElement } from "./wrapPageElement";

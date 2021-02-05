@@ -1,8 +1,8 @@
 import GatsbyImage from "gatsby-image";
 
-import { createComponent } from "../style";
+import { createThemedElement } from "../style";
 
-export const Image = createComponent(GatsbyImage, {
+export const Image = createThemedElement(GatsbyImage, {
   forwardProps: [
     "fixed",
     "fluid",

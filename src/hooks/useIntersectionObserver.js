@@ -11,13 +11,13 @@ const listeners = new WeakMap();
 const useIntersectionObserver = (cb) => {
   const [ref, setRef] = React.useState();
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     if (ref) {
       listenToIntersections(ref, cb);
     }
   }, [ref, cb]);
 
-  return [setRef];
+  return setRef;
 };
 
 function listenToIntersections(el, cb) {
