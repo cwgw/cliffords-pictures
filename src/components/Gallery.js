@@ -1,7 +1,7 @@
 import React from "react";
 import GatsbyImage from "gatsby-image";
 
-import { useInfiniteScroll } from "../context/photos";
+import { useInfiniteScroll } from "../context/app";
 import { Box } from "./Box";
 import { Button } from "./Button";
 import { Link } from "./Link";

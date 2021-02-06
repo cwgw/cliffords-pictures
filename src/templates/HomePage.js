@@ -4,6 +4,11 @@ import { graphql } from "gatsby";
 import { Gallery } from "../components/Gallery";
 
 const HomeTemplate = (props) => {
+  // React.useEffect(() => {
+  //   const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+  //   console.log("HomeTemplate", scrollY);
+  // }, []);
+
   return <Gallery {...props} />;
 };
 
