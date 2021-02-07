@@ -50,12 +50,12 @@ const Provider = ({ props, loadPage, children }) => {
     }
   };
 
-  let modalElement = null;
+  // let modalElement = null;
   let pageElement = children;
   let siblings = {};
 
   if (isOpen) {
-    modalElement = pageElement;
+    // modalElement = pageElement;
     pageElement = createElement(origin.current);
     siblings = getSiblings(props.path, state);
   }
@@ -65,9 +65,12 @@ const Provider = ({ props, loadPage, children }) => {
   return (
     <Context.Provider value={{ current, isOpen, loadPhotos, refs, state }}>
       {pageElement}
-      <Modal onDismiss={onDismiss} isOpen={isOpen} siblings={siblings}>
-        {modalElement}
-      </Modal>
+      <Modal
+        onDismiss={onDismiss}
+        isOpen={isOpen}
+        siblings={siblings}
+        data={getPhotoData(props)}
+      />
     </Context.Provider>
   );
 };
@@ -143,6 +146,19 @@ function getPayloadFromProps(props) {
 function isAlbumPage(props) {
   const { data, pageContext } = props || {};
   return data && data.allPhoto && pageContext && pageContext.pagination;
+}
+
+function getPhotoData(props) {
+  if (!props.path.startsWith("/photo/") || !props.data.photo) {
+    return null;
+  }
+
+  const photo = props.data.photo;
+  return {
+    ...photo,
+    width: photo.image.fluid.width,
+    height: photo.image.fluid.height,
+  };
 }
 
 function createElement(props) {

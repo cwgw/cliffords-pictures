@@ -51,6 +51,7 @@ export default SingleImage;
 export const query = graphql`
   query singleImage($id: String!) {
     photo(id: { eq: $id }) {
+      id
       aspectRatio
       transform {
         rotate

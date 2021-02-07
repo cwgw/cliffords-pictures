@@ -4,12 +4,13 @@ import { animated, useSpring, useTransition } from "@react-spring/web";
 import { useGesture } from "react-use-gesture";
 import { navigate as gatsbyNavigate } from "gatsby";
 
-// import { useGetAlbumItemRef } from "../context/app";
+import { useGetAlbumItemRef } from "../context/app";
 import useWindowSize from "hooks/useWindowSize";
 import useKeyboardNavigation from "hooks/useKeyboardNavigation";
 import { createThemedElement } from "../style";
 import { Button } from "./Button";
 import { Box } from "./Box";
+import { Image } from "./Image";
 
 const sx = {
   overlay: {
@@ -47,7 +48,12 @@ const sx = {
     position: "absolute",
     top: "50%",
     left: "50%",
-    transform: "translate(-50%, -50%)",
+    height: 0,
+    width: 0,
+    "& > div": {
+      position: "relative",
+      transform: "translate(-50%, -50%)",
+    },
     img: {
       touchAction: "none",
       WebkitUserDrag: "none",
@@ -69,12 +75,22 @@ const Content = createThemedElement(DialogContent);
 
 const Animated = animated(Box);
 
+const Item = React.forwardRef(({ style, image }, ref) => (
+  <Animated ref={ref} style={style}>
+    <Image {...image} />
+  </Animated>
+));
+
 function dismissThreshold({ my, vy, view }) {
   return (my > 0 && vy > 0.5) || my > view.height / 2;
 }
 
 function swipeThreshold({ mx, vx, view }) {
   return (Math.abs(mx) > 0 && vx > 0.5) || Math.abs(mx) > view.width / 3;
+}
+
+function clamp(n, min, max) {
+  return Math.max(min || 0, Math.min(max || 1, n));
 }
 
 function average(arr) {
@@ -87,31 +103,49 @@ function average(arr) {
   });
 }
 
-const Modal = ({ isOpen, onDismiss, siblings, children }) => {
+function getDimensions({ data, view, margin }) {
+  if (!data) {
+    return {
+      width: view.width,
+      height: view.height,
+    };
+  }
+  const { width, height, aspectRatio: ar } = data;
+  const vw = view.width - 2 * (margin || 24);
+  const vh = view.height - 2 * (margin || 24);
+  if (width > vw || height > vh) {
+    if (width - vw > height - vh) {
+      return {
+        width: vw,
+        height: vw / ar,
+      };
+    } else {
+      return {
+        width: vh * ar,
+        height: vh,
+      };
+    }
+  }
+
+  return { width, height };
+}
+
+const Modal = ({ data, isOpen, onDismiss, siblings }) => {
   const direction = React.useRef(0);
   const view = useWindowSize();
-  const width = Math.min(view.width, 768);
-  const [background, animateOverlay] = useSpring(
-    {
-      opacity: 0,
-      config: { clamp: true, precision: 0.05 },
-    },
-    []
-  );
+  const { width, height } = getDimensions({ data, view });
+  const delayedIsOpen = React.useRef(false);
+  const albumItemRef = useGetAlbumItemRef();
 
   React.useEffect(() => {
-    animateOverlay({ opacity: isOpen ? 1 : 0 });
-    if (!isOpen) {
-      direction.current = 0;
-    }
-  }, [animateOverlay, isOpen]);
+    delayedIsOpen.current = isOpen;
+  }, [isOpen]);
 
-  // const ref = useGetAlbumItemRef();
   // React.useEffect(() => {
-  //   if (ref) {
-  //     ref.scrollIntoView();
+  //   if (albumItemRef && delayedIsOpen.current) {
+  //     albumItemRef.scrollIntoView();
   //   }
-  // }, [ref])
+  // }, [albumItemRef])
 
   const navigate = React.useCallback(
     (handle) => {
@@ -136,23 +170,55 @@ const Modal = ({ isOpen, onDismiss, siblings, children }) => {
     },
   });
 
-  const [transition, update] = useTransition(
-    children,
+  const [background, animateOverlay] = useSpring(
     {
-      keys: (item) => (item ? item.key : null),
+      opacity: 0,
+      config: { clamp: true, precision: 0.05 },
+    },
+    []
+  );
+
+  React.useEffect(() => {
+    animateOverlay({ opacity: isOpen ? 1 : 0 });
+    if (!isOpen) {
+      direction.current = 0;
+    }
+  }, [animateOverlay, isOpen]);
+
+  const [transition, update] = useTransition(
+    data,
+    {
+      keys: (item) => (item ? item.id : null),
       from: {
         x: width * direction.current,
         y: 0,
-        scale: direction.current ? 1 : 0.8,
+        scale: direction.current ? 1 : 0.75,
         transformOrigin: "center center",
         opacity: 1,
       },
-      enter: {
-        x: 0,
-        y: 0,
-        scale: 1,
-        transformOrigin: "center center",
-        opacity: 1,
+      enter: (item) => async (next) => {
+        let from = null;
+
+        if (!delayedIsOpen.current && item && albumItemRef) {
+          const rect = albumItemRef.getBoundingClientRect();
+          const { width } = getDimensions({ data: item, view });
+          from = {
+            x: 0 - (view.width / 2 - (rect.x + rect.width / 2)),
+            y: 0 - (view.height / 2 - (rect.y + rect.height / 2)),
+            scale: rect.width / width,
+          };
+        }
+
+        await next({
+          from,
+          to: {
+            x: 0,
+            y: 0,
+            scale: 1,
+            transformOrigin: "center center",
+            opacity: 1,
+          },
+        });
       },
       leave: {
         x: 0 - width * direction.current,
@@ -161,12 +227,14 @@ const Modal = ({ isOpen, onDismiss, siblings, children }) => {
         transformOrigin: "center center",
         opacity: 0,
       },
+      immediate: (key) => key === "transformOrigin",
     },
-    [children, width]
+    [data, width]
   );
 
   const bind = useGesture({
     onDrag: ({
+      args: [args],
       cancel,
       canceled,
       down,
@@ -228,12 +296,22 @@ const Modal = ({ isOpen, onDismiss, siblings, children }) => {
         case "down": {
           if (last && dismissThreshold({ my, vy, view })) {
             cancel();
-            animateOverlay({ opacity: 0 }).then(() => onDismiss());
+            const rect = albumItemRef.getBoundingClientRect();
+            const { width } = getDimensions({ data: args.item, view });
+            Promise.all([
+              animateOverlay({ opacity: 0 }),
+              update({
+                x: 0 - (view.width / 2 - (rect.x + rect.width / 2)),
+                y: 0 - (view.height / 2 - (rect.y + rect.height / 2)),
+                scale: rect.width / width,
+                transformOrigin: "center center",
+              }),
+            ]).then(() => onDismiss());
             break;
           }
 
           animateOverlay({
-            opacity: down ? Math.max(my, 0) / -1000 + 1 : 1,
+            opacity: down ? clamp(1 - (my * 2) / view.height) : 1,
           });
 
           update({
@@ -271,14 +349,20 @@ const Modal = ({ isOpen, onDismiss, siblings, children }) => {
     <Overlay sx={sx.overlay} isOpen={isOpen} onDismiss={onDismiss}>
       <Animated style={background} sx={sx.background} onClick={onDismiss} />
       <Content sx={sx.content} aria-label="Photo modal">
-        {transition(
-          (style, item) =>
-            item && (
-              <Box key={item.key} sx={sx.item} {...bind()}>
-                <Animated style={style}>{item}</Animated>
+        {transition((style, item) => {
+          return item ? (
+            <Animated
+              key={item.key}
+              style={style}
+              sx={sx.item}
+              {...bind({ item })}
+            >
+              <Box style={{ width, height }}>
+                <Item {...item} />
               </Box>
-            )
-        )}
+            </Animated>
+          ) : null;
+        })}
         <Button onClick={onDismiss} sx={sx.close} title="Close">
           {"╳"}
         </Button>
