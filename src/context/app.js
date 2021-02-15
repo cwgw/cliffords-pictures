@@ -61,6 +61,7 @@ const Provider = ({ props, loadPage, children }) => {
   }
 
   const current = state.photosByKey[props.path];
+  const data = getPhotoData(props);
 
   return (
     <Context.Provider value={{ current, isOpen, loadPhotos, refs, state }}>
@@ -69,7 +70,7 @@ const Provider = ({ props, loadPage, children }) => {
         onDismiss={onDismiss}
         isOpen={isOpen}
         siblings={siblings}
-        data={getPhotoData(props)}
+        data={data ? [data] : []}
       />
     </Context.Provider>
   );
@@ -150,7 +151,7 @@ function isAlbumPage(props) {
 
 function getPhotoData(props) {
   if (!props.path.startsWith("/photo/") || !props.data.photo) {
-    return null;
+    return;
   }
 
   const photo = props.data.photo;
