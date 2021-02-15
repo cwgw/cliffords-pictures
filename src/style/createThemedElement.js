@@ -28,7 +28,8 @@ function createThemedElement(
     forwardProps = [],
     themeKey = "variants",
     defaultVariant,
-  } = {}
+  } = {},
+  ...additionalStyleFunctions
 ) {
   const shouldForwardProp = createShouldForwardProp({
     yes: forwardProps,
@@ -51,7 +52,8 @@ function createThemedElement(
 
   return styled(component, { shouldForwardProp })(
     compose(...systemProps),
-    style
+    style,
+    ...additionalStyleFunctions
   );
 }
 
