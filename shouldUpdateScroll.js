@@ -1,8 +1,12 @@
-import get from "lodash/get";
+export const shouldUpdateScroll = (args) => {
+  const {
+    routerProps: { location },
+  } = args;
+  const state = location.state || {};
 
-export const shouldUpdateScroll = ({ routerProps: { location } }) => {
-  const isModal = get(location, "state.modal");
-  const preventUpdateScroll = get(location, "state.noScroll");
+  if (state.scrollTo) {
+    return state.scrollTo;
+  }
 
-  return !isModal && !preventUpdateScroll;
+  return !(state.modal || state.noScroll);
 };

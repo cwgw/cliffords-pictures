@@ -32,7 +32,7 @@ async function createPhotoPages({ graphql, createPage }) {
 
   const albumTemplate = path.resolve("src/templates/AlbumPage.js");
   const photoTemplate = path.resolve("src/templates/SinglePhoto.js");
-  const perPage = 12;
+  const perPage = 24;
   const total = Math.ceil(data.allPhoto.edges.length / perPage);
 
   data.allPhoto.edges.forEach(({ node }, i, arr) => {

@@ -9,6 +9,7 @@ const buttons = {
       borderColor: "currentColor",
     },
   },
+
   plain: {
     py: 0.5,
     px: 1,
