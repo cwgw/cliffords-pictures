@@ -53,6 +53,7 @@ const sx = {
     "& > div": {
       position: "relative",
       transform: "translate(-50%, -50%)",
+      boxShadow: "slight",
     },
     img: {
       touchAction: "none",
@@ -60,7 +61,7 @@ const sx = {
       userSelect: "none",
       // temp fix for firefox desktop
       // not fit for prod
-      pointerEvents: "none",
+      // pointerEvents: "none",
     },
   },
 };
@@ -77,16 +78,27 @@ const Animated = animated(Box);
 
 const Item = React.forwardRef(({ style, image }, ref) => (
   <Animated ref={ref} style={style}>
-    <Image {...image} />
+    <Image
+      // fadeIn={false}
+      loading="eager"
+      {...image}
+    />
   </Animated>
 ));
 
-function dismissThreshold({ my, vy, view }) {
-  return (my > 0 && vy > 0.5) || my > view.height / 2;
+function dismissThreshold({ my, vy, elapsedTime, viewport }) {
+  return (
+    (my > 0 && vy > 0.5) || my > viewport.height / 2 || my / elapsedTime > 0.35
+  );
 }
 
-function swipeThreshold({ mx, vx, view }) {
-  return (Math.abs(mx) > 0 && vx > 0.5) || Math.abs(mx) > view.width / 3;
+function swipeThreshold({ mx, vx, elapsedTime, viewport }) {
+  const absX = Math.abs(mx);
+  return (
+    (absX > 0 && vx > 0.5) ||
+    absX > viewport.width / 5 ||
+    absX / elapsedTime > 0.35
+  );
 }
 
 function clamp(n, min, max) {
@@ -103,37 +115,42 @@ function average(arr) {
   });
 }
 
-function getDimensions({ data, view, margin }) {
-  if (!data) {
-    return {
-      width: view.width,
-      height: view.height,
-    };
-  }
-  const { width, height, aspectRatio: ar } = data;
-  const vw = view.width - 2 * (margin || 24);
-  const vh = view.height - 2 * (margin || 24);
-  if (width > vw || height > vh) {
-    if (width - vw > height - vh) {
-      return {
-        width: vw,
-        height: vw / ar,
-      };
-    } else {
-      return {
-        width: vh * ar,
-        height: vh,
-      };
-    }
-  }
-
-  return { width, height };
+function round(n, d) {
+  d = d || 1000;
+  return Math.round(n * d) / d;
 }
 
-const Modal = ({ data, isOpen, onDismiss, siblings }) => {
+function useGetPhotoDimensions(viewport) {
+  return (data, margin) => {
+    if (!data) {
+      return viewport;
+    }
+
+    const { width, height, aspectRatio: ar } = data;
+    const vw = viewport.width - 2 * (margin || 24);
+    const vh = viewport.height - 2 * (margin || 24);
+    if (width > vw || height > vh) {
+      if (width - vw > height - vh) {
+        return {
+          width: vw,
+          height: vw / ar,
+        };
+      } else {
+        return {
+          width: vh * ar,
+          height: vh,
+        };
+      }
+    }
+
+    return { width, height };
+  };
+}
+
+const Modal = ({ data, isOpen, onDismiss: _onDismiss, siblings }) => {
   const direction = React.useRef(0);
-  const view = useWindowSize();
-  const { width, height } = getDimensions({ data, view });
+  const viewport = useWindowSize();
+  const getDimensions = useGetPhotoDimensions(viewport);
   const delayedIsOpen = React.useRef(false);
   const albumItemRef = useGetAlbumItemRef();
 
@@ -147,8 +164,16 @@ const Modal = ({ data, isOpen, onDismiss, siblings }) => {
   //   }
   // }, [albumItemRef])
 
+  const onDismiss = React.useCallback(() => {
+    if (albumItemRef) {
+      albumItemRef.style.visibility = "visible";
+    }
+    _onDismiss();
+  }, [_onDismiss, albumItemRef]);
+
   const navigate = React.useCallback(
     (handle) => {
+      albumItemRef.style.visibility = "visible";
       direction.current = handle === "next" ? 1 : -1;
       const target = siblings[handle];
       if (target) {
@@ -158,7 +183,7 @@ const Modal = ({ data, isOpen, onDismiss, siblings }) => {
 
       return false;
     },
-    [siblings]
+    [siblings, albumItemRef]
   );
 
   useKeyboardNavigation({
@@ -188,48 +213,88 @@ const Modal = ({ data, isOpen, onDismiss, siblings }) => {
   const [transition, update] = useTransition(
     data,
     {
-      keys: (item) => (item ? item.id : null),
-      from: {
-        x: width * direction.current,
-        y: 0,
-        scale: direction.current ? 1 : 0.75,
-        transformOrigin: "center center",
-        opacity: 1,
+      keys: (item) => item.id,
+      from: (item) => {
+        let x = item ? getDimensions(item).width : viewport.width;
+        return {
+          x: x * direction.current,
+          y: 0,
+          scale: direction.current ? 1 : 0.75,
+          transformOrigin: "50% 50%",
+          opacity: 1,
+        };
       },
       enter: (item) => async (next) => {
-        let from = null;
+        const to = {
+          x: 0,
+          y: 0,
+          scale: 1,
+          transformOrigin: "50% 50%",
+          opacity: 1,
+        };
 
         if (!delayedIsOpen.current && item && albumItemRef) {
           const rect = albumItemRef.getBoundingClientRect();
-          const { width } = getDimensions({ data: item, view });
-          from = {
-            x: 0 - (view.width / 2 - (rect.x + rect.width / 2)),
-            y: 0 - (view.height / 2 - (rect.y + rect.height / 2)),
-            scale: rect.width / width,
-          };
+          const { width } = getDimensions(item);
+          albumItemRef.style.visibility = "hidden";
+          await next({
+            from: {
+              x: 0 - (viewport.width / 2 - (rect.x + rect.width / 2)),
+              y: 0 - (viewport.height / 2 - (rect.y + rect.height / 2)),
+              scale: round(rect.width / width),
+            },
+            to,
+          });
+          return;
         }
 
+        await next({ to });
+      },
+      leave: (item) => async (next) => {
+        if (albumItemRef) {
+          albumItemRef.style.visibility = "hidden";
+        }
+
+        // if (!isOpen && albumItemRef) {
+        //   const rect = albumItemRef.getBoundingClientRect();
+        //   const { width } = getDimensions(item);
+        //   await Promise.all([
+        //     animateOverlay({ opacity: 0 }),
+        //     next({
+        //       x: 0 - (viewport.width / 2 - (rect.x + rect.width / 2)),
+        //       y: 0 - (viewport.height / 2 - (rect.y + rect.height / 2)),
+        //       scale: round(rect.width / width),
+        //       transformOrigin: "50% 50%",
+        //     }),
+        //   ]).then(() => {
+        //     albumItemRef.style.visibility = "visible";
+        //     onDismiss();
+        //   });
+        //   return;
+        // }
+
+        // console.log("leave", { isOpen, delayedIsOpen: delayedIsOpen.current })
+
+        let x = item ? getDimensions(item).width : viewport.width;
         await next({
-          from,
           to: {
-            x: 0,
+            x: 0 - x * direction.current,
             y: 0,
             scale: 1,
-            transformOrigin: "center center",
-            opacity: 1,
+            transformOrigin: "50% 50%",
+            opacity: 0,
+          },
+          config: {
+            precision: 0.1,
           },
         });
       },
-      leave: {
-        x: 0 - width * direction.current,
-        y: 0,
-        scale: 1,
-        transformOrigin: "center center",
-        opacity: 0,
-      },
       immediate: (key) => key === "transformOrigin",
+      config: {
+        tension: 300,
+      },
     },
-    [data, width]
+    [data, viewport]
   );
 
   const bind = useGesture({
@@ -238,12 +303,13 @@ const Modal = ({ data, isOpen, onDismiss, siblings }) => {
       cancel,
       canceled,
       down,
+      elapsedTime,
       event,
       last,
       memo,
       movement: [mx, my],
       vxvy: [vx, vy],
-      xy: [x, y],
+      // xy: [x, y],
     }) => {
       // supposed to fix image drag problem in firefox
       event.preventDefault();
@@ -253,32 +319,42 @@ const Modal = ({ data, isOpen, onDismiss, siblings }) => {
       }
 
       if (!memo) {
-        memo = [];
+        memo = {
+          d: [],
+        };
       }
 
-      if (Array.isArray(memo)) {
-        if (memo.length < 4) {
-          memo.push(Math.abs(mx) - Math.abs(my));
+      if (Array.isArray(memo.d)) {
+        if (memo.d.length < 4) {
+          memo.d.push(Math.abs(mx) - Math.abs(my));
           return memo;
         } else {
-          const rx = x - view.width / 2;
-          const ry = y - view.height / 2;
-          update({
-            transformOrigin: `calc(50% + ${rx}px) calc(50% + ${ry}px)`,
-          });
+          // const { width, height } = getDimensions(item)
+          // const rx = x - viewport.width / 2;
+          // const ry = y - viewport.height / 2;
+          // console.log("update", {
+          //   transformOrigin: `${round(rx / width * 100)}% ${round(ry / height * 100)}%`,
+          // })
+          // update({
+          //   // transformOrigin: `${(width / 2 + rx) / width * 100}% ${(height / 2 + ry) / height * 100}%`,
+          //   transformOrigin: `${round(rx / width * 100)}% ${round(ry / height * 100)}%`,
+          // });
 
-          if (average(memo) > 0) {
-            memo = mx < 0 ? "left" : "right";
+          if (average(memo.d) > 0) {
+            memo.d = mx < 0 ? "left" : "right";
           } else {
-            memo = my < 0 ? "up" : "down";
+            memo.d = my < 0 ? "up" : "down";
           }
         }
       }
 
-      switch (memo) {
+      const { transitionFn } = args;
+      const { item, phase } = transitionFn;
+
+      switch (memo.d) {
         case "left":
         case "right": {
-          if (last && swipeThreshold({ mx, vx, view })) {
+          if (last && swipeThreshold({ mx, vx, elapsedTime, viewport })) {
             if (navigate(mx > 0 ? "prev" : "next")) {
               cancel();
               break;
@@ -290,36 +366,43 @@ const Modal = ({ data, isOpen, onDismiss, siblings }) => {
             y: 0,
             immediate: (key) => down && key === "x",
           });
+
           break;
         }
 
         case "down": {
-          if (last && dismissThreshold({ my, vy, view })) {
+          if (last && dismissThreshold({ my, vy, elapsedTime, viewport })) {
             cancel();
             const rect = albumItemRef.getBoundingClientRect();
-            const { width } = getDimensions({ data: args.item, view });
+            const { width } = getDimensions(item);
             Promise.all([
               animateOverlay({ opacity: 0 }),
               update({
-                x: 0 - (view.width / 2 - (rect.x + rect.width / 2)),
-                y: 0 - (view.height / 2 - (rect.y + rect.height / 2)),
-                scale: rect.width / width,
-                transformOrigin: "center center",
+                x: 0 - (viewport.width / 2 - (rect.x + rect.width / 2)),
+                y: 0 - (viewport.height / 2 - (rect.y + rect.height / 2)),
+                scale: round(rect.width / width),
+                transformOrigin: "50% 50%",
               }),
-            ]).then(() => onDismiss());
+            ]).then(() => {
+              albumItemRef.style.visibility = "visible";
+              onDismiss();
+            });
             break;
           }
 
           animateOverlay({
-            opacity: down ? clamp(1 - (my * 2) / view.height) : 1,
+            opacity: down ? clamp(1 - (my * 2) / viewport.height) : 1,
           });
 
-          update({
-            x: down ? mx : 0,
-            y: down ? my : 0,
-            scale: down ? Math.max(my, 0) / -1000 + 1 : 1,
-            immediate: (key) => down && (key === "x" || key === "y"),
-          });
+          if (phase === "enter") {
+            update({
+              x: down ? mx : 0,
+              y: down ? my : 0,
+              scale: down ? round(Math.max(my, 0) / -1000 + 1) : 1,
+              immediate: (key) => down && (key === "x" || key === "y"),
+            });
+          }
+
           break;
         }
 
@@ -349,15 +432,15 @@ const Modal = ({ data, isOpen, onDismiss, siblings }) => {
     <Overlay sx={sx.overlay} isOpen={isOpen} onDismiss={onDismiss}>
       <Animated style={background} sx={sx.background} onClick={onDismiss} />
       <Content sx={sx.content} aria-label="Photo modal">
-        {transition((style, item) => {
+        {transition((style, item, transitionFn) => {
           return item ? (
             <Animated
               key={item.key}
               style={style}
               sx={sx.item}
-              {...bind({ item })}
+              {...bind({ transitionFn })}
             >
-              <Box style={{ width, height }}>
+              <Box style={{ ...getDimensions(item) }}>
                 <Item {...item} />
               </Box>
             </Animated>
