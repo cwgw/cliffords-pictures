@@ -1,0 +1,8 @@
+.photo-grid {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.photo-grid .photo {
+  flex: 1 1 18rem;
+}

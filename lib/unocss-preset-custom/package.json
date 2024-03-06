@@ -1,0 +1,5 @@
+{
+  "name": "unocss-preset-custom",
+  "main": "index.js",
+  "type": "module"
+}

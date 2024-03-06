@@ -1,0 +1,10 @@
+{% assign file = photo.files.first  %}
+<img
+  alt=""
+  height="{{ file.height }}"
+  width="{{ file.width }}"
+  src="{{ file.src }}"
+  style="background: url({{ photo.base64 }}) center / cover;"
+  loading="lazy"
+  decoding="async"
+/>

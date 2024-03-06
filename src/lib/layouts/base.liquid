@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="noscript" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>{{ title | default: '' }}</title>
+    <meta name="description" content="{{ description | default: '' }}">
+    <meta name="generator" content="{{ eleventy.generator }}" >
+    <meta name="theme-color" content="#0f0c01">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script>!function() { document.documentElement.classList.remove('noscript'); }();</script>
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <script type="module" async src="/assets/js/main.js"></script>
+  </head>
+  <body>
+    <a href="#main-content">Skip to main content</a>
+    {% include 'header' %}
+    <main id="main-content">
+      {{ content }}
+    </main>
+    {% include 'footer' %}
+  </body>
+</html>

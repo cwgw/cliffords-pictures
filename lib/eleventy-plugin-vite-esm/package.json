@@ -1,0 +1,9 @@
+{
+  "name": "@11ty/eleventy-plugin-vite",
+  "main": ".eleventy.js",
+  "type": "module",
+  "dependencies": {
+    "lodash.merge": "^4.6.2",
+    "vite": "^4.0.4"
+  }
+}
